@@ -6,7 +6,7 @@
 
 `git clone https://github.com/meganjohn/Checkd.git`
 
-2) In the root directory, install the project dependencies by typing this command in the terminal. This command should a folder called node_modules. 
+2) In the root directory, install the project dependencies by typing this command in the terminal. This command should create a folder called node_modules. 
 
 `npm install`
 
