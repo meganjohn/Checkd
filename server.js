@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const routes = require('./routes/index');
-
+require('dotenv').config()
 const app = express();
 
 const {
@@ -12,6 +12,7 @@ const {
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(bodyParser.json());
+
 
 app.use(express.static(path.join(__dirname, '/build')));
 
