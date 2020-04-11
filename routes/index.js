@@ -19,11 +19,24 @@ router.post('/submit', (req, res) => {
       headers: {
         'Content-type': 'application/x-www-form-urlencoded'
       }
-    }
-    axios.post("https://api.thebipartisanpress.com/api/endpoints/beta/robert", qs.stringify(body), config)
+    };
+    axios
+    .post("https://api.thebipartisanpress.com/api/endpoints/beta/robert", qs.stringify(body), config)
       .then((response) => {
-        console.log(response.data)
-        res.send(response.data)
+        let bias = response.data;
+        let direction;
+        let degree;
+        direction = (Math.sign(bias)? "right" : "left");
+        if (Math.abs(bias) > 31.5){
+          degree = "extreme";
+        } else if (Math.abs(bias) > 21) {
+          degree = "strong";
+        } else if (Math.abs(bias) > 10.5) {
+          degree = "moderate";
+        } else {
+          degree = "minimal";
+        }
+        res.sendStatus(200).json({bias: `The article has a ${degree} ${direction} bias`})
       }).catch((error) => {
         console.log(error)
         res.sendStatus(500).send(error)
