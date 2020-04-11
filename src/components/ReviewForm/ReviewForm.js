@@ -18,10 +18,11 @@ class ReviewForm extends React.Component {
     const { url, article } = this.state;
     Axios.post("/api/v1/submit", { url: url, article: article })
       .then((res) => {
-        alert(
+        res.data.article && alert(
           `you sent this url: ${res.data?.url} \n and this article: ${res.data?.article}`
         );
-      })
+      res.data.bias && alert(res.data.bias);
+    })
       .catch((error) => console.error(error));
     event.preventDefault();
   };
