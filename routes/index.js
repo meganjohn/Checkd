@@ -1,7 +1,8 @@
 const express = require('express');
-const Sentiment = require('sentiment');
 const router = express.Router();
-const sentiment = new Sentiment();
+const Sentiment = require('sentiment');
+const npmSentiment = new Sentiment();
+const translateSentiment = require('../helpers/translateSentiment');
 
 router.post('/submit', (req, res) => {
   // data from Review Form
@@ -9,10 +10,11 @@ router.post('/submit', (req, res) => {
   // send back form data as a response
   var result;
   if (article) {
-    result = sentiment.analyze(article);
+    result = npmSentiment.analyze(article);
     console.log(result);
   }
-  res.status(200).json({url, article, result})
+  var sentiment = translateSentiment(result.score);
+  res.status(200).json({url, article, sentiment})
 })
 
 module.exports = router;
