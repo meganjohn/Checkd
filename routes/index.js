@@ -11,7 +11,6 @@ router.post('/submit', (req, res) => {
   var result;
   if (article) {
     result = npmSentiment.analyze(article);
-    console.log(result);
   }
   var sentiment = translateSentiment(result.score);
   res.status(200).json({url, article, sentiment})
