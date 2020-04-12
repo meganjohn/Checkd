@@ -16,10 +16,12 @@ class ReviewForm extends React.Component {
 
   handleSubmit = (event) => {
     const { url, article } = this.state;
+    window.open(url);
     Axios.post("/api/v1/submit", { url: url, article: article })
       .then((res) => {
         alert(
-          `you sent this url: ${res.data?.url} \n and this article: ${res.data?.article}`
+          `you sent this url: ${res.data?.url} \n and this article: ${res.data?.article}
+           which has a score of ${res.data?.result.score}`
         );
       })
       .catch((error) => console.error(error));

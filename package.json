@@ -11,7 +11,8 @@
     "nodemon": "^2.0.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "sentiment": "^5.0.2"
   },
   "scripts": {
     "dev": "npm run build && nodemon server.js",
