@@ -12,7 +12,7 @@ router.post('/submit', (req, res) => {
     article
   } = req.body;
   var result, sentiment;
-  let data = {
+  let review = {
     url,
     article
   };
@@ -20,14 +20,14 @@ router.post('/submit', (req, res) => {
   if (article) {
     result = npmSentiment.analyze(article);
     sentiment = translateSentiment(result.comparative);
-    data.sentiment = sentiment;
+    review.sentiment = sentiment;
     (async () =>{
       try {
         const {direction, degree, error} = await calculateBias(article);
-        if (error) data.biasError = "could not calculate political bias";
-        data.degree = degree;
-        data.direction = direction;
-        res.json(data)
+        if (error) review.biasError = "could not calculate political bias";
+        review.degree = degree;
+        review.direction = direction;
+        res.json(review)
       } catch(error) {
         console.log(error)
         res.send(500).json({error: 'something went wrong'})
@@ -43,18 +43,19 @@ router.post('/submit', (req, res) => {
       urlText = data.toString();
       result = npmSentiment.analyze(urlText);
       sentiment = translateSentiment(result.comparative);
-      data.sentiment = sentiment;
+      review.sentiment = sentiment;
+      review.article = urlText;
       (async () =>{
         try {
-          const {direction, degree, error} = await calculateBias(article);
-          if (error) data.biasError = "could not calculate political bias";
-          data.degree = degree;
-          data.direction = direction;
-          res.json(data)
+          const {direction, degree, error} = await calculateBias(urlText);
+          if (error) review.biasError = "could not calculate political bias";
+          review.degree = degree;
+          review.direction = direction;
+          res.json(review)
         } catch(error) {
           console.log(error)
-          data.error = 'something went wrong';
-          res.send(500).json(data)
+          review.error = 'something went wrong';
+          res.send(500).json(review)
         }
       })()
     });
@@ -62,7 +63,7 @@ router.post('/submit', (req, res) => {
       console.log(data.toString());
     });
   } else {
-    res.send(200).json(data)
+    res.send(200).json(review)
   }
 })
 
