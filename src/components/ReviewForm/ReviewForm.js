@@ -20,7 +20,7 @@ class ReviewForm extends React.Component {
       .then((res) => {
         alert(
           `you sent this url: ${res.data?.url} \n and this article: ${res.data?.article}
-           which has a ${res.data?.sentiment} sentiment`
+           which has a ${res.data?.sentiment} sentiment. ${res.data?.bias}.`
         );
       })
       .catch((error) => console.error(error));
@@ -48,6 +48,7 @@ class ReviewForm extends React.Component {
           />
         </label>
         <input type="submit" value="Send" />
+        <input type="reset" value="Clear" />
       </form>
     );
   }
