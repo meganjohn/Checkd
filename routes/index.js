@@ -38,7 +38,7 @@ router.post('/submit', (req, res) => {
     // send back form data as a response
     var urlText = "";
     var spawn = require("child_process").spawn;
-    var python = spawn('python3', ['helper.py', url]);
+    var python = spawn('python', ['helper.py', url]);
     python.stdout.on('data', function (data) {
       urlText = data.toString();
       result = npmSentiment.analyze(urlText);
