@@ -20,8 +20,8 @@ class ReviewForm extends React.Component {
       .then((res) => {
         alert(
           `you sent this url: ${res.data?.url} \n and this article: ${res.data?.article}
-           which has a ${res.data?.sentiment} sentiment. ${res.data?.bias}.`
-        );
+           which has a ${res.data?.sentiment} sentiment and a ${res.data?.degree} ${res.data?.direction} political bias`
+        )
       })
       .catch((error) => console.error(error));
     event.preventDefault();

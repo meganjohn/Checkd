@@ -3,9 +3,7 @@ const router = express.Router();
 const Sentiment = require('sentiment');
 const npmSentiment = new Sentiment();
 const translateSentiment = require('../helpers/translateSentiment');
-const axios = require('axios');
-const qs = require('query-string');
-const translateBias = require('../helpers/translateBias');
+const calculateBias = require('../helpers/calculateBias');
 
 router.post('/submit', (req, res) => {
   // data from Review Form
@@ -14,29 +12,28 @@ router.post('/submit', (req, res) => {
     article
   } = req.body;
   var result, sentiment;
-  const body = {
-    API: process.env.API_KEY_BI,
-    Text: article
-  };
-  const config = {
-    headers: {
-      'Content-type': 'application/x-www-form-urlencoded'
-    }
+  let data = {
+    url,
+    article
   };
 
   if (article) {
     result = npmSentiment.analyze(article);
     sentiment = translateSentiment(result.comparative);
-    axios
-    .post("https://api.thebipartisanpress.com/api/endpoints/beta/robert", qs.stringify(body), config)
-      .then((response) => {
-        const {direction, degree} = translateBias(response.data);
-        res.json({bias: `The article has a ${degree} ${direction} political bias`,
-                sentiment: sentiment})
-      }).catch((error) => {
+    data.sentiment = sentiment;
+    (async () =>{
+      try {
+        const {direction, degree, error} = await calculateBias(article);
+        if (error) data.biasError = "could not calculate political bias";
+        data.degree = degree;
+        data.direction = direction;
+        res.json(data)
+      } catch(error) {
         console.log(error)
-        res.sendStatus(500).send(error)
-      });
+        res.send(500).json({error: 'something went wrong'})
+      }
+    })()
+      
   } else if (url){
     // send back form data as a response
     var urlText = "";
@@ -46,26 +43,26 @@ router.post('/submit', (req, res) => {
       urlText = data.toString();
       result = npmSentiment.analyze(urlText);
       sentiment = translateSentiment(result.comparative);
-
-      axios
-      .post("https://api.thebipartisanpress.com/api/endpoints/beta/robert", qs.stringify(body), config)
-        .then((response) => {
-          const {direction, degree} = translateBias(response.data);
-          res.json({bias: `The article has a ${degree} ${direction} political bias`,
-                  sentiment: sentiment})
-        }).catch((error) => {
+      data.sentiment = sentiment;
+      (async () =>{
+        try {
+          const {direction, degree, error} = await calculateBias(article);
+          if (error) data.biasError = "could not calculate political bias";
+          data.degree = degree;
+          data.direction = direction;
+          res.json(data)
+        } catch(error) {
           console.log(error)
-          res.sendStatus(500).send(error)
-        })
+          data.error = 'something went wrong';
+          res.send(500).json(data)
+        }
+      })()
     });
     python.stderr.on('data', (data) => {
       console.log(data.toString());
     });
   } else {
-    res.sendStatus(200).json({
-      url,
-      article
-    })
+    res.send(200).json(data)
   }
 })
 
