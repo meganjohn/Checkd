@@ -7,6 +7,7 @@ verify_ssl = true
 
 [packages]
 newspaper3k = "*"
+textblob = "*"
 
 [requires]
 python_version = "3.8"

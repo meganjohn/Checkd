@@ -22,24 +22,26 @@ router.post('/submit', (req, res) => {
     sentiment = translateSentiment(result.comparative);
     review.sentiment = sentiment;
     var spawn = require("child_process").spawn;
-    var textBlob = spawn('python', ['text_blob.py', article]);
-    textBlob.stdout.on('data', function (data) {
-      review.sentiment2 = data[0]
-      review.objectivity = data[1] 
-    });
-    (async () =>{
-      try {
-        const {direction, degree, error} = await calculateBias(article);
-        if (error) review.biasError = "could not calculate political bias";
-        review.degree = degree;
-        review.direction = direction;
-        res.json(review)
-      } catch(error) {
-        console.log(error)
-        res.send(500).json({error: 'something went wrong'})
-      }
-    })()
-      
+    var python = spawn('python', ['text_blob.py', article]);
+      python.stdout.on('data', function (data) {
+        review.sentiment2 = data[0];
+        review.objectivity = data[1]; 
+        (async () =>{
+          try {
+            const {direction, degree, error} = await calculateBias(article);
+            if (error) review.biasError = "could not calculate political bias";
+            review.degree = degree;
+            review.direction = direction;
+            res.json(review)
+          } catch(error) {
+            console.log(error)
+            res.send(500).json({error: 'something went wrong'})
+          }
+        })()
+    });  
+    python.stderr.on('data', (data) => {
+      console.log(data.toString());
+    });  
   } else if (url){
     // send back form data as a response
     var urlText = "";
