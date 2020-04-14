@@ -12,7 +12,7 @@ if polarity < -0.5:
     sentiment = ['very negative']
 elif polarity < 0:
     sentiment = ['negative']
-elif polarity > 0.5:
+elif polarity > 0.5:   
     sentiment = ['very positive']
 elif polarity > 0:
     sentiment = ['positive']

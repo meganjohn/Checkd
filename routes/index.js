@@ -21,6 +21,7 @@ router.post('/submit', (req, res) => {
     result = npmSentiment.analyze(article);
     sentiment = translateSentiment(result.comparative);
     review.sentiment = sentiment;
+    var spawn = require("child_process").spawn;
     var textBlob = spawn('python', ['text_blob.py', article]);
     textBlob.stdout.on('data', function (data) {
       review.sentiment2 = data[0]
