@@ -11,6 +11,7 @@ router.post('/submit', (req, res) => {
     url,
     article
   } = req.body;
+  console.log(req.body)
   var result, sentiment;
   let review = {
     url,
@@ -38,6 +39,7 @@ router.post('/submit', (req, res) => {
     // send back form data as a response
     var urlText = "";
     var spawn = require("child_process").spawn;
+    // in production change python3 to python
     var python = spawn('python', ['helper.py', url]);
     python.stdout.on('data', function (data) {
       urlText = data.toString();
