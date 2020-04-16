@@ -3,24 +3,26 @@ from textblob import TextBlob
 import json
 import sys
 
+
+
 def main ():
-    review = json.loads(sys)
-    url = review[0]
-    article_string = str(review[1]) or ""
+    # converts json into dictionary with keys url and article
+    review = json.loads(sys.argv[1])
+    url = review['url'] or ""
+    article_string = str(review['article']) or ""
 
     if article_string != "":
-        sentiment = textBlob(article_string)
-        output = {article_string, sentiment}
-    #   print (str(output))
+         sentiment = textBlob(article_string)
+         output = {'article':article_string, 'sentiment': sentiment}
     else:
-        article = Article(url)
-        article.download()
-        article.parse()
-        article_string = article.text
-        sentiment = textBlob(article_string)
-        output = {article_string, sentiment}
-    #    print (str(output))
-    print (str(output))
+         article = Article(url)
+         article.download()
+         article.parse()
+         article_string = article.text
+         sentiment = textBlob(article_string)
+         output = {'article':article_string, 'sentiment': sentiment}
+    # converts dictionary to a json obj wrapped in a string 
+    print(json.dumps(output))
 
 
 
@@ -51,5 +53,9 @@ def textBlob (article_string):
         sentiment.append('subjective')
     else:
         sentiment.append('very subjective')
-    
+
     return sentiment
+
+
+if __name__ == "__main__":
+    main()

@@ -20,11 +20,14 @@ router.post('/submit', (req, res) => {
   var spawn = require("child_process").spawn;
   var python = spawn('python', ['helper.py', JSON.stringify(review)]);
     python.stdout.on('data', function (data) {
-      articleText = JSON.parse(data[0]);
+      // articleText is an object 
+      // articleText = { article: 'None', sentiment: [ 'neutral', 'very objective' ] }
+      const articleText = JSON.parse(data);
+      console.log(articleText)
       result = npmSentiment.analyze(articleText);
       sentiment = translateSentiment(result.comparative);
       review.sentiment = sentiment;
-      textBlob = JSON.parse(data[1]);
+      const textBlob = JSON.parse(data[1]);
       review.polarity = textBlob[0];
       review.objectivity = textBlob[1];
       (async () => {
