@@ -8,18 +8,11 @@ class Auth extends React.Component {
     response: null,
   };
 
-  client = axios.create({
-    baseURL: process.env.REACT_APP_BASE_URL || 'http://localhost:5000',
-    json: true
-  })
-
   sendRequest = () => {
     if (firebase.auth().currentUser) {
       firebase.auth().currentUser.getIdToken(true)
       .then((idToken) => {
-        this.client({
-          method: 'get',
-          url: '/',
+        axios.get('/', {
           headers: {
             'AuthToken': idToken
           }
@@ -32,10 +25,7 @@ class Auth extends React.Component {
         this.setState({response: "Error getting auth token"})
       });
     } else {
-      this.client({
-        method: 'get',
-        url: '/'
-      }).then((res) => {
+      axios.get('/').then((res) => {
         this.setState({response: res.data.message})
       }).catch((error) => {
         this.setState({response: error})
