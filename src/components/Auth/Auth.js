@@ -24,17 +24,18 @@ class Auth extends React.Component {
         .auth()
         .currentUser.getIdToken(true)
         .then((idToken) => {
+          console.log(idToken)
           axios
-            .get("/", {
+            .get("/api/v1/auth", {
               headers: {
                 AuthToken: idToken,
               },
             })
             .then((res) => {
-              this.setState({ response: res.data.message });
+              this.setState({ response: res.data});
             })
             .catch((error) => {
-              this.setState({ response: error });
+              if(error.response) this.setState({ response: error.response.data });
             });
         })
         .catch((error) => {
@@ -42,12 +43,12 @@ class Auth extends React.Component {
         });
     } else {
       axios
-        .get("/")
+        .get("/api/v1/auth")
         .then((res) => {
-          this.setState({ response: res.data.message });
+          this.setState({ response: res.data });
         })
         .catch((error) => {
-          this.setState({ response: error });
+          if(error.response) this.setState({ response: error.response.data });
         });
     }
   };
@@ -59,9 +60,9 @@ class Auth extends React.Component {
       .signInWithEmailAndPassword(email, password)
       .then(() => {
         this.setState({ authStatus: "Authorised" });
+        this.props.history.push('/admin-dashboard')
       })
       .catch((err) => {
-        console.log(err.message)
         this.setState({ authStatus: err.message });
       });
       event.preventDefault();
@@ -91,7 +92,7 @@ class Auth extends React.Component {
             <FormGroup>
               <TextInput
                 helperText="try test@gmail.com"
-                id="test2"
+                id="emailInput"
                 invalidText="A valid value is required"
                 placeholder="Email"
                 name="email"
@@ -103,7 +104,7 @@ class Auth extends React.Component {
               <TextInput.PasswordInput
                 helperText="try password123"
                 hidePasswordLabel="Hide password"
-                id="test2"
+                id="passwordInput"
                 invalidText="A valid value is required"
                 placeholder="Password"
                 showPasswordLabel="Show password"
@@ -118,6 +119,8 @@ class Auth extends React.Component {
           <p>Forgot Password?</p>
           <p>Auth status: {authStatus}</p>
           <p>Response: {response}</p>
+          <button onClick={this.signOut}>Sign Out</button>
+          <button onClick={this.sendRequest}>Request protected resource</button>
         </div>
       </div>
     );
