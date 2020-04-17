@@ -28,7 +28,7 @@ router.post('/submit', (req, res) => {
   };
 
   var spawn = require("child_process").spawn;
-  var python = spawn('python3', ['helper.py', JSON.stringify(review)]);
+  var python = spawn('python', ['helper.py', JSON.stringify(review)]);
     python.stdout.on('data', function (data) {
       // articleText is an object
       // articleText = { article: 'None', sentiment: [ 'neutral', 'very objective' ] }
