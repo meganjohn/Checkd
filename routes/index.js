@@ -20,29 +20,31 @@ router.post('/submit', (req, res) => {
     article
   } = req.body;
 
-  console.log(req.body);
-  var result, sentiment;
+  // console.log(req.body);
+  var result, sentimentFromNpm;
   let review = {
     url,
     article
   };
 
   var spawn = require("child_process").spawn;
-  var python = spawn('python', ['helper.py', JSON.stringify(review)]);
+  var python = spawn('python3', ['helper.py', JSON.stringify(review)]);
     python.stdout.on('data', function (data) {
       // articleText is an object
       // articleText = { article: 'None', sentiment: [ 'neutral', 'very objective' ] }
-      const articleText = JSON.parse(data);
-      console.log(articleText)
-      result = npmSentiment.analyze(articleText.article);
-      sentiment = translateSentiment(result.comparative);
-      review.sentiment = sentiment;
-      const textBlob = JSON.parse(data[1]);
-      review.polarity = textBlob[0];
-      review.objectivity = textBlob[1];
+      const articleData = JSON.parse(data);
+
+      //npm sentiment section
+      result = npmSentiment.analyze(articleData.article);
+      sentimentFromNpm = translateSentiment(result.comparative);
+      review.sentiment = sentimentFromNpm;
+
+      // Text blob section
+      review.polarity = articleData.sentiment[0];
+      review.objectivity = articleData.sentiment[1];
       (async () => {
         try {
-          const {direction, degree, error} = await calculateBias(articleText);
+          const {direction, degree, error} = await calculateBias(articleData.article);
           if (error) review.biasError = "could not calculate political bias";
           review.degree = degree;
           review.direction = direction;
