@@ -4,6 +4,14 @@ const Sentiment = require('sentiment');
 const npmSentiment = new Sentiment();
 const translateSentiment = require('../helpers/translateSentiment');
 const calculateBias = require('../helpers/calculateBias');
+const fs = require('fs');
+
+router.get('/articles', (req, res) => {
+  fs.readFile('./articles.json', (err, data) => {
+    var obj = JSON.parse(data);
+    res.json(obj);
+  });
+})
 
 router.post('/submit', (req, res) => {
   // data from Review Form
@@ -11,7 +19,8 @@ router.post('/submit', (req, res) => {
     url,
     article
   } = req.body;
-  console.log(req.body)
+
+  console.log(req.body);
   var result, sentiment;
   let review = {
     url,
@@ -34,13 +43,12 @@ router.post('/submit', (req, res) => {
         res.send(500).json({error: 'something went wrong'})
       }
     })()
-      
   } else if (url){
     // send back form data as a response
     var urlText = "";
     var spawn = require("child_process").spawn;
     // in production change python3 to python
-    var python = spawn('python', ['helper.py', url]);
+    var python = spawn('python3', ['helper.py', url]);
     python.stdout.on('data', function (data) {
       urlText = data.toString();
       result = npmSentiment.analyze(urlText);

@@ -11,10 +11,11 @@ const {
   PORT = 5000
 } = process.env;
 
+let articles = [];
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(bodyParser.json());
-
 
 app.use(express.static(path.join(__dirname, '/build')));
 
@@ -27,3 +28,5 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Checkd is running on port: ${PORT}`);
 });
+
+module.exports = "hello";
