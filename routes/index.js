@@ -27,22 +27,61 @@ router.post('/submit', (req, res) => {
     article
   };
 
-  if (article) {
+  var spawn = require("child_process").spawn;
+  var python = spawn('python', ['helper.py', JSON.stringify(review)]);
+    python.stdout.on('data', function (data) {
+      // articleText is an object
+      // articleText = { article: 'None', sentiment: [ 'neutral', 'very objective' ] }
+      const articleText = JSON.parse(data);
+      console.log(articleText)
+      result = npmSentiment.analyze(articleText.article);
+      sentiment = translateSentiment(result.comparative);
+      review.sentiment = sentiment;
+      const textBlob = JSON.parse(data[1]);
+      review.polarity = textBlob[0];
+      review.objectivity = textBlob[1];
+      (async () => {
+        try {
+          const {direction, degree, error} = await calculateBias(articleText);
+          if (error) review.biasError = "could not calculate political bias";
+          review.degree = degree;
+          review.direction = direction;
+          res.json(review)
+        } catch (error) {
+          console.log(error)
+          res.send(500).json({error: "something went wrong"})
+        }
+      }) ()
+    });
+    python.stderr.on('data', (data) => {
+      console.log(data.toString());
+    })
+
+/*  if (article) {
     result = npmSentiment.analyze(article);
     sentiment = translateSentiment(result.comparative);
     review.sentiment = sentiment;
-    (async () =>{
-      try {
-        const {direction, degree, error} = await calculateBias(article);
-        if (error) review.biasError = "could not calculate political bias";
-        review.degree = degree;
-        review.direction = direction;
-        res.json(review)
-      } catch(error) {
-        console.log(error)
-        res.send(500).json({error: 'something went wrong'})
-      }
-    })()
+    var spawn = require("child_process").spawn;
+    var python = spawn('python', ['text_blob.py', article]);
+      python.stdout.on('data', function (data) {
+        review.sentiment2 = data[0];
+        review.objectivity = data[1];
+        (async () =>{
+          try {
+            const {direction, degree, error} = await calculateBias(article);
+            if (error) review.biasError = "could not calculate political bias";
+            review.degree = degree;
+            review.direction = direction;
+            res.json(review)
+          } catch(error) {
+            console.log(error)
+            res.send(500).json({error: 'something went wrong'})
+          }
+        })()
+    });
+    python.stderr.on('data', (data) => {
+      console.log(data.toString());
+    });
   } else if (url){
     // send back form data as a response
     var urlText = "";
@@ -71,10 +110,11 @@ router.post('/submit', (req, res) => {
     });
     python.stderr.on('data', (data) => {
       console.log(data.toString());
-    });
+        });
   } else {
     res.send(200).json(review)
   }
+  */
 })
 
 module.exports = router;
