@@ -9,7 +9,7 @@
       "degree": "minimal",
       "direction": "left",
       "objectivity": "",
-      "verified": true,
+      "outcome": "Pending",
       "sources": []
     },
     {
@@ -21,7 +21,7 @@
       "degree": "minimal",
       "direction": "left",
       "objectivity": "",
-      "verified": false,
+      "outcome": "Verified",
       "sources": []
     },
     {
@@ -33,7 +33,7 @@
       "degree": "minimal",
       "direction": "left",
       "objectivity": "",
-      "verified": false,
+      "outcome": "Fake",
       "sources": []
     }
   ]
