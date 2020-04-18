@@ -52,7 +52,9 @@ class Newsfeed extends React.Component {
         </div>
         <div>Sentiment: {article.sentiment}</div>
         <div>Polarity: {article.degree + " " + article.direction}</div>
+        <div>Objectivity: {article.objectivity}</div>
         <div>Verified: {article.verified ? "Yes" : "No"}</div>
+        <div>Source: </div>
       </div>
     );
   }
