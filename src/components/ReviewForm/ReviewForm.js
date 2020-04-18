@@ -30,6 +30,7 @@ class ReviewForm extends React.Component {
       .catch((error) => console.error(error));
     event.preventDefault();
   };
+
   render() {
     return (
       <form onSubmit={this.handleSubmit}>

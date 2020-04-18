@@ -1,14 +1,41 @@
-import React from 'react';
-import ReviewForm from './components/ReviewForm/ReviewForm';
-import Newsfeed from './components/Newsfeed/Newsfeed';
-import './App.css';
+import React from "react";
+import ReviewForm from "./components/ReviewForm/ReviewForm";
+import Auth from "./components/Auth/Auth";
+import Newsfeed from "./components/Newsfeed/Newsfeed";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
   return (
-    <>
-      <ReviewForm />
-      <Newsfeed />
-    </>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/"> Home </Link>
+            </li>
+            <li>
+              <Link to="/newsfeed"> Newsfeed </Link>
+            </li>
+            <li>
+              <Link to="/submit-news"> Submit News </Link>
+            </li>
+            <li>
+              <Link to="/admin-login"> Admin Login </Link>
+            </li>
+          </ul>
+        </nav>
+        <Switch>
+          <Route exact path="/" render={() => <h1> Welcome to Checkd </h1>} />
+          <Route path="/newsfeed" component={Newsfeed} />
+          <Route path="/submit-news" component={ReviewForm} />
+          <Route path="/admin-login" component={Auth} />
+          <Route
+            path="/admin-dashboard"
+            render={() => <h1> Admin Dashboard </h1>}
+          />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
