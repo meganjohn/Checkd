@@ -21,11 +21,11 @@ admin.initializeApp({
   databaseURL: `https://${REACT_APP_FIRE_PROJECT_ID}.firebaseio.com`
 });
 
+let articles = [];
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(bodyParser.json());
-
 
 app.use(express.static(path.join(__dirname, '/build')));
 
@@ -40,3 +40,5 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Checkd is running on port: ${PORT}`);
 });
+
+module.exports = "hello";

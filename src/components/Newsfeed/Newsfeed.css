@@ -1,0 +1,9 @@
+.articles {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.article {
+  margin: 15px;
+}
