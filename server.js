@@ -6,18 +6,37 @@ const admin = require('firebase-admin');
 // so you can use .env
 require('dotenv').config();
 
-const serviceAccount = require("./config/serviceAccountKey.json");
-
 const app = express();
 
 const {
   PORT = 5000,
-  REACT_APP_FIRE_PROJECT_ID
+  REACT_APP_FIRE_PROJECT_ID,
+  type,
+  project_id,
+  private_key_id,
+  private_key,
+  client_email,
+  client_id,
+  auth_uri,
+  token_uri,
+  auth_provider_x509_cert_url,
+  client_x509_cert_url
 } = process.env;
 
 
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
+  credential: admin.credential.cert({
+  "type": type,
+  "project_id": project_id,
+  "private_key_id": private_key_id,
+  "private_key": private_key,
+  "client_email": client_email,
+  "client_id": client_id,
+  "auth_uri" : auth_uri,
+  "token_uri": token_uri,
+  "auth_provider_x509_cert_url" : auth_provider_x509_cert_url,
+  "client_x509_cert_url" : client_x509_cert_url
+  }),
   databaseURL: `https://${REACT_APP_FIRE_PROJECT_ID}.firebaseio.com`
 });
 
