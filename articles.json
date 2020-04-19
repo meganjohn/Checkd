@@ -10,6 +10,7 @@
       "direction": "left",
       "objectivity": "",
       "outcome": "Pending",
+      "dateSubmitted": "19/04/2020",
       "sources": []
     },
     {
@@ -22,6 +23,7 @@
       "direction": "left",
       "objectivity": "",
       "outcome": "Verified",
+      "dateSubmitted": "17/04/2020",
       "sources": []
     },
     {
@@ -34,6 +36,7 @@
       "direction": "left",
       "objectivity": "",
       "outcome": "Fake",
+      "dateSubmitted": "16/04/2020",
       "sources": []
     }
   ]
