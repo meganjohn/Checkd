@@ -18,7 +18,8 @@ import DashboardDetail from "./components/DashboardDetail/DashboardDetail";
 
 class App extends React.Component {
   state = {
-    loggedIn: null,
+    loggedIn: false,
+    loading: true
   };
 
   getAuthState = () => {
@@ -28,10 +29,10 @@ class App extends React.Component {
       if (user) {
         // User is logged in.
 
-        self.setState({ loggedIn: true });
+        self.setState({ loggedIn: true, loading:false });
       } else {
         // No user is signed in.
-        self.setState({ loggedIn: false });
+        self.setState({ loggedIn: false, loading:false });
       }
     });
   };
@@ -77,14 +78,13 @@ class App extends React.Component {
             </ul>
           </nav>
           {/*<!------ Navbar end -------->*/}
-          {`${this.state.loggedIn}`}
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/newsfeed" component={Newsfeed} />
             <Route exact path="/submit-news" component={SubmitNews} />
             <Route exact path="/about-us" component={About} />
-            <Route exact path="/dashboard" component={Dashboard} />
-            <Route exact path="/dashboard/:id" component={DashboardDetail} />
+            <Route exact path="/dashboard" component={(props) => <Dashboard {...props} auth={this.state}/>} />
+            <Route exact path="/dashboard/:id" component={(props) => <DashboardDetail {...props} auth={this.state} />} />
             <Route exact path="/login" component={Login} /> 
             <Route exact path="/logout" component={Logout} /> 
           </Switch>

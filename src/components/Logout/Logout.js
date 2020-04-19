@@ -3,7 +3,7 @@ import firebase from "firebase";
 
 class Logout extends React.Component {
   state = {
-    authStatus: null
+    authStatus: null,
   };
 
   signOut = () => {
@@ -12,6 +12,7 @@ class Logout extends React.Component {
       .signOut()
       .then(() => {
         this.setState({ authStatus: "You are logged out" });
+        this.props.history.push("/login");
       })
       .catch((err) => {
         this.setState({ authStatus: err });
@@ -19,7 +20,7 @@ class Logout extends React.Component {
   };
 
   render() {
-    const { authStatus} = this.state;
+    const { authStatus } = this.state;
     return (
       <div>
         <div>

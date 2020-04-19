@@ -23,6 +23,7 @@ class Login extends React.Component {
       .signInWithEmailAndPassword(email, password)
       .then(() => {
         this.setState({ authStatus: "You are logged in" });
+        this.props.history.push('/dashboard');
       })
       .catch((err) => {
         this.setState({ authStatus: err.message });
