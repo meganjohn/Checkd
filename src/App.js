@@ -83,16 +83,10 @@ class App extends React.Component {
             <Route exact path="/newsfeed" component={Newsfeed} />
             <Route exact path="/submit-news" component={SubmitNews} />
             <Route exact path="/about-us" component={About} />
-            <Route exact path="/dashboard">
-              {this.state.loggedIn ? <Dashboard /> : <Redirect to="/" />}
-            </Route>
+            <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/dashboard/:id" component={DashboardDetail} />
-            <Route exact path="/login">
-              {this.state.loggedIn? <Redirect to="/dashboard" />: <Login />}
-            </Route> 
-            <Route exact path="/logout">
-              {this.state.loggedIn? <Logout /> : <Redirect to="/login"/> }
-            </Route> 
+            <Route exact path="/login" component={Login} /> 
+            <Route exact path="/logout" component={Logout} /> 
           </Switch>
           {/*--   Footer start   ---*/}
 

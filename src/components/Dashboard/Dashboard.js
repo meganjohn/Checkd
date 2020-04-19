@@ -1,6 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 class Dashboard extends React.Component {
+  state={
+    loading: true
+  }
+
+  
   render() {
     return (
       <div>
