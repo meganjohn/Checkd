@@ -1,5 +1,7 @@
 import React from "react";
 import Axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCaretDown, faCaretLeft } from "@fortawesome/free-solid-svg-icons";
 import "./Newsfeed.css";
 
 class Newsfeed extends React.Component {
@@ -74,7 +76,12 @@ class Newsfeed extends React.Component {
           <div className="article-header">Date submitted</div>
           <div className="article-header">Status</div>
           <button className="article-open-button"
-                  onClick={() => this.onArticleClick(article.id)}>v</button>
+                  onClick={() => this.onArticleClick(article.id)}>
+            {(this.state.openArticleId !== null &&
+              this.state.openArticleId === article.id) ?
+              <FontAwesomeIcon icon={faCaretDown} size="lg"/> :
+              <FontAwesomeIcon icon={faCaretLeft} size="lg"/>}
+          </button>
           <div></div>
           <div>{article.dateSubmitted}</div>
           <div className="article-outcome-column">
