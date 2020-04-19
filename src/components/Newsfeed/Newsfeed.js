@@ -4,14 +4,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faCaretLeft } from "@fortawesome/free-solid-svg-icons";
 import "./Newsfeed.css";
 
-class Newsfeed extends React.Component<{}> {
+class Newsfeed extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       articles: null,
       test: null,
       loading: false,
+<<<<<<< HEAD
       openArticleId: null
+=======
+>>>>>>> development
     };
 
     this.onArticleClick = this.onArticleClick.bind(this);
@@ -20,17 +23,19 @@ class Newsfeed extends React.Component<{}> {
 
   componentDidMount() {
     this.setState({
-      loading: true
+      loading: true,
     });
 
-    Axios.get("api/v1/articles", {}).then((res) => {
-      this.setState({
-        articles: res.data?.articles,
-        loading: false
+    Axios.get("api/v1/articles", {})
+      .then((res) => {
+        this.setState({
+          articles: res.data?.articles,
+          loading: false,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
       });
-    }).catch((error) => {
-      console.log(error);
-    });
   }
 
   render() {
@@ -43,8 +48,9 @@ class Newsfeed extends React.Component<{}> {
           <h2>Results of latest news submissions</h2>
         </div>
         <div className="articles">
-          {this.state.articles ?
-            this.state.articles.map((article) => this.renderArticle(article)) : null}
+          {this.state.articles
+            ? this.state.articles.map((article) => this.renderArticle(article))
+            : null}
         </div>
       </>
     );
@@ -53,6 +59,7 @@ class Newsfeed extends React.Component<{}> {
   renderArticle(article) {
     var outcomeClass = "article-outcome " + article.outcome.toLowerCase();
     return (
+<<<<<<< HEAD
       <>
         <div className="article">
           <div><a href={article.url}>{article.title}</a></div>
@@ -83,6 +90,16 @@ class Newsfeed extends React.Component<{}> {
             </div>
           ) : null}
       </>
+=======
+      <div className="article">
+        <div>
+          <a href={article.url}>{article.title}</a>
+        </div>
+        <div>Sentiment: {article.sentiment}</div>
+        <div>Polarity: {article.degree + " " + article.direction}</div>
+        <div>Verified: {article.verified ? "Yes" : "No"}</div>
+      </div>
+>>>>>>> development
     );
   }
 

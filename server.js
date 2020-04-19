@@ -2,24 +2,14 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const routes = require('./routes/index');
-const admin = require('firebase-admin');
 // so you can use .env
 require('dotenv').config();
-
-const serviceAccount = require("./config/serviceAccountKey.json");
 
 const app = express();
 
 const {
   PORT = 5000,
-  REACT_APP_FIRE_PROJECT_ID
 } = process.env;
-
-
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: `https://${REACT_APP_FIRE_PROJECT_ID}.firebaseio.com`
-});
 
 let articles = [];
 
@@ -41,4 +31,3 @@ app.listen(PORT, () => {
   console.log(`Checkd is running on port: ${PORT}`);
 });
 
-module.exports = "hello";

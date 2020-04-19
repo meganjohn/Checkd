@@ -1,12 +1,10 @@
 import React from "react";
-import axios from "axios";
 import firebase from "firebase";
 import { Form, FormGroup, TextInput, Button } from "carbon-components-react";
 
-class Auth extends React.Component {
+class Login extends React.Component {
   state = {
     authStatus: null,
-    response: null,
     email: null,
     password: null,
   };
@@ -18,49 +16,14 @@ class Auth extends React.Component {
     });
   };
 
-  sendRequest = () => {
-    if (firebase.auth().currentUser) {
-      firebase
-        .auth()
-        .currentUser.getIdToken(true)
-        .then((idToken) => {
-          console.log(idToken)
-          axios
-            .get("/api/v1/auth", {
-              headers: {
-                AuthToken: idToken,
-              },
-            })
-            .then((res) => {
-              this.setState({ response: res.data});
-            })
-            .catch((error) => {
-              if(error.response) this.setState({ response: error.response.data });
-            });
-        })
-        .catch((error) => {
-          this.setState({ response: "Error getting auth token" });
-        });
-    } else {
-      axios
-        .get("/api/v1/auth")
-        .then((res) => {
-          this.setState({ response: res.data });
-        })
-        .catch((error) => {
-          if(error.response) this.setState({ response: error.response.data });
-        });
-    }
-  };
-
   signIn = (event) => {
     const { email, password } = this.state;
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => {
-        this.setState({ authStatus: "Authorised" });
-        this.props.history.push('/admin-dashboard')
+        this.setState({ authStatus: "You are logged in" });
+        this.props.history.push('/dashboard');
       })
       .catch((err) => {
         this.setState({ authStatus: err.message });
@@ -68,20 +31,8 @@ class Auth extends React.Component {
       event.preventDefault();
   };
 
-  signOut = () => {
-    firebase
-      .auth()
-      .signOut()
-      .then(() => {
-        this.setState({ authStatus: "Unauthorised" });
-      })
-      .catch((err) => {
-        this.setState({ authStatus: err });
-      });
-  };
-
   render() {
-    const { authStatus, response } = this.state;
+    const { authStatus} = this.state;
     return (
       <div>
         <div>
@@ -118,13 +69,10 @@ class Auth extends React.Component {
           </Form>
           <p>Forgot Password?</p>
           <p>Auth status: {authStatus}</p>
-          <p>Response: {response}</p>
-          <button onClick={this.signOut}>Sign Out</button>
-          <button onClick={this.sendRequest}>Request protected resource</button>
         </div>
       </div>
     );
   }
 }
 
-export default Auth;
+export default Login;
