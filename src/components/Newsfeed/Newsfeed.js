@@ -56,20 +56,6 @@ class Newsfeed extends React.Component {
   renderArticle(article) {
     var outcomeClass = "article-outcome " + article.outcome.toLowerCase();
     return (
-<<<<<<< HEAD
-      <div className="article">
-        <div>
-          <a href={article.url}>{article.title}</a>
-        </div>
-        <div>Sentiment: {article.sentiment}</div>
-        <div>Polarity: {article.degree + " " + article.direction}</div>
-        <div>Objectivity: {article.objectivity}</div>
-        <div>Response: {article.outcome}</div>
-        {article.outcome != "Pending" ?
-          <div>Source{article.sources.length > 1 ? "s" : null}: {article.sources}</div> : null}
-
-      </div>
-=======
       <>
         <div className="article">
           <div><a href={article.url}>{article.title}</a></div>
@@ -100,7 +86,6 @@ class Newsfeed extends React.Component {
             </div>
           ) : null}
       </>
->>>>>>> newsfeed css changes and add date submitted to dummy data
     );
   }
 
