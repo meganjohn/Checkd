@@ -9,8 +9,10 @@ class Newsfeed extends React.Component {
       articles: null,
       test: null,
       loading: false,
+      openArticleId: null
     };
 
+    this.onArticleClick = this.onArticleClick.bind(this);
     this.renderArticle = this.renderArticle.bind(this);
   }
 
@@ -34,7 +36,12 @@ class Newsfeed extends React.Component {
   render() {
     return (
       <>
-        <div>Newsfeed</div>
+        <div className="newsfeed-title">
+          <h1>Newsfeed</h1>
+        </div>
+        <div className="newsfeed-subtitle">
+          <h2>Results of latest news submissions</h2>
+        </div>
         <div className="articles">
           {this.state.articles
             ? this.state.articles.map((article) => this.renderArticle(article))
@@ -45,7 +52,9 @@ class Newsfeed extends React.Component {
   }
 
   renderArticle(article) {
+    var outcomeClass = "article-outcome " + article.outcome.toLowerCase();
     return (
+<<<<<<< HEAD
       <div className="article">
         <div>
           <a href={article.url}>{article.title}</a>
@@ -58,7 +67,46 @@ class Newsfeed extends React.Component {
           <div>Source{article.sources.length > 1 ? "s" : null}: {article.sources}</div> : null}
 
       </div>
+=======
+      <>
+        <div className="article">
+          <div><a href={article.url}>{article.title}</a></div>
+          <div className="article-header">Date submitted</div>
+          <div className="article-header">Status</div>
+          <button className="article-open-button"
+                  onClick={() => this.onArticleClick(article.id)}>v</button>
+          <div></div>
+          <div>{article.dateSubmitted}</div>
+          <div className="article-outcome-column">
+            <span className={outcomeClass}>{article.outcome}</span>
+          </div>
+        </div>
+        {(this.state.openArticleId !== null &&
+          this.state.openArticleId === article.id) ? (
+            <div>
+              <div>Sentiment: {article.sentiment}</div>
+              <div>Polarity: {article.degree + " " + article.direction}</div>
+              <div>Objectivity: {article.objectivity}</div>
+              {article.outcome != "Pending" ?
+                <div>Source{article.sources.length > 1 ? "s" :
+                  null}: {article.sources}</div> : null}
+            </div>
+          ) : null}
+      </>
+>>>>>>> newsfeed css changes and add date submitted to dummy data
     );
+  }
+
+  onArticleClick(id) {
+    if(this.state.openArticleId !== null) {
+      this.setState({
+        openArticleId: null
+      });
+    } else {
+      this.setState({
+        openArticleId: id
+      });
+    }
   }
 }
 
