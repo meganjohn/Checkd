@@ -9,5 +9,14 @@ router.get('/', (req, res) => {
   });
 })
 
+router.get('/pending', (req, res) => {
+  fs.readFile('./articles.json', (err, data) => {
+    var obj = JSON.parse(data);
+    var pendingArticles = obj.articles.filter((article) => {
+      return article.outcome === 'Pending'
+    });
+    res.json({articles: pendingArticles});
+  });
+})
 
 module.exports = router;
