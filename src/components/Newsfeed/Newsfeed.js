@@ -11,10 +11,7 @@ class Newsfeed extends React.Component {
       articles: null,
       test: null,
       loading: false,
-<<<<<<< HEAD
       openArticleId: null
-=======
->>>>>>> development
     };
 
     this.onArticleClick = this.onArticleClick.bind(this);
@@ -59,7 +56,6 @@ class Newsfeed extends React.Component {
   renderArticle(article) {
     var outcomeClass = "article-outcome " + article.outcome.toLowerCase();
     return (
-<<<<<<< HEAD
       <>
         <div className="article">
           <div><a href={article.url}>{article.title}</a></div>
@@ -90,16 +86,6 @@ class Newsfeed extends React.Component {
             </div>
           ) : null}
       </>
-=======
-      <div className="article">
-        <div>
-          <a href={article.url}>{article.title}</a>
-        </div>
-        <div>Sentiment: {article.sentiment}</div>
-        <div>Polarity: {article.degree + " " + article.direction}</div>
-        <div>Verified: {article.verified ? "Yes" : "No"}</div>
-      </div>
->>>>>>> development
     );
   }
 
