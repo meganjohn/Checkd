@@ -4,7 +4,7 @@ const Sentiment = require('sentiment');
 const npmSentiment = new Sentiment();
 const translateSentiment = require('../helpers/translateSentiment');
 const calculateBias = require('../helpers/calculateBias');
-
+const fs = require('fs');
 
 router.post('/', (req, res) => {
   // data from Review Form
