@@ -9,12 +9,14 @@ import {
   RadioButton,
   RadioButtonGroup,
 } from "carbon-components-react";
+import { CSSTransition,  TransitionGroup } from "react-transition-group";
+import "./ReviewForm.css";
 
 class ReviewForm extends React.Component {
   state = {
     url: null,
     article: null,
-    format: "url"
+    format: "url",
   };
 
   handleChange = (event) => {
@@ -24,10 +26,10 @@ class ReviewForm extends React.Component {
     });
   };
 
-  handleOptionChange = (value, name,event) => {
-    console.log(value)
-    this.setState({[name]: value})
-  }
+  handleOptionChange = (value, name, event) => {
+    console.log(value);
+    this.setState({ [name]: value });
+  };
 
   handleSubmit = (event) => {
     const { url, article } = this.state;
@@ -46,65 +48,64 @@ class ReviewForm extends React.Component {
     event.preventDefault();
   };
 
-
-
   render() {
     return (
       <Form onSubmit={this.handleSubmit}>
-        <RadioButtonGroup
-          defaultSelected="url"
-          legend="Group Legend"
-          name="format"
-          valueSelected={this.state.format}
-          onChange={this.handleOptionChange}
-        >
-          <RadioButton
-            id="radio-1"
-            labelText="Link"
-            value="url"
-          />
-           </RadioButtonGroup>
-
-{this.state.format === "url" && <TextInput
-            helperText="Link"
-            id="emailInput"
-            invalidText="A valid value is required"
-            placeholder="Email"
-            name="url"
-            value={this.state.value}
-            onChange={this.handleChange}
-          />}
-         <RadioButtonGroup
-          defaultSelected="url"
-          legend="Group Legend"
-          name="format"
-          valueSelected={this.state.format}
-          onChange={this.handleOptionChange}
-        >
-          <RadioButton
-            id="radio-2"
-            labelText="Extract from news source"
-            value="text"
-          />
-          </RadioButtonGroup>
-          
-
-{this.state.format === "text" && <TextArea
-            cols={50}
-            helperText="News extract"
-            id="test5"
-            invalidText="Invalid error message."
-            placeholder="Placeholder text"
-            rows={4}
-            name="article"
-            value={this.state.value}
-            onChange={this.handleChange}
-          />}
-       
-      
-          
-      
-        <Button>Submit news</Button>
+          <FormGroup 
+          legendText="Format of your news source"
+          >
+            <RadioButtonGroup
+              defaultSelected="url"
+              legend="Group Legend"
+              name="format"
+              valueSelected={this.state.format}
+              onChange={this.handleOptionChange}
+            >
+              <RadioButton id="radio-1" labelText="Link" value="url" />
+            </RadioButtonGroup>
+            
+              {this.state.format === "url" && (
+                <TextInput
+                  labelText=""
+                  helperText="Link"
+                  id="urlInput"
+                  invalidText="A valid link is required"
+                  name="url"
+                  value={this.state.value}
+                  onChange={this.handleChange}
+                />
+              )}
+           
+            <RadioButtonGroup
+              defaultSelected="url"
+              legend="Group Legend"
+              name="format"
+              valueSelected={this.state.format}
+              onChange={this.handleOptionChange}
+            >
+              <RadioButton
+                id="radio-2"
+                labelText="Extract from news source"
+                value="text"
+              />
+            </RadioButtonGroup>
+           
+              {this.state.format === "text" && (
+                <TextArea
+                  cols={50}
+                  helperText="News extract"
+                  labelText=""
+                  id="articleInput"
+                  invalidText="Text format error"
+                  rows={4}
+                  name="article"
+                  value={this.state.value}
+                  onChange={this.handleChange}
+                />
+              )}
+         
+          </FormGroup>
+          <Button>Submit news</Button>
       </Form>
     );
   }
