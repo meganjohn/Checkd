@@ -1,17 +1,25 @@
-.fade-enter {
-  opacity: 0.01;
+.disabled-colour {
+  color: #C6C6C6;
 }
 
-.fade-enter.fade-enter-active {
-  opacity: 1;
-  transition: opacity 2000ms ease-in;
+.bx--radio-button__appearance {
+  border-color: #C6C6C6;
 }
 
-.fade-exit {
-  opacity: 1;
+.review-form-margin {
+  margin-bottom: 10px;
 }
 
-.fade-exit.fade-exit-active {
-  opacity: 0.01;
-  transition: opacity 2000ms ease-in;
+.review-textarea-label {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  width: 100%;
+  padding-bottom: 6px;
+
+}
+
+.review-textarea-label p {
+  color: #525252;
+  font-size: 12px;
 }
