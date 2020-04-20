@@ -1,0 +1,14 @@
+.pending-article {
+  display: flex;
+  flex-direction: row;
+  margin: 15px;
+  padding: 5px;
+  width: 70%;
+  background-color: #F3F3F3;
+}
+
+.pending-article-details {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  width: 100%;
+}

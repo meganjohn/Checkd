@@ -80,7 +80,7 @@ class Newsfeed extends React.Component {
               <div>Sentiment: {article.sentiment}</div>
               <div>Polarity: {article.degree + " " + article.direction}</div>
               <div>Objectivity: {article.objectivity}</div>
-              {article.outcome != "Pending" ?
+              {article.outcome !== "Pending" ?
                 <div>Source{article.sources.length > 1 ? "s" :
                   null}: {article.sources}</div> : null}
             </div>

@@ -12,7 +12,6 @@ router.post('/', (req, res) => {
     url,
     article
   } = req.body;
-
   // console.log(req.body);
   var result, sentimentFromNpm;
   let review = {

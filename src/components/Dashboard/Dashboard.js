@@ -1,6 +1,8 @@
 import React from "react";
 import Axios from "axios";
 import { Link } from "react-router-dom";
+import { Button } from "carbon-components-react";
+import "./Dashboard.css";
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -10,6 +12,7 @@ class Dashboard extends React.Component {
     };
 
     this.renderArticle = this.renderArticle.bind(this);
+    this.verifyArticle = this.verifyArticle.bind(this);
   }
 
   componentDidMount() {
@@ -24,6 +27,10 @@ class Dashboard extends React.Component {
           console.log(error);
         });
     }
+  }
+
+  verifyArticle(article) {
+    alert(article.url);
   }
 
   render() {
@@ -45,17 +52,6 @@ class Dashboard extends React.Component {
       return (
         <div>
           <h1>Dashboard</h1>
-          <ul>
-            <li>
-              <Link to="/dashboard/1">Moderate submission: articleID=1</Link>
-            </li>
-            <li>
-              <Link to="/dashboard/2">Moderate submission: articleID=2</Link>
-            </li>
-            <li>
-              <Link to="/dashboard/3">Moderate submission: articleID=3</Link>
-            </li>
-          </ul>
           {this.state.pendingArticles ?
             <div className="articles">
               {this.state.pendingArticles
@@ -71,14 +67,24 @@ class Dashboard extends React.Component {
 
   renderArticle(article) {
     return (
-      <>
-        <div className="article">
-          <div><a href={article.url}>{article.title}</a></div>
+      <div className="pending-article">
+        <div className="pending-article-details">
+          <div>
+            {article.url ?
+              <a href={article.url}>{article.title}</a> :
+              <div>{article.article}</div>
+            }
+          </div>
           <div className="article-header">Date submitted</div>
           <div></div>
           <div>{article.dateSubmitted}</div>
         </div>
-      </>
+        <Link to={"/dashboard/" + article.id}>
+          <Button kind="primary" tabIndex={0} type="submit">
+            Verify
+          </Button>
+        </Link>
+      </div>
     );
   }
 }
