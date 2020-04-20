@@ -8,4 +8,3 @@ router.use('/submit', submit);
 router.use('/articles', articles);
 
 module.exports = router;
-
