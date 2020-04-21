@@ -11,6 +11,10 @@ class SubmitNews extends React.Component {
     this.setState({ loading: value });
   };
 
+  redirect = (path) => {
+    this.props.history.push(path);
+  }
+
   render() {
     return (
       <div className="SubmitNews">
@@ -26,7 +30,7 @@ class SubmitNews extends React.Component {
           <h1>
             <b>Submit News</b>
           </h1>
-          <ReviewForm setLoading={this.setLoading} />
+          <ReviewForm redirect={this.redirect} setLoading={this.setLoading} />
         </div>
       </div>
     );

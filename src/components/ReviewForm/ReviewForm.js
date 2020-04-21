@@ -40,10 +40,10 @@ class ReviewForm extends React.Component {
     this.props.setLoading(true);
     const { url, article } = this.state;
     Axios.post("/api/v1/submit", { url: url, article: article })
-      .then(() => {
-        this.props.setLoading(false);
-        this.props.history.push("/newsfeed");
-      })
+      .then((res) => {
+        console.log(res)
+        return this.props.setLoading(false)})
+        .then(() => this.props.redirect('/newsfeed'))
       .catch((error) => {
         console.error(error);
         this.props.setLoading(false);
@@ -123,6 +123,7 @@ class ReviewForm extends React.Component {
         </FormGroup>
         <Button type="submit">Submit news</Button>
       </Form>
+     
     );
   }
 }
