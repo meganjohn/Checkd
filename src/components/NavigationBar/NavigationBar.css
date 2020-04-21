@@ -1,0 +1,10 @@
+.sticky-nav-bar {
+    position: sticky;
+    top: 0px;
+    left: 0px;
+    width: 1312px;
+    height: 49px;
+    background: #161616 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
