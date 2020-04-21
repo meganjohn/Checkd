@@ -40,6 +40,9 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "nodemonConfig": {
+      "ignore": ["articles.json"]
+  },
   "browserslist": {
     "production": [
       ">0.2%",

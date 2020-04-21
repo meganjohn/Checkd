@@ -52,7 +52,7 @@ class Dashboard extends React.Component {
       return (
         <div>
           <h1>Dashboard</h1>
-          {this.state.pendingArticles ?
+          {this.state.pendingArticles && this.state.pendingArticles.length > 0 ?
             <div className="articles">
               {this.state.pendingArticles
                 ? this.state.pendingArticles.map((article) =>

@@ -32,4 +32,30 @@ router.get('/pending', (req, res) => {
   });
 })
 
+router.post('/updateArticle', (req, res) => {
+  const {
+    articleId,
+    outcome,
+    source
+  } = req.body;
+  var articles;
+  fs.readFile('./articles.json', (err, data) => {
+    var obj = JSON.parse(data);
+    var foundArticles = obj.articles.filter((article) => {
+      return article.id == articleId
+    });
+    var foundArticle = foundArticles[0];
+    var indexOfArticle = obj.articles.indexOf(foundArticle);
+    foundArticle.outcome = outcome;
+    foundArticle.source = source;
+    obj.articles[indexOfArticle] = foundArticle;
+    fs.writeFile('./articles.json', JSON.stringify(obj),
+      (err) => {
+        if(err) throw err;
+        res.sendStatus(200);
+      }
+    );
+  });
+})
+
 module.exports = router;
