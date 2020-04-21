@@ -1,14 +1,17 @@
 import React from "react";
 import Axios from "axios";
-import { Button, TextInput } from "carbon-components-react";
+import { Button, Form, TextInput } from "carbon-components-react";
 
 class DashboardDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       articleId: this.props.match.params.id,
-      article: null
+      article: null,
+      source: null
     };
+
+    this.verifyNews = this.verifyNews.bind(this);
   }
 
   componentDidMount() {
@@ -24,6 +27,22 @@ class DashboardDetail extends React.Component {
           console.log(error);
         });
     }
+  }
+
+  verifyNews(ev, fake) {
+    console.log("verify news " + fake);
+    Axios.post("api/v1/articles/updateArticle",
+      { articleId: this.state.articleId,
+        outcome: fake ? "Fake" : "Verified",
+        source: this.state.source})
+      .then((res) => {
+        this.props.history.push("/dashboard");
+        //this.props.redirect('/dashboard')
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    ev.preventDefault();
   }
 
   render() {
@@ -59,12 +78,16 @@ class DashboardDetail extends React.Component {
           </div>
           <div>Source:</div>
           <TextInput/>
-          <Button kind="danger" tabIndex={1} type="submit">
-            Declare fake
-          </Button>
-          <Button kind="primary" tabIndex={0} type="submit">
-            Verify news
-          </Button>
+          <Form onSubmit={(ev) => this.verifyNews(ev, true)}>
+            <Button kind="danger" tabIndex={1} type="submit">
+              Declare fake
+            </Button>
+          </Form>
+          <Form onSubmit={(ev) => this.verifyNews(ev, false)}>
+            <Button kind="primary" tabIndex={0} type="submit">
+              Verify news
+            </Button>
+          </Form>
         </div>
       );
     }
