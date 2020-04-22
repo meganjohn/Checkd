@@ -13,14 +13,16 @@ def main ():
 
     if url == "" and article_string != "":
          sentiment = textBlob(article_string)
-         output = {"article":article_string, "sentiment": sentiment}
+         title = article_string[:60]
+         output = {"article":article_string, "sentiment": sentiment, "title": title }
     else:
          article = Article(url)
          article.download()
          article.parse()
          article_string = article.text
+         title = article.title
          sentiment = textBlob(article_string)
-         output = {"article":article_string, "sentiment": sentiment}
+         output = {"article":article_string, "sentiment": sentiment, "title": title}
     # converts dictionary to a json obj wrapped in a string
     print(json.dumps(output))
 

@@ -11,7 +11,6 @@ const {
   PORT = 5000,
 } = process.env;
 
-let articles = [];
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
