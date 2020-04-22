@@ -46,7 +46,7 @@ class App extends React.Component {
       <Router>
         <div>
           {/*<!------ Navbar start-------->*/}
-          <NavigationBar />
+          <NavigationBar state={this.state}/>
           {/*<!------ Navbar end -------->*/}
           <Switch>
             <Route exact path="/" component={Home} />

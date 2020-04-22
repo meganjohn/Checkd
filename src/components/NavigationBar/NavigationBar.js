@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import "./NavigationBar.css";
 
-function NavigationBar () {
+function NavigationBar (props) {
     return (
         <div className="sticky-nav-bar">
           <nav className="nav-bar">
@@ -29,15 +29,15 @@ function NavigationBar () {
             </div>
             <div className="right-group">
               <div>
-              {this.state.loggedIn && (
+              {props.state.loggedIn && (
                 // logo
                   <Link to="/dashboard">Dashboard</Link>
               )}
-              {!this.state.loggedIn && (
+              {!props.state.loggedIn && (
                 // logo
                   <Link to="/login"> Login </Link>
               )}
-              {this.state.loggedIn && (
+              {props.state.loggedIn && (
                 //logo
                 <Link to="/logout"> Logout </Link>
               )}
