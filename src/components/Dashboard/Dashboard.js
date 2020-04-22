@@ -50,16 +50,18 @@ class Dashboard extends React.Component {
       );
     } else {
       return (
-        <div>
-          <h1>Dashboard</h1>
-          {this.state.pendingArticles && this.state.pendingArticles.length > 0 ?
-            <div className="articles">
-              {this.state.pendingArticles
-                ? this.state.pendingArticles.map((article) =>
-                  this.renderArticle(article))
-                : null}
+        <div className="dashboard">
+          <div className="dashboard-card">
+            <h1>Dashboard</h1>
+            {this.state.pendingArticles && this.state.pendingArticles.length > 0 ?
+              <div className="articles">
+                {this.state.pendingArticles
+                  ? this.state.pendingArticles.map((article) =>
+                    this.renderArticle(article))
+                  : null}
+              </div>
+            : <div>No articles awaiting moderation</div>}
             </div>
-          : <div>No articles awaiting moderation</div>}
         </div>
       );
     }
