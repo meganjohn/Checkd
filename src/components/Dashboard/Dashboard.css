@@ -1,9 +1,32 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  padding: 0 16px;
+  position: relative;
+}
+
+.dashboard-card {
+  padding-top: 47px;
+  width: 100%;
+  height: 100%;
+  max-width: 598px;
+}
+
+.dashboard h1 {
+  border-bottom: 3px solid #0F61FD;
+  margin-bottom: 42px;
+  padding-bottom: 8px;
+}
+
 .pending-article {
   display: flex;
   flex-direction: row;
   margin: 15px;
   padding: 5px;
-  width: 70%;
+  width: 100%;
   background-color: #F3F3F3;
 }
 
@@ -11,4 +34,10 @@
   display: grid;
   grid-template-columns: 70% 30%;
   width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .pending-article .bx--btn {
+    padding: calc(.875rem - 3px) 12px calc(.875rem - 3px) 12px;
+  }
 }

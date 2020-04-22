@@ -1,6 +1,7 @@
 import React from "react";
 import Axios from "axios";
 import { Button, Form, TextInput } from "carbon-components-react";
+import "./DashboardDetail.css";
 
 class DashboardDetail extends React.Component {
   constructor(props) {
@@ -64,30 +65,34 @@ class DashboardDetail extends React.Component {
       );
     } else {
       return (
-        <div>
-          <h1>Moderate submission - article id={this.props.match.params.id}</h1>
-          <h2>{loading ? 'Loading...' : ''}</h2>
-          <h2>{this.state.article ? this.state.article.url : 'Article not found'}</h2>
-          <div>Sentiment: {this.state.article ?
-            this.state.article.sentiment : null}</div>
-          <div>Polarity: {this.state.article ?
-            (this.state.article.degree + " " + this.state.article.direction) :
-            null}</div>
-          <div>Objectivity: {this.state.article ?
-            this.state.article.objectivity : null}
+        <div className="dashboard-details">
+          <div className="dashboard-details-card">
+            <h1>Moderate submission</h1>
+            <h2>{loading ? 'Loading...' : ''}</h2>
+            <h2>{this.state.article ? this.state.article.url : 'Article not found'}</h2>
+            <div>Sentiment: {this.state.article ?
+              this.state.article.sentiment : null}</div>
+            <div>Polarity: {this.state.article ?
+              (this.state.article.degree + " " + this.state.article.direction) :
+              null}</div>
+            <div>Objectivity: {this.state.article ?
+              this.state.article.objectivity : null}
+            </div>
+            <div>Source:</div>
+            <TextInput/>
+            <div className="dashboard-details-buttons">
+              <Form onSubmit={(ev) => this.verifyNews(ev, true)}>
+                <Button kind="danger" tabIndex={1} type="submit">
+                  Declare fake
+                </Button>
+              </Form>
+              <Form onSubmit={(ev) => this.verifyNews(ev, false)}>
+                <Button kind="primary" tabIndex={0} type="submit">
+                  Verify news
+                </Button>
+              </Form>
+            </div>
           </div>
-          <div>Source:</div>
-          <TextInput/>
-          <Form onSubmit={(ev) => this.verifyNews(ev, true)}>
-            <Button kind="danger" tabIndex={1} type="submit">
-              Declare fake
-            </Button>
-          </Form>
-          <Form onSubmit={(ev) => this.verifyNews(ev, false)}>
-            <Button kind="primary" tabIndex={0} type="submit">
-              Verify news
-            </Button>
-          </Form>
         </div>
       );
     }

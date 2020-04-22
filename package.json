@@ -42,7 +42,9 @@
     "extends": "react-app"
   },
   "nodemonConfig": {
-      "ignore": ["articles.json"]
+    "ignore": [
+      "articles.json"
+    ]
   },
   "browserslist": {
     "production": [
