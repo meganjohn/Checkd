@@ -37,19 +37,21 @@ class Newsfeed extends React.Component {
 
   render() {
     return (
-      <>
-        <div className="newsfeed-title">
-          <h1>Newsfeed</h1>
+      <div className="newsfeed">
+        <div className="newsfeed-card">
+          <div className="newsfeed-title">
+            <h1>Newsfeed</h1>
+          </div>
+          <div className="newsfeed-subtitle">
+            <h2>Results of latest news submissions</h2>
+          </div>
+          <div className="articles">
+            {this.state.articles
+              ? this.state.articles.map((article) => this.renderArticle(article))
+              : null}
+          </div>
         </div>
-        <div className="newsfeed-subtitle">
-          <h2>Results of latest news submissions</h2>
-        </div>
-        <div className="articles">
-          {this.state.articles
-            ? this.state.articles.map((article) => this.renderArticle(article))
-            : null}
-        </div>
-      </>
+      </div>
     );
   }
 

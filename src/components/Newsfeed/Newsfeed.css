@@ -1,9 +1,24 @@
-.newsfeed-title {
-  margin-left: 15%;
+.newsfeed {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  padding: 0 16px;
+  position: relative;
 }
 
-.newsfeed-subtitle {
-  margin-left: 15%;
+.newsfeed-card {
+  padding-top: 47px;
+  width: 100%;
+  height: 100%;
+  max-width: 598px;
+}
+
+.newsfeed h1 {
+  border-bottom: 3px solid #0F61FD;
+  margin-bottom: 42px;
+  padding-bottom: 8px;
 }
 
 .articles {
@@ -19,11 +34,14 @@
   grid-template-columns: 55% 25% 15% 5%;
   margin: 15px;
   padding: 5px;
-  width: 70%;
+  width: 100%;
   background-color: #F3F3F3;
 }
 
 @media only screen and (max-width: 600px) {
+  .newsfeed h1 {
+    margin-bottom: 22px;
+  }
   .newsfeed-title, .newsfeed-subtitle {
     margin-left: 5%;
   }
@@ -44,7 +62,7 @@
 }
 
 .article-outcome-column {
-  margin: 10px 0;
+  margin: 5px 0 10px 0;
 }
 
 .article-outcome {
