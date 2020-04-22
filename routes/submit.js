@@ -8,39 +8,71 @@ const fs = require('fs');
 
 router.post('/', (req, res) => {
   // data from Review Form
-  let review = {
-    url: req.body.url,
-    article: req.body.article
-  };
+  const {
+    url,
+    article
+  } = req.body;
+  const filePath = './articles.json';
+  let result, sentimentFromNpm, sentiment, polarity, objectivity, degree, direction, biasError, dateSubmitted, title;
 
-  var result, sentimentFromNpm;
-
-  var spawn = require("child_process").spawn;
-  var python = spawn('python', ['helper.py', JSON.stringify(review)]);
+  const spawn = require("child_process").spawn;
+  const python = spawn('python', ['helper.py', JSON.stringify({
+    url: url,
+    article: article
+  })]);
   python.stdout.on('data', async function (data) {
     try {
       // articleData is an object
       // articleData = { article: 'None', sentiment: [ 'neutral', 'very objective' ] }
       const articleData = JSON.parse(data);
 
+      title = articleData.title;
+
       //npm sentiment section
       result = npmSentiment.analyze(articleData.article);
       sentimentFromNpm = translateSentiment(result.comparative);
-      review.sentiment = sentimentFromNpm;
+      sentiment = sentimentFromNpm;
 
       // Text blob section
-      review.polarity = articleData.sentiment[0];
-      review.objectivity = articleData.sentiment[1];
+      polarity = articleData.sentiment[0];
+      objectivity = articleData.sentiment[1];
 
       const {
         direction,
         degree,
         error
       } = await calculateBias(articleData.article);
-      if (error) review.biasError = "could not calculate political bias";
-      review.degree = degree;
-      review.direction = direction;
-      //<- save review to articles.json
+      if (error) biasError = "could not calculate political bias";
+
+
+      const date = new Date();
+      dateSubmitted = date.toLocaleDateString('en-GB');
+
+      // save initial review to articles.json
+      const allArticlesData = fs.readFileSync(filePath);
+      const allArticlesJSON = JSON.parse(allArticlesData);
+      const id = allArticlesJSON.articles.length;
+      const newArticle = {
+        "id": id,
+        "title": title,
+        "url": url,
+        "article": article,
+        "sentiment": sentiment,
+        "degree": degree || biasError,
+        "direction": direction || biasError,
+        "objectivity": objectivity,
+        "outcome": "Pending",
+        "dateSubmitted": dateSubmitted,
+        "sources": []
+      }
+      allArticlesJSON.articles.push(newArticle)
+      fs.writeFile(filePath, JSON.stringify(allArticlesJSON, null, 4), (err) => {
+        if (err) {
+          throw err
+        } else {
+          console.log("User submission saved")
+        }
+      })
 
       // send resource created success response
       res.sendStatus(201);
@@ -58,7 +90,7 @@ router.post('/', (req, res) => {
 
   python.on('close', (code) => {
     console.log(`Python child process exited with status code ${code}`)
-    if(code !== 0){
+    if (code !== 0) {
       res.sendStatus(500);
     }
   });
