@@ -33,6 +33,8 @@
 .pending-article-details {
   display: grid;
   grid-template-columns: 70% 30%;
+  grid-gap: 5px;
+  margin-right: 10px;
   width: 100%;
 }
 

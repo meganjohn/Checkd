@@ -23,7 +23,7 @@
 
 .dashboard-details-buttons {
   display: flex;
-  flex-directions: row;
+  flex-direction: row;
   justify-content: flex-end;
   margin-top: 10px;
 }
