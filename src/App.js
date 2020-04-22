@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
+  // Link,
 } from "react-router-dom";
 import firebase from "firebase";
 import SubmitNews from "./components/SubmitNews/SubmitNews";
@@ -46,37 +46,7 @@ class App extends React.Component {
       <Router>
         <div>
           {/*<!------ Navbar start-------->*/}
-          <nav>
-            <ul>
-              <li>
-                <Link to="/"> Home </Link>
-              </li>
-              <li>
-                <Link to="/newsfeed"> Newsfeed </Link>
-              </li>
-              <li>
-                <Link to="/submit-news"> Submit News </Link>
-              </li>
-              <li>
-                <Link to="/about-us">About us</Link>
-              </li>
-              {this.state.loggedIn && (
-                <li>
-                  <Link to="/dashboard">Dashboard</Link>
-                </li>
-              )}
-              {!this.state.loggedIn && (
-                <li>
-                  <Link to="/login"> Admin Login </Link>
-                </li>
-              )}
-              {this.state.loggedIn && (
-                <li>
-                  <Link to="/logout"> Admin Logout </Link>
-                </li>
-              )}
-            </ul>
-          </nav>
+          <NavigationBar />
           {/*<!------ Navbar end -------->*/}
           <Switch>
             <Route exact path="/" component={Home} />

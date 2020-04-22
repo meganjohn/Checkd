@@ -1,5 +1,11 @@
 import React from "react";
-import Axios from "axios";
+// import Axios from "axios";
+import {
+  // BrowserRouter as Router,
+  // Switch,
+  // Route,
+  Link,
+} from "react-router-dom";
 import "./NavigationBar.css";
 
 function NavigationBar () {
@@ -23,21 +29,17 @@ function NavigationBar () {
             </div>
             <div className="right-group">
               <div>
-                {/* logo */}
               {this.state.loggedIn && (
-                <li>
+                // logo
                   <Link to="/dashboard">Dashboard</Link>
-                </li>
               )}
               {!this.state.loggedIn && (
-                <li>
+                // logo
                   <Link to="/login"> Login </Link>
-                </li>
               )}
               {this.state.loggedIn && (
-                <li>
-                  <Link to="/logout"> Logout </Link>
-                </li>
+                //logo
+                <Link to="/logout"> Logout </Link>
               )}
               </div>
             </div>
