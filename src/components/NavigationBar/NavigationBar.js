@@ -13,33 +13,33 @@ function NavigationBar (props) {
         <div className="sticky-nav-bar">
           <nav className="nav-bar">
             <div className="left-group">
-              <div>
-                <Link to="/"> Checkd </Link>
+              <div className="link-div">
+                <Link to="/" className="nav-home-link"> Checkd </Link>
               </div>
               <div className="line-spacer"></div>
-              <div>
-                <Link to="/newsfeed"> Sumbit News </Link>
+              <div className="link-div">
+                <Link to="/newsfeed" className="nav-general-link"> Submit News </Link>
               </div>
-              <div>
-                <Link to="/submit-news"> News Feed </Link>
+              <div className="link-div">
+                <Link to="/submit-news" className="nav-general-link"> News Feed </Link>
               </div>
-              <div>
-                <Link to="/about-us">About us</Link>
+              <div className="link-div">
+                <Link to="/about-us" className="nav-general-link">About us</Link>
               </div>
             </div>
             <div className="right-group">
-              <div>
+              <div className="link-div">
               {props.state.loggedIn && (
                 // logo
-                  <Link to="/dashboard">Dashboard</Link>
+                  <Link to="/dashboard" className="nav-general-link">Dashboard</Link>
               )}
               {!props.state.loggedIn && (
                 // logo
-                  <Link to="/login"> Login </Link>
+                  <Link to="/login" className="nav-general-link"> Login </Link>
               )}
               {props.state.loggedIn && (
                 //logo
-                <Link to="/logout"> Logout </Link>
+                <Link to="/logout" className="nav-general-link"> Logout </Link>
               )}
               </div>
             </div>
