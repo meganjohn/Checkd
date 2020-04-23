@@ -83,7 +83,7 @@ class Dashboard extends React.Component {
         </div>
         <Link to={"/dashboard/" + article.id}>
           <Button kind="primary" tabIndex={0} type="submit">
-            Verify
+            Review
           </Button>
         </Link>
       </div>
