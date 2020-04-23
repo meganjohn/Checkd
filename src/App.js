@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
+  // Link,
 } from "react-router-dom";
 import firebase from "firebase";
 import SubmitNews from "./components/SubmitNews/SubmitNews";
@@ -14,6 +14,7 @@ import Home from "./components/Home/Home";
 import About from "./components/About/About";
 import Dashboard from "./components/Dashboard/Dashboard";
 import DashboardDetail from "./components/DashboardDetail/DashboardDetail";
+import NavigationBar from "./components/NavigationBar/NavigationBar";
 import "./App.css";
 
 class App extends React.Component {
@@ -46,37 +47,7 @@ class App extends React.Component {
       <Router>
         <div className="App">
           {/*<!------ Navbar start-------->*/}
-          <nav>
-            <ul>
-              <li>
-                <Link to="/"> Home </Link>
-              </li>
-              <li>
-                <Link to="/newsfeed"> Newsfeed </Link>
-              </li>
-              <li>
-                <Link to="/submit-news"> Submit News </Link>
-              </li>
-              <li>
-                <Link to="/about-us">About us</Link>
-              </li>
-              {this.state.loggedIn && (
-                <li>
-                  <Link to="/dashboard">Dashboard</Link>
-                </li>
-              )}
-              {!this.state.loggedIn && (
-                <li>
-                  <Link to="/login"> Admin Login </Link>
-                </li>
-              )}
-              {this.state.loggedIn && (
-                <li>
-                  <Link to="/logout"> Admin Logout </Link>
-                </li>
-              )}
-            </ul>
-          </nav>
+          <NavigationBar state={this.state}/>
           {/*<!------ Navbar end -------->*/}
           <Switch>
             <Route exact path="/" component={Home} />
