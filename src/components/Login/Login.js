@@ -1,12 +1,16 @@
 import React from "react";
 import firebase from "firebase";
-import { Form, FormGroup, TextInput, Button } from "carbon-components-react";
+import { Form } from "carbon-components-react";
+import Step1 from "./Step1/Step1";
+import Step2 from "./Step2/Step2";
+import "./Login.css";
 
 class Login extends React.Component {
   state = {
     authStatus: null,
     email: null,
     password: null,
+    step: 1,
   };
 
   handleChange = (event) => {
@@ -23,49 +27,27 @@ class Login extends React.Component {
       .signInWithEmailAndPassword(email, password)
       .then(() => {
         this.setState({ authStatus: "You are logged in" });
-        this.props.history.push('/dashboard');
+        this.props.history.push("/dashboard");
       })
       .catch((err) => {
         this.setState({ authStatus: err.message });
       });
-      event.preventDefault();
+    event.preventDefault();
   };
 
   render() {
-    const { authStatus} = this.state;
+    const { authStatus } = this.state;
     return (
-      <div>
-        <div>
-          <h1>Admin Login</h1>
-          <h2>CHECKD</h2>
-          <h3>login</h3>
+      <div className="Login">
+        <div className="login-card">
+          <h1>Log in</h1>
           <Form onSubmit={this.signIn}>
-            <FormGroup>
-              <TextInput
-                helperText="try test@gmail.com"
-                id="emailInput"
-                invalidText="A valid value is required"
-                placeholder="Email"
-                name="email"
-                onChange={this.handleChange}
-                value={this.state.value}
-              />
-            </FormGroup>
-            <FormGroup>
-              <TextInput.PasswordInput
-                helperText="try password123"
-                hidePasswordLabel="Hide password"
-                id="passwordInput"
-                invalidText="A valid value is required"
-                placeholder="Password"
-                showPasswordLabel="Show password"
-                name="password"
-                onChange={this.handleChange}
-              />
-            </FormGroup>
-            <Button kind="primary" tabIndex={0} type="submit">
-              LOGIN
-            </Button>
+            <Step1
+              handleChange={this.handleChange}
+              value={this.state.value}
+              step={this.state.step}
+            />
+            <Step2 handleChange={this.handleChange} step={this.state.step} />
           </Form>
           <p>Forgot Password?</p>
           <p>Auth status: {authStatus}</p>
