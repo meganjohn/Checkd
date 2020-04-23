@@ -9,7 +9,9 @@ function Step1(props) {
   return (
     <React.Fragment>
       <p>Don't have a moderator account? <Link to="/">Create an account</Link></p>
+      <hr />
     <FormGroup>
+      <div><p>Email</p> <Link to="/">Forgot email?</Link></div>
       <TextInput
         helperText="try test@gmail.com"
         id="emailInput"
@@ -20,6 +22,16 @@ function Step1(props) {
         value={props.value}
       />
     </FormGroup>
+    <Button>Continue</Button>
+    <hr />
+    <small>Alternative logins</small>
+    <div>
+      Log in with Twitter
+    </div>
+    <div>
+      Log in with Google
+    </div>
+    <hr />
     </React.Fragment>
   );
 }

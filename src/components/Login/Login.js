@@ -49,8 +49,6 @@ class Login extends React.Component {
             />
             <Step2 handleChange={this.handleChange} step={this.state.step} />
           </Form>
-          <p>Forgot Password?</p>
-          <p>Auth status: {authStatus}</p>
         </div>
       </div>
     );
