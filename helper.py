@@ -9,18 +9,20 @@ def main ():
     # converts json into dictionary with keys url and article
     review = json.loads(sys.argv[1])
     url = review['url'] or ""
-    article_string = str(review['article']) or ""
+    article_string = f"{review['article']}" or ""
 
     if url == "" and article_string != "":
          sentiment = textBlob(article_string)
-         output = {'article':article_string, 'sentiment': sentiment, "test": True}
+         title = article_string[:60]
+         output = {"article":article_string, "sentiment": sentiment, "title": title }
     else:
          article = Article(url)
          article.download()
          article.parse()
          article_string = article.text
+         title = article.title
          sentiment = textBlob(article_string)
-         output = {'article':article_string, 'sentiment': sentiment}
+         output = {"article":article_string, "sentiment": sentiment, "title": title}
     # converts dictionary to a json obj wrapped in a string
     print(json.dumps(output))
 
@@ -34,25 +36,25 @@ def textBlob (article_string):
 
     #translates polarity into [very] positive or negative, or neutral
     if polarity < -0.5:
-        sentiment = ['very negative']
+        sentiment = ["very negative"]
     elif polarity < 0:
-        sentiment = ['negative']
+        sentiment = ["negative"]
     elif polarity > 0.5:
-        sentiment = ['very positive']
+        sentiment = ["very positive"]
     elif polarity > 0:
-        sentiment = ['positive']
+        sentiment = ["positive"]
     else:
-        sentiment = ['neutral']
+        sentiment = ["neutral"]
 
     #translates objectivity into [very] objective or subjective
     if objectivity < 0.25:
-        sentiment.append('very objective')
+        sentiment.append("very objective")
     elif objectivity < 0.5:
-        sentiment.append('objective')
+        sentiment.append("objective")
     elif objectivity <0.75:
-        sentiment.append('subjective')
+        sentiment.append("subjective")
     else:
-        sentiment.append('very subjective')
+        sentiment.append("very subjective")
 
     return sentiment
 

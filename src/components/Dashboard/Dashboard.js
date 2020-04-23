@@ -1,6 +1,38 @@
 import React from "react";
+import Axios from "axios";
 import { Link } from "react-router-dom";
+import { Button } from "carbon-components-react";
+import "./Dashboard.css";
+
 class Dashboard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      pendingArticles: null
+    };
+
+    this.renderArticle = this.renderArticle.bind(this);
+    this.verifyArticle = this.verifyArticle.bind(this);
+  }
+
+  componentDidMount() {
+    if(this.props.auth.loggedIn) {
+      Axios.get("api/v1/articles/pending", {})
+        .then((res) => {
+          this.setState({
+            pendingArticles: res.data?.articles
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }
+
+  verifyArticle(article) {
+    alert(article.url);
+  }
+
   render() {
     const { loading, loggedIn } = this.props.auth;
     if (loading) {
@@ -18,22 +50,44 @@ class Dashboard extends React.Component {
       );
     } else {
       return (
-        <div>
-          <h1>Dashboard</h1>
-          <ul>
-            <li>
-              <Link to="/dashboard/1">Moderate submission: articleID=1</Link>
-            </li>
-            <li>
-              <Link to="/dashboard/2">Moderate submission: articleID=2</Link>
-            </li>
-            <li>
-              <Link to="/dashboard/3">Moderate submission: articleID=3</Link>
-            </li>
-          </ul>
+        <div className="dashboard">
+          <div className="dashboard-card">
+            <h1>Dashboard</h1>
+            {this.state.pendingArticles && this.state.pendingArticles.length > 0 ?
+              <div className="articles">
+                {this.state.pendingArticles
+                  ? this.state.pendingArticles.map((article) =>
+                    this.renderArticle(article))
+                  : null}
+              </div>
+            : <div>No articles awaiting moderation</div>}
+            </div>
         </div>
       );
     }
+  }
+
+  renderArticle(article) {
+    return (
+      <div className="pending-article">
+        <div className="pending-article-details">
+          <div>
+            {article.url ?
+              <a href={article.url}>{article.title}</a> :
+              <div>{article.article}</div>
+            }
+          </div>
+          <div className="article-header">Date submitted</div>
+          <div></div>
+          <div>{article.dateSubmitted}</div>
+        </div>
+        <Link to={"/dashboard/" + article.id}>
+          <Button kind="primary" tabIndex={0} type="submit">
+            Verify
+          </Button>
+        </Link>
+      </div>
+    );
   }
 }
 
