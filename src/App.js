@@ -21,7 +21,7 @@ import "./App.css";
 class App extends React.Component {
   state = {
     loggedIn: false,
-    loading: true
+    loading: true,
   };
 
   getAuthState = () => {
@@ -30,10 +30,10 @@ class App extends React.Component {
       if (user) {
         // User is logged in.
 
-        self.setState({ loggedIn: true, loading:false });
+        self.setState({ loggedIn: true, loading: false });
       } else {
         // No user is signed in.
-        self.setState({ loggedIn: false, loading:false });
+        self.setState({ loggedIn: false, loading: false });
       }
     });
   };
@@ -47,17 +47,27 @@ class App extends React.Component {
       <Router>
         <div className="App">
           {/*<!------ Navbar start-------->*/}
-          <NavigationBar state={this.state}/>
+          <NavigationBar state={this.state} />
           {/*<!------ Navbar end -------->*/}
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/newsfeed" component={Newsfeed} />
             <Route exact path="/submit-news" component={SubmitNews} />
             <Route exact path="/about-us" component={About} />
-            <Route exact path="/dashboard" component={(props) => <Dashboard {...props} auth={this.state}/>} />
-            <Route exact path="/dashboard/:id" component={(props) => <DashboardDetail {...props} auth={this.state} />} />
-            <Route exact path="/login" component={Login} /> 
-            <Route exact path="/logout" component={Logout} /> 
+            <Route
+              exact
+              path="/dashboard"
+              component={(props) => <Dashboard {...props} auth={this.state} />}
+            />
+            <Route
+              exact
+              path="/dashboard/:id"
+              component={(props) => (
+                <DashboardDetail {...props} auth={this.state} />
+              )}
+            />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/logout" component={Logout} />
             <Route exact path="/become-a-moderator" component={Moderator} />
           </Switch>
           {/*--   Footer start   ---*/}
