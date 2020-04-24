@@ -26,7 +26,6 @@ class App extends React.Component {
   getAuthState = () => {
     let self = this;
     firebase.auth().onAuthStateChanged(function (user) {
-      console.log(user);
       if (user) {
         // User is logged in.
 

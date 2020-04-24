@@ -1,0 +1,94 @@
+.login-subheading {
+  font-size: 14px;
+  color: #161616;
+}
+
+.login-subheading a {
+  color: #0F61FD;
+  float: right;
+}
+
+.login-line {
+  border-bottom: 1px solid #848484;
+  margin-top: 48px;
+}
+
+.login-input-label {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+ 
+}
+
+.login-input-label p, .login-input-label a {
+  font-size: 12px;
+}
+
+.login-input-label a {
+  display: flex;
+  color: #0F61FD;
+  text-decoration: none;
+  align-items: center;
+}
+
+.login-continue-button {
+  margin-top: 16px;
+  padding: 11px 12px;
+  width: 100%;
+  max-width: none;
+}
+
+.login-socials-container {
+  border: 2px solid #0F61FD;
+  color: #0F61FD;
+  height: 40px;
+  margin: 16px 0;
+  padding: 0 10px 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.2s;
+}
+
+.login-socials-container:hover {
+  background-color: #e5e5e5;
+  border: none;
+  cursor: pointer;
+}
+
+.login-socials-container:active {
+  background-color: #c6c6c6;
+  border: none;
+}
+
+.login-small {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #6E6E6E;
+}
+
+svg.login-continue-icon {
+  fill: #FFFFFF;
+}
+
+svg.login-twitter-icon {
+  fill: #0F61FD;
+}
+
+.login-socials-container span {
+  height: 32px;
+  width: 32px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fa-google {
+  font-size: 20px;
+}
+
+.login-remember-checkbox {
+  margin-top: 24px;
+}
+
