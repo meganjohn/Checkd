@@ -55,7 +55,7 @@ class Login extends React.Component {
     .fetchSignInMethodsForEmail(email)
     .then((res) => {
       if(res[0] === "password"){
-        this.setState({step: 2})
+        this.setState({step: 2, emailError: null})
       } else {
         this.setState({emailError: "There was a problem signing in with this email"})
       }
@@ -78,8 +78,13 @@ class Login extends React.Component {
               step={this.state.step}
               nextStep={this.nextStep}
               signInTwitter={this.signInTwitter}
+              emailError={this.state.emailError}
             />
-            <Step2 handleChange={this.handleChange} step={this.state.step} />
+            <Step2 
+            handleChange={this.handleChange} 
+            step={this.state.step}
+            email={this.state.email} 
+            />
           </Form>
         </div>
       </div>

@@ -29,6 +29,7 @@
   color: #0F61FD;
   text-decoration: none;
   align-items: center;
+  line-height: 18px;
 }
 
 .login-continue-button {

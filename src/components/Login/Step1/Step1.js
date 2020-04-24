@@ -19,7 +19,8 @@ function Step1(props) {
       </div>
       <TextInput
         id="emailInput"
-        invalidText="A valid value is required"
+        invalidText={props.emailError}
+        invalid={props.emailError? true : false}
         name="email"
         onChange={props.handleChange}
         value={props.value}

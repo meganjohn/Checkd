@@ -1,5 +1,8 @@
 import React from "react";
-import { FormGroup, TextInput, Button } from "carbon-components-react";
+import { TextInput, Button } from "carbon-components-react";
+import { ArrowRight16 } from "@carbon/icons-react";
+import { Link } from "react-router-dom";
+import "./Step2.css";
 
 function Step2(props) {
   if (props.step !== 2) {
@@ -7,9 +10,14 @@ function Step2(props) {
   }
   return (
     <React.Fragment>
-      <FormGroup>
+      <p className="login-subheading">
+        Logging in as {props.email} <Link to="/">Not you?</Link>
+      </p>
+      <div className="login-line" />
+      <div className="login-input-label">
+        <p>Password</p> <Link to="/">Forgot password?</Link>
+      </div>
         <TextInput.PasswordInput
-          helperText="try password123"
           hidePasswordLabel="Hide password"
           id="passwordInput"
           invalidText="A valid value is required"
@@ -18,9 +26,9 @@ function Step2(props) {
           name="password"
           onChange={props.handleChange}
         />
-      </FormGroup>
-      <Button kind="primary" tabIndex={0} type="submit">
-        LOGIN
+      <Button className="login-continue-button margin-bottom" onClick={props.nextStep} type="submit">
+        Login
+        <ArrowRight16 aria-label="Continue" className="login-continue-icon" />
       </Button>
     </React.Fragment>
   );
