@@ -1,10 +1,10 @@
 import React from "react";
 import firebase from "firebase";
-import { Form } from "carbon-components-react";
+import { Form, Loading } from "carbon-components-react";
 import Step1 from "./Step1/Step1";
 import Step2 from "./Step2/Step2";
 import "./Login.css";
-const provider = new firebase.auth.TwitterAuthProvider()
+const provider = new firebase.auth.TwitterAuthProvider();
 
 class Login extends React.Component {
   state = {
@@ -13,7 +13,8 @@ class Login extends React.Component {
     step: 1,
     remember: false,
     emailError: null,
-    passwordError: null
+    passwordError: null,
+    loading: false
   };
 
   handleChange = (event) => {
@@ -29,8 +30,9 @@ class Login extends React.Component {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => {
-        this.setState({passwordError: null}, () => {
-        this.props.history.push("/dashboard") })
+        this.setState({ passwordError: null }, () => {
+          this.props.history.push("/dashboard");
+        });
       })
       .catch((err) => {
         this.setState({ passwordError: err.message });
@@ -39,34 +41,63 @@ class Login extends React.Component {
   };
 
   signInTwitter = () => {
-    firebase.auth().signInWithRedirect(provider)
-    .then((result) => {
-      console.log(result.user);
-      this.props.history.push("/dashboard");
-    }).catch((err) => {
-      this.state({ authStatus: err.message})
+    this.setState({loading: true}, () => { 
+      firebase
+      .auth()
+      .signInWithRedirect(provider);
     })
+  }
+  
+  signInRedirect = () => {
+    this.setState({loading: true})
+    firebase.auth().getRedirectResult().then((result) => {
+      // If signed-in user, redirect to dashboard
+      this.setState({loading: false}, () => {
+        if(result.user){
+        this.props.history.push("/dashboard")
+        } else {
+          console.log("no user")
+        }
+      })
+    }).catch((error) => { 
+      this.setState({loading: false})
+    });
   }
 
   nextStep = (event) => {
     const { email } = this.state;
-    firebase.auth()
-    .fetchSignInMethodsForEmail(email)
-    .then((res) => {
-      if(res[0] === "password"){
-        this.setState({step: 2, emailError: null})
-      } else {
-        this.setState({emailError: "There was a problem signing in with this email"})
-      }
-    })
-    .catch((err) => this.setState({emailError: err.message}))
+    firebase
+      .auth()
+      .fetchSignInMethodsForEmail(email)
+      .then((res) => {
+        if (res[0] === "password") {
+          this.setState({ step: 2, emailError: null });
+        } else {
+          this.setState({
+            emailError: "There was a problem signing in with this email",
+          });
+        }
+      })
+      .catch((err) => this.setState({ emailError: err.message }));
     event.preventDefault();
+  };
+
+  componentDidMount(){
+    this.signInRedirect();
   }
 
   render() {
-    const { authStatus } = this.state;
-    console.log(this.state)
+    console.log(this.state);
     return (
+      <React.Fragment>
+      {this.state.loading && (
+        <div className="submitnews-loading">
+          <Loading
+            description="Active loading indicator"
+            withOverlay={false}
+          />
+        </div>
+      )}
       <div className="Login">
         <div className="login-card">
           <h1>Log in</h1>
@@ -79,15 +110,16 @@ class Login extends React.Component {
               signInTwitter={this.signInTwitter}
               emailError={this.state.emailError}
             />
-            <Step2 
-            handleChange={this.handleChange} 
-            step={this.state.step}
-            email={this.state.email}
-            passwordError={this.state.passwordError}
+            <Step2
+              handleChange={this.handleChange}
+              step={this.state.step}
+              email={this.state.email}
+              passwordError={this.state.passwordError}
             />
           </Form>
         </div>
       </div>
+      </React.Fragment>
     );
   }
 }
