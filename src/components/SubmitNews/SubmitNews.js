@@ -1,6 +1,6 @@
 import React from "react";
 import ReviewForm from "../ReviewForm/ReviewForm";
-import { Loading } from "carbon-components-react";
+import LoadingOverlay from "../LoadingOverlay/LoadingOveray";
 import "./SubmitNews.css";
 class SubmitNews extends React.Component {
   state = {
@@ -18,14 +18,7 @@ class SubmitNews extends React.Component {
   render() {
     return (
       <div className="SubmitNews">
-        {this.state.loading && (
-          <div className="submitnews-loading">
-            <Loading
-              description="Active loading indicator"
-              withOverlay={false}
-            />
-          </div>
-        )}
+        <LoadingOverlay loading={this.state.loading}/>
         <div className="submitnews-card">
           <h1>
             <b>Submit News</b>

@@ -1,6 +1,7 @@
 import React from "react";
 import firebase from "firebase";
-import { Form, Loading } from "carbon-components-react";
+import { Form } from "carbon-components-react";
+import LoadingOverlay from "../LoadingOverlay/LoadingOveray";
 import Step1 from "./Step1/Step1";
 import Step2 from "./Step2/Step2";
 import "./Login.css";
@@ -87,17 +88,9 @@ class Login extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <React.Fragment>
-      {this.state.loading && (
-        <div className="submitnews-loading">
-          <Loading
-            description="Active loading indicator"
-            withOverlay={false}
-          />
-        </div>
-      )}
+      <LoadingOverlay loading={this.state.loading} />
       <div className="Login">
         <div className="login-card">
           <h1>Log in</h1>
