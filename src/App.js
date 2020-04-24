@@ -15,6 +15,7 @@ import About from "./components/About/About";
 import Dashboard from "./components/Dashboard/Dashboard";
 import DashboardDetail from "./components/DashboardDetail/DashboardDetail";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
+import Moderator from "./components/Moderator/Moderator";
 import "./App.css";
 
 class App extends React.Component {
@@ -57,6 +58,7 @@ class App extends React.Component {
             <Route exact path="/dashboard/:id" component={(props) => <DashboardDetail {...props} auth={this.state} />} />
             <Route exact path="/login" component={Login} /> 
             <Route exact path="/logout" component={Logout} /> 
+            <Route exact path="/become-a-moderator" component={Moderator} />
           </Switch>
           {/*--   Footer start   ---*/}
 

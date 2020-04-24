@@ -11,7 +11,7 @@ function Step1(props) {
   return (
     <React.Fragment>
       <p className="login-subheading">
-        Don't have a moderator account? <Link to="/">Create an account</Link>
+        Don't have a moderator account? <Link to="/become-a-moderator">Create an account</Link>
       </p>
       <div className="login-line" />
       <div className="login-input-label">
