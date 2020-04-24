@@ -11,7 +11,7 @@ function Step2(props) {
   return (
     <React.Fragment>
       <p className="login-subheading">
-        Logging in as {props.email} <Link to="/">Not you?</Link>
+        Logging in as {props.email} <p className="login-link-underlined" onClick={props.goBack}>Not you?</p>
       </p>
       <div className="login-line" />
       <div className="login-input-label">

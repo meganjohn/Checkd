@@ -35,6 +35,7 @@ function Step1(props) {
         id="checked"
         name="remember"
         className="login-remember-checkbox"
+        onChange={props.handleRemember}
       />
       <div className="login-line" />
       <p className="login-small">Alternative logins</p>

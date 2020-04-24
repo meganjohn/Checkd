@@ -15,7 +15,7 @@ class Login extends React.Component {
     remember: false,
     emailError: null,
     passwordError: null,
-    loading: false
+    loading: false,
   };
 
   handleChange = (event) => {
@@ -23,6 +23,10 @@ class Login extends React.Component {
     this.setState({
       [name]: value.trim(),
     });
+  };
+
+  handleRemember = (value, id, event) => {
+    this.setState({ remember: value });
   };
 
   signIn = (event) => {
@@ -42,28 +46,30 @@ class Login extends React.Component {
   };
 
   signInTwitter = () => {
-    this.setState({loading: true}, () => { 
-      firebase
-      .auth()
-      .signInWithRedirect(provider);
-    })
-  }
-  
-  signInRedirect = () => {
-    this.setState({loading: true})
-    firebase.auth().getRedirectResult().then((result) => {
-      // If signed-in user, redirect to dashboard
-      this.setState({loading: false}, () => {
-        if(result.user){
-        this.props.history.push("/dashboard")
-        } else {
-          console.log("no user")
-        }
-      })
-    }).catch((error) => { 
-      this.setState({loading: false})
+    this.setState({ loading: true }, () => {
+      firebase.auth().signInWithRedirect(provider);
     });
-  }
+  };
+
+  signInRedirect = () => {
+    this.setState({ loading: true });
+    firebase
+      .auth()
+      .getRedirectResult()
+      .then((result) => {
+        // If signed-in user, redirect to dashboard
+        this.setState({ loading: false }, () => {
+          if (result.user) {
+            this.props.history.push("/dashboard");
+          } else {
+            console.log("no user");
+          }
+        });
+      })
+      .catch((error) => {
+        this.setState({ loading: false });
+      });
+  };
 
   nextStep = (event) => {
     const { email } = this.state;
@@ -83,35 +89,48 @@ class Login extends React.Component {
     event.preventDefault();
   };
 
-  componentDidMount(){
+  goBack = () => {
+    this.setState({
+      step: 1,
+      email: null,
+      password: null,
+      emailError: null,
+      passwordError: null,
+    });
+  };
+
+  componentDidMount() {
     this.signInRedirect();
   }
 
   render() {
+    console.log(this.state);
     return (
       <React.Fragment>
-      <LoadingOverlay loading={this.state.loading} />
-      <div className="Login">
-        <div className="login-card">
-          <h1>Log in</h1>
-          <Form onSubmit={this.signIn}>
-            <Step1
-              handleChange={this.handleChange}
-              value={this.state.value}
-              step={this.state.step}
-              nextStep={this.nextStep}
-              signInTwitter={this.signInTwitter}
-              emailError={this.state.emailError}
-            />
-            <Step2
-              handleChange={this.handleChange}
-              step={this.state.step}
-              email={this.state.email}
-              passwordError={this.state.passwordError}
-            />
-          </Form>
+        <LoadingOverlay loading={this.state.loading} />
+        <div className="Login">
+          <div className="login-card">
+            <h1>Log in</h1>
+            <Form onSubmit={this.signIn}>
+              <Step1
+                handleChange={this.handleChange}
+                value={this.state.value}
+                step={this.state.step}
+                nextStep={this.nextStep}
+                signInTwitter={this.signInTwitter}
+                emailError={this.state.emailError}
+                handleRemember={this.handleRemember}
+              />
+              <Step2
+                handleChange={this.handleChange}
+                step={this.state.step}
+                email={this.state.email}
+                passwordError={this.state.passwordError}
+                goBack={this.goBack}
+              />
+            </Form>
+          </div>
         </div>
-      </div>
       </React.Fragment>
     );
   }

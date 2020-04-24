@@ -4,8 +4,23 @@
 }
 
 .login-subheading a {
+  font-size: 14px;
   color: #0F61FD;
   float: right;
+}
+
+.login-link-underlined {
+  font-size: 14px;
+  text-decoration: underline;
+  line-height: 18px;
+  color: #0F61FD;
+  margin: 0;
+  padding: 0;
+  float: right;
+}
+
+.login-link-underlined:hover {
+  cursor: pointer;
 }
 
 .login-line {
