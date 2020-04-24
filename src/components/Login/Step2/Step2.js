@@ -20,7 +20,8 @@ function Step2(props) {
         <TextInput.PasswordInput
           hidePasswordLabel="Hide password"
           id="passwordInput"
-          invalidText="A valid value is required"
+          invalid={props.passwordError? true : false}
+          invalidText={props.passwordError}
           placeholder="Password"
           showPasswordLabel="Show password"
           name="password"

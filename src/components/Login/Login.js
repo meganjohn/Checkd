@@ -8,12 +8,12 @@ const provider = new firebase.auth.TwitterAuthProvider()
 
 class Login extends React.Component {
   state = {
-    authStatus: null,
     email: null,
     password: null,
     step: 1,
     remember: false,
-    emailError: null
+    emailError: null,
+    passwordError: null
   };
 
   handleChange = (event) => {
@@ -29,12 +29,11 @@ class Login extends React.Component {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => {
-        this.setState({ authStatus: "You are logged in" });
-        this.props.history.push("/dashboard");
+        this.setState({passwordError: null}, () => {
+        this.props.history.push("/dashboard") })
       })
       .catch((err) => {
-        console.log(err)
-        this.setState({ authStatus: err.message });
+        this.setState({ passwordError: err.message });
       });
     event.preventDefault();
   };
@@ -83,7 +82,8 @@ class Login extends React.Component {
             <Step2 
             handleChange={this.handleChange} 
             step={this.state.step}
-            email={this.state.email} 
+            email={this.state.email}
+            passwordError={this.state.passwordError}
             />
           </Form>
         </div>
