@@ -32,7 +32,7 @@
 .article {
   display: grid;
   grid-template-columns: 55% 25% 15% 5%;
-  margin: 15px;
+  margin: 15px 15px 0 15px;
   padding: 5px;
   width: 100%;
   background-color: #F3F3F3;
@@ -48,7 +48,7 @@
   .article {
     width: 100%;
     grid-template-columns: 50% 25% 20% 5%;
-    margin: 5px 0;
+    margin-top: 5px;
   }
 }
 
@@ -68,6 +68,20 @@
 .article-outcome {
   padding: 5px;
   border-radius: 25px;
+}
+
+.article-details {
+  background-color: #F3F3F3;
+  height: 100%;
+  width: 100%;
+  padding: 5px;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-row-gap: 5px;
+}
+
+.article-details-left {
+  font-weight: bold;
 }
 
 .fake {

@@ -21,6 +21,17 @@
   padding-bottom: 8px;
 }
 
+.submission-details {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-row-gap: 5px;
+  margin: 5px 0;
+}
+
+.submission-details-left {
+  font-weight: bold;
+}
+
 .dashboard-details-buttons {
   display: flex;
   flex-direction: row;
