@@ -14,7 +14,7 @@ class Moderator extends React.Component {
           marginheight="0"
           marginwidth="0"
         >
-          Loading…
+          Loading...
         </iframe>
         </div>
       </div>
