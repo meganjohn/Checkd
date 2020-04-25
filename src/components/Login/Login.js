@@ -104,7 +104,6 @@ class Login extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <React.Fragment>
         <LoadingOverlay loading={this.state.loading} />
