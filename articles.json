@@ -1,56 +1,56 @@
 {
-  "articles": [
-    {
-      "id": 0,
-      "title": "Coronavirus: 'Sombre day' as UK deaths hit 10,000",
-      "url":"https://www.bbc.co.uk/news/uk-52264145",
-      "article":null,
-      "sentiment": "negative",
-      "degree": "minimal",
-      "direction": "left",
-      "objectivity": "",
-      "outcome": "Pending",
-      "dateSubmitted": "19/04/2020",
-      "sources": []
-    },
-    {
-      "id": 1,
-      "title": "Coronavirus: UK lockdown extended for 'at least' three weeks",
-      "url":"https://www.bbc.co.uk/news/uk-52313715",
-      "article":null,
-      "sentiment": "negative",
-      "degree": "minimal",
-      "direction": "left",
-      "objectivity": "",
-      "outcome": "Verified",
-      "dateSubmitted": "17/04/2020",
-      "sources": []
-    },
-    {
-      "id": 2,
-      "title": "Coronavirus lockdown: Anti-social behaviour on rise but overall crime falls",
-      "url":"https://www.bbc.co.uk/news/uk-52298016",
-      "article":null,
-      "sentiment": "positive",
-      "degree": "minimal",
-      "direction": "left",
-      "objectivity": "",
-      "outcome": "Fake",
-      "dateSubmitted": "16/04/2020",
-      "sources": []
-    },
-    {
-      "id": 3,
-      "title": "Coronavirus: 'Sombre day' as UK deaths hit 10,000",
-      "url":"https://www.bbc.co.uk/news/uk-52264145",
-      "article":null,
-      "sentiment": "negative",
-      "degree": "minimal",
-      "direction": "left",
-      "objectivity": "",
-      "outcome": "Pending",
-      "dateSubmitted": "19/04/2020",
-      "sources": []
-    }
-  ]
+    "articles": [
+        {
+            "id": 0,
+            "title": "Coronavirus: 'Sombre day' as UK deaths hit 10,000",
+            "url": "https://www.bbc.co.uk/news/uk-52264145",
+            "article": null,
+            "sentiment": "negative",
+            "degree": "minimal",
+            "direction": "left",
+            "objectivity": "",
+            "outcome": "Pending",
+            "dateSubmitted": "19/04/2020",
+            "source": ""
+        },
+        {
+            "id": 1,
+            "title": "Coronavirus: UK lockdown extended for 'at least' three weeks",
+            "url": "https://www.bbc.co.uk/news/uk-52313715",
+            "article": null,
+            "sentiment": "negative",
+            "degree": "minimal",
+            "direction": "left",
+            "objectivity": "",
+            "outcome": "Verified",
+            "dateSubmitted": "17/04/2020",
+            "source": ""
+        },
+        {
+            "id": 2,
+            "title": "Coronavirus lockdown: Anti-social behaviour on rise but overall crime falls",
+            "url": "https://www.bbc.co.uk/news/uk-52298016",
+            "article": null,
+            "sentiment": "positive",
+            "degree": "minimal",
+            "direction": "left",
+            "objectivity": "",
+            "outcome": "Fake",
+            "dateSubmitted": "16/04/2020",
+            "source": ""
+        },
+        {
+            "id": 3,
+            "title": "Tonight from 11.30pm nobody should be on the street. Doors a",
+            "url": null,
+            "article": "Tonight from 11.30pm nobody should be on the street. Doors and windows should remain closed as helicopters spray disinfectants into the air to eradicate the coronavirus. Please spread this information to all your contacts.",
+            "sentiment": "positive",
+            "degree": "minimal",
+            "direction": "left",
+            "objectivity": "very objective",
+            "outcome": "Fake",
+            "dateSubmitted": "4/23/2020",
+            "source": "https://www.bbc.co.uk/news/52039642"
+        }
+    ]
 }
