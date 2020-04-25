@@ -37,16 +37,15 @@ class ReviewForm extends React.Component {
   };
 
   handleSubmit = (event) => {
-    this.props.setLoading(true);
+    this.props.setStatus({loading: true, error: false});
     const { url, article } = this.state;
     Axios.post("/api/v1/submit", { url: url, article: article })
       .then((res) => {
         console.log(res)
-        return this.props.setLoading(false)})
+        return this.props.setStatus({loading: false})})
         .then(() => this.props.redirect('/newsfeed'))
       .catch((error) => {
-        console.error(error);
-        this.props.setLoading(false);
+        this.props.setStatus({loading: false, error: true});
       });
     event.preventDefault();
   };

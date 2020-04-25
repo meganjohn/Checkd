@@ -1,19 +1,32 @@
 import React from "react";
 import firebase from "firebase";
-import { Form, FormGroup, TextInput, Button } from "carbon-components-react";
+import { Form } from "carbon-components-react";
+import LoadingOverlay from "../LoadingOverlay/LoadingOverlay";
+import Step1 from "./Step1/Step1";
+import Step2 from "./Step2/Step2";
+import "./Login.css";
+const provider = new firebase.auth.TwitterAuthProvider();
 
 class Login extends React.Component {
   state = {
-    authStatus: null,
     email: null,
     password: null,
+    step: 1,
+    remember: false,
+    emailError: null,
+    passwordError: null,
+    loading: false,
   };
 
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({
-      [name]: value,
+      [name]: value.trim(),
     });
+  };
+
+  handleRemember = (value, id, event) => {
+    this.setState({ remember: value });
   };
 
   signIn = (event) => {
@@ -22,55 +35,102 @@ class Login extends React.Component {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => {
-        this.setState({ authStatus: "You are logged in" });
-        this.props.history.push('/dashboard');
+        this.setState({ passwordError: null }, () => {
+          this.props.history.push("/dashboard");
+        });
       })
       .catch((err) => {
-        this.setState({ authStatus: err.message });
+        this.setState({ passwordError: err.message });
       });
-      event.preventDefault();
+    event.preventDefault();
   };
 
+  signInTwitter = () => {
+    this.setState({ loading: true }, () => {
+      firebase.auth().signInWithRedirect(provider);
+    });
+  };
+
+  signInRedirect = () => {
+    this.setState({ loading: true });
+    firebase
+      .auth()
+      .getRedirectResult()
+      .then((result) => {
+        // If signed-in user, redirect to dashboard
+        this.setState({ loading: false }, () => {
+          if (result.user) {
+            this.props.history.push("/dashboard");
+          } else {
+            console.log("no user");
+          }
+        });
+      })
+      .catch((error) => {
+        this.setState({ loading: false });
+      });
+  };
+
+  nextStep = (event) => {
+    const { email } = this.state;
+    firebase
+      .auth()
+      .fetchSignInMethodsForEmail(email)
+      .then((res) => {
+        if (res[0] === "password") {
+          this.setState({ step: 2, emailError: null });
+        } else {
+          this.setState({
+            emailError: "There was a problem signing in with this email",
+          });
+        }
+      })
+      .catch((err) => this.setState({ emailError: err.message }));
+    event.preventDefault();
+  };
+
+  goBack = () => {
+    this.setState({
+      step: 1,
+      email: null,
+      password: null,
+      emailError: null,
+      passwordError: null,
+    });
+  };
+
+  componentDidMount() {
+    this.signInRedirect();
+  }
+
   render() {
-    const { authStatus} = this.state;
     return (
-      <div>
-        <div>
-          <h1>Admin Login</h1>
-          <h2>CHECKD</h2>
-          <h3>login</h3>
-          <Form onSubmit={this.signIn}>
-            <FormGroup>
-              <TextInput
-                helperText="try test@gmail.com"
-                id="emailInput"
-                invalidText="A valid value is required"
-                placeholder="Email"
-                name="email"
-                onChange={this.handleChange}
+      <React.Fragment>
+        <LoadingOverlay loading={this.state.loading} />
+        <div className="Login">
+          <div className="login-card">
+            <h1>Log in</h1>
+            <Form onSubmit={this.signIn}>
+              <Step1
+                handleChange={this.handleChange}
                 value={this.state.value}
+                step={this.state.step}
+                nextStep={this.nextStep}
+                signInTwitter={this.signInTwitter}
+                emailError={this.state.emailError}
+                handleRemember={this.handleRemember}
               />
-            </FormGroup>
-            <FormGroup>
-              <TextInput.PasswordInput
-                helperText="try password123"
-                hidePasswordLabel="Hide password"
-                id="passwordInput"
-                invalidText="A valid value is required"
-                placeholder="Password"
-                showPasswordLabel="Show password"
-                name="password"
-                onChange={this.handleChange}
+              <Step2
+                handleChange={this.handleChange}
+                step={this.state.step}
+                email={this.state.email}
+                passwordError={this.state.passwordError}
+                goBack={this.goBack}
               />
-            </FormGroup>
-            <Button kind="primary" tabIndex={0} type="submit">
-              LOGIN
-            </Button>
-          </Form>
-          <p>Forgot Password?</p>
-          <p>Auth status: {authStatus}</p>
+            </Form>
+          </div>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }
