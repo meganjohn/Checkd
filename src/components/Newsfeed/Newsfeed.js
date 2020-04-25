@@ -16,6 +16,7 @@ class Newsfeed extends React.Component {
 
     this.onArticleClick = this.onArticleClick.bind(this);
     this.renderArticle = this.renderArticle.bind(this);
+    this.titleCase = this.titleCase.bind(this);
   }
 
   componentDidMount() {
@@ -60,7 +61,9 @@ class Newsfeed extends React.Component {
     return (
       <>
         <div className="article">
-          <div><a href={article.url}>{article.title}</a></div>
+          <div>{article.url ? <a href={article.url}>{article.title}</a> :
+            <>{article.title + '...'}</>}
+          </div>
           <div className="article-header">Date submitted</div>
           <div className="article-header">Status</div>
           <button className="article-open-button"
@@ -78,13 +81,25 @@ class Newsfeed extends React.Component {
         </div>
         {(this.state.openArticleId !== null &&
           this.state.openArticleId === article.id) ? (
-            <div>
-              <div>Sentiment: {article.sentiment}</div>
-              <div>Polarity: {article.degree + " " + article.direction}</div>
-              <div>Objectivity: {article.objectivity}</div>
-              {article.outcome !== "Pending" ?
-                <div>Source{article.sources.length > 1 ? "s" :
-                  null}: {article.sources}</div> : null}
+            <div className="article-details">
+              {article.article ?
+                <>
+                  <div className="article-details-left">Content:</div>
+                  <div>{article.article}</div>
+                </> : null
+              }
+              <div className="article-details-left">Sentiment:</div>
+              <div>{this.titleCase(article.sentiment)}</div>
+              <div className="article-details-left">Polarity:</div>
+              <div>
+                {this.titleCase(article.degree) + " " + this.titleCase(article.direction)}</div>
+              <div className="article-details-left">Objectivity:</div>
+              <div>{this.titleCase(article.objectivity)}</div>
+              {article.source ?
+                <>
+                  <div className="article-details-left">Source:</div>
+                  <div><a href={article.source}>{article.source}</a></div>
+                </> : null}
             </div>
           ) : null}
       </>
@@ -101,6 +116,14 @@ class Newsfeed extends React.Component {
         openArticleId: id
       });
     }
+  }
+
+  titleCase(str) {
+    str = str.toLowerCase().split(' ');
+    for (var i = 0; i < str.length; i++) {
+      str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+    }
+    return str.join(' ');
   }
 }
 
