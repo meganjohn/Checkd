@@ -1,7 +1,7 @@
 import React from "react";
 import firebase from "firebase";
 import { Form } from "carbon-components-react";
-import LoadingOverlay from "../LoadingOverlay/LoadingOveray";
+import LoadingOverlay from "../LoadingOverlay/LoadingOverlay";
 import Step1 from "./Step1/Step1";
 import Step2 from "./Step2/Step2";
 import "./Login.css";

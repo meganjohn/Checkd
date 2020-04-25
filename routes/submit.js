@@ -79,7 +79,7 @@ router.post('/', (req, res) => {
             "objectivity": objectivity,
             "outcome": "Pending",
             "dateSubmitted": dateSubmitted,
-            "sources": []
+            "sources": ""
           }
           console.log("saving new article to datastore")
           allArticlesJSON.articles.push(newArticle)

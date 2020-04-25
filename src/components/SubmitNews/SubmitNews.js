@@ -1,6 +1,6 @@
 import React from "react";
 import ReviewForm from "../ReviewForm/ReviewForm";
-import LoadingOverlay from "../LoadingOverlay/LoadingOveray";
+import LoadingOverlay from "../LoadingOverlay/LoadingOverlay";
 import { InlineNotification } from "carbon-components-react";
 import "./SubmitNews.css";
 class SubmitNews extends React.Component {
