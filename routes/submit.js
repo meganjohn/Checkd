@@ -5,6 +5,7 @@ const npmSentiment = new Sentiment();
 const translateSentiment = require('../helpers/translateSentiment');
 const calculateBias = require('../helpers/calculateBias');
 const fs = require('fs');
+const format = require('date-fns/format');
 
 router.post('/', (req, res) => {
   // data from Review Form
@@ -13,7 +14,7 @@ router.post('/', (req, res) => {
     article
   } = req.body;
   const filePath = './articles.json';
- 
+
   const spawn = require("child_process").spawn;
   const python = spawn('python', ['helper.py', JSON.stringify({
     url: url,
@@ -39,7 +40,7 @@ router.post('/', (req, res) => {
         try {
           console.log("parsing article data")
           const articleData = JSON.parse(articleBuffer[0].toString('utf-8'));
-          
+
           //npm sentiment section
           console.log("calculating article sentiment")
           const result = npmSentiment.analyze(articleData.article);
@@ -50,7 +51,7 @@ router.post('/', (req, res) => {
           console.log("retrieving polarity and objectivity")
           const polarity = articleData.sentiment[0];
           const objectivity = articleData.sentiment[1];
-          
+
           console.log("calculating political bias")
           const {
             direction,
@@ -61,7 +62,6 @@ router.post('/', (req, res) => {
 
 
           const date = new Date();
-          const dateSubmitted = date.toLocaleDateString('en-GB');
 
           // save initial review to articles.json
           console.log("opening articles datastore")
@@ -78,7 +78,7 @@ router.post('/', (req, res) => {
             "direction": direction || biasError,
             "objectivity": objectivity,
             "outcome": "Pending",
-            "dateSubmitted": dateSubmitted,
+            "dateSubmitted": format(date, "dd/MM/yyyy"),
             "sources": ""
           }
           console.log("saving new article to datastore")

@@ -82,7 +82,7 @@ class Newsfeed extends React.Component {
         {(this.state.openArticleId !== null &&
           this.state.openArticleId === article.id) ? (
             <div className="article-details">
-              {article.article ?
+              {!article.url ?
                 <>
                   <div className="article-details-left">Content:</div>
                   <div>{article.article}</div>
