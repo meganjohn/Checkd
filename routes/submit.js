@@ -79,7 +79,7 @@ router.post('/', (req, res) => {
             "objectivity": objectivity,
             "outcome": "Pending",
             "dateSubmitted": format(date, "dd/MM/yyyy"),
-            "sources": ""
+            "source": ""
           }
           console.log("saving new article to datastore")
           allArticlesJSON.articles.push(newArticle)

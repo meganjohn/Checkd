@@ -12,6 +12,7 @@ class DashboardDetail extends React.Component {
       source: null
     };
 
+    this.onSourceChange = this.onSourceChange.bind(this);
     this.titleCase = this.titleCase.bind(this);
     this.verifyNews = this.verifyNews.bind(this);
   }
@@ -32,7 +33,6 @@ class DashboardDetail extends React.Component {
   }
 
   verifyNews(ev, fake) {
-    console.log("verify news " + fake);
     Axios.post("api/v1/articles/updateArticle",
       { articleId: this.state.articleId,
         outcome: fake ? "Fake" : "Verified",
@@ -44,6 +44,13 @@ class DashboardDetail extends React.Component {
         console.log(error);
       });
     ev.preventDefault();
+  }
+
+  onSourceChange(ev) {
+    alert(ev.target.value);
+    this.setState({
+      source: ev.target.value
+    });
   }
 
   render() {
@@ -87,7 +94,7 @@ class DashboardDetail extends React.Component {
               </div>
             </div>
             <div className="submission-details-left">Source:</div>
-            <TextInput/>
+            <TextInput onChange={this.onSourceChange}/>
             <div className="dashboard-details-buttons">
               <Form onSubmit={(ev) => this.verifyNews(ev, true)}>
                 <Button kind="danger" tabIndex={1} type="submit">
