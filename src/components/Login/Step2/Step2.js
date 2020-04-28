@@ -15,7 +15,7 @@ function Step2(props) {
       </p>
       <div className="login-line" />
       <div className="login-input-label">
-        <p>Password</p> <Link to="/">Forgot password?</Link>
+        <p>Password</p> <Link to="/password-reset">Forgot password?</Link>
       </div>
         <TextInput.PasswordInput
           hidePasswordLabel="Hide password"

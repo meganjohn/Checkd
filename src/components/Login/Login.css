@@ -4,6 +4,7 @@
   align-items: center;
   background-color: #F3F3F3;
   min-height: 100%;
+  position: relative;
 }
 
 .login-card {

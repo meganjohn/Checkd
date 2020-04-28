@@ -2,8 +2,7 @@ import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  // Link,
+  Route
 } from "react-router-dom";
 import firebase from "firebase";
 import SubmitNews from "./components/SubmitNews/SubmitNews";
@@ -16,6 +15,7 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import DashboardDetail from "./components/DashboardDetail/DashboardDetail";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
 import Moderator from "./components/Moderator/Moderator";
+import PasswordReset from "./components/PasswordReset/PasswordReset";
 import "./App.css";
 
 class App extends React.Component {
@@ -28,11 +28,8 @@ class App extends React.Component {
     let self = this;
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
-        // User is logged in.
-
         self.setState({ loggedIn: true, loading: false });
       } else {
-        // No user is signed in.
         self.setState({ loggedIn: false, loading: false });
       }
     });
@@ -40,15 +37,13 @@ class App extends React.Component {
 
   componentDidMount() {
     this.getAuthState();
-  }
+  };
 
   render() {
     return (
       <Router>
         <div className="App">
-          {/*<!------ Navbar start-------->*/}
           <NavigationBar state={this.state} />
-          {/*<!------ Navbar end -------->*/}
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/newsfeed" component={Newsfeed} />
@@ -68,11 +63,13 @@ class App extends React.Component {
             />
             <Route exact path="/login" component={Login} />
             <Route exact path="/logout" component={Logout} />
-            <Route exact path="/become-a-moderator" component={Moderator} />
+            <Route
+              exact
+              path="/become-a-moderator"
+              component={(props) => <Moderator {...props} />}
+            />
+            <Route exact path="/password-reset" component={(props) => <PasswordReset {...props}/>}/>
           </Switch>
-          {/*--   Footer start   ---*/}
-
-          {/*--   Footer end   ---*/}
         </div>
       </Router>
     );

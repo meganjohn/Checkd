@@ -5,7 +5,6 @@ import LoadingOverlay from "../LoadingOverlay/LoadingOverlay";
 import Step1 from "./Step1/Step1";
 import Step2 from "./Step2/Step2";
 import "./Login.css";
-const provider = new firebase.auth.TwitterAuthProvider();
 
 class Login extends React.Component {
   state = {
@@ -30,10 +29,14 @@ class Login extends React.Component {
   };
 
   signIn = (event) => {
-    const { email, password } = this.state;
+    const { email, password, remember } = this.state;
+    const persistence = remember ? "LOCAL" : "SESSION";
     firebase
       .auth()
-      .signInWithEmailAndPassword(email, password)
+      .setPersistence(firebase.auth.Auth.Persistence[persistence])
+      .then(() => {
+        return firebase.auth().signInWithEmailAndPassword(email, password);
+      })
       .then(() => {
         this.setState({ passwordError: null }, () => {
           this.props.history.push("/dashboard");
@@ -46,6 +49,14 @@ class Login extends React.Component {
   };
 
   signInTwitter = () => {
+    const provider = new firebase.auth.TwitterAuthProvider();
+    this.setState({ loading: true }, () => {
+      firebase.auth().signInWithRedirect(provider);
+    });
+  };
+
+  signInGoogle = () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
     this.setState({ loading: true }, () => {
       firebase.auth().signInWithRedirect(provider);
     });
@@ -105,32 +116,31 @@ class Login extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div className="Login">
         <LoadingOverlay loading={this.state.loading} />
-        <div className="Login">
-          <div className="login-card">
-            <h1>Log in</h1>
-            <Form onSubmit={this.signIn}>
-              <Step1
-                handleChange={this.handleChange}
-                value={this.state.value}
-                step={this.state.step}
-                nextStep={this.nextStep}
-                signInTwitter={this.signInTwitter}
-                emailError={this.state.emailError}
-                handleRemember={this.handleRemember}
-              />
-              <Step2
-                handleChange={this.handleChange}
-                step={this.state.step}
-                email={this.state.email}
-                passwordError={this.state.passwordError}
-                goBack={this.goBack}
-              />
-            </Form>
-          </div>
+        <div className="login-card">
+          <h1>Log in</h1>
+          <Form onSubmit={this.signIn}>
+            <Step1
+              handleChange={this.handleChange}
+              value={this.state.value}
+              step={this.state.step}
+              nextStep={this.nextStep}
+              signInTwitter={this.signInTwitter}
+              signInGoogle={this.signInGoogle}
+              emailError={this.state.emailError}
+              handleRemember={this.handleRemember}
+            />
+            <Step2
+              handleChange={this.handleChange}
+              step={this.state.step}
+              email={this.state.email}
+              passwordError={this.state.passwordError}
+              goBack={this.goBack}
+            />
+          </Form>
         </div>
-      </React.Fragment>
+      </div>
     );
   }
 }

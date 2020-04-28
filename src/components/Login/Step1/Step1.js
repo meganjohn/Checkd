@@ -1,7 +1,6 @@
 import React from "react";
 import { TextInput, Button, Checkbox } from "carbon-components-react";
 import { ArrowRight16, LogoTwitter32 } from "@carbon/icons-react";
-import { Link } from "react-router-dom";
 import "./Step1.css";
 
 function Step1(props) {
@@ -15,7 +14,7 @@ function Step1(props) {
       </p>
       <div className="login-line" />
       <div className="login-input-label">
-        <p>Email</p> <Link to="/">Forgot email?</Link>
+        <p>Email</p>
       </div>
       <TextInput
         id="emailInput"
@@ -43,7 +42,7 @@ function Step1(props) {
         <p>Log in with Twitter</p>
         <LogoTwitter32 aria-label="Twitter" className="login-twitter-icon" />
       </div>
-      <div className="login-socials-container">
+      <div className="login-socials-container" onClick={props.signInGoogle}>
         <p>Log in with Google</p>
         <span>
           <i class="fab fa-google" />
