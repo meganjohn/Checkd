@@ -19,7 +19,8 @@ import "./App.css";
 class App extends React.Component {
   state = {
     loggedIn: false,
-    loading: true
+    loading: true,
+    isWideViewport: true
   };
 
   getAuthState = () => {
@@ -35,6 +36,16 @@ class App extends React.Component {
         self.setState({ loggedIn: false, loading:false });
       }
     });
+
+    getViewportWidth = () => {
+      let self = this;
+      if (window.innerWidth < 601) {
+        // Viewport not wide enough for full navbar
+
+        self.setState({isWideViewport: false})
+      }
+    }
+
   };
 
   componentDidMount() {
