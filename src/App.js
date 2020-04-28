@@ -15,6 +15,7 @@ import About from "./components/About/About";
 import Dashboard from "./components/Dashboard/Dashboard";
 import DashboardDetail from "./components/DashboardDetail/DashboardDetail";
 import "./App.css";
+import NavigationBar from "./components/NavigationBar/NavigationBar";
 
 class App extends React.Component {
   state = {
@@ -35,21 +36,21 @@ class App extends React.Component {
         // No user is signed in.
         self.setState({ loggedIn: false, loading:false });
       }
-    });
-
-    getViewportWidth = () => {
-      let self = this;
-      if (window.innerWidth < 601) {
-        // Viewport not wide enough for full navbar
-
-        self.setState({isWideViewport: false})
-      }
-    }
-
+    }); 
   };
+
+      getViewportWidth = () => {
+        let self = this;
+        if (window.innerWidth < 601) {
+          // Viewport not wide enough for full navbar
+  
+          self.setState({isWideViewport: false})
+        }
+      };
 
   componentDidMount() {
     this.getAuthState();
+    this.getViewportWidth();
   }
 
   render() {

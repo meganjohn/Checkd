@@ -18,7 +18,7 @@ function NavigationBar (props) {
               </div>
               <nav>
                 <div className="line-spacer"></div>
-                <NavigationBarLinks viewport={this.viewport}/>
+                <NavigationBarLinks isWideViewport={this.isWideViewport}/>
                 <div className="right-group">
                   <div className="link-div">
                     {props.state.loggedIn && (
