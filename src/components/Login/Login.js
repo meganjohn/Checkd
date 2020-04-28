@@ -115,7 +115,6 @@ class Login extends React.Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <div className="Login">
         <LoadingOverlay loading={this.state.loading} />

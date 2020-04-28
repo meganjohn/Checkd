@@ -1,7 +1,6 @@
 import React from "react";
 import { TextInput, Button, Checkbox } from "carbon-components-react";
 import { ArrowRight16, LogoTwitter32 } from "@carbon/icons-react";
-import { Link } from "react-router-dom";
 import "./Step1.css";
 
 function Step1(props) {
