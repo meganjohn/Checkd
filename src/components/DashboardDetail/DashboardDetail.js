@@ -76,6 +76,10 @@ class DashboardDetail extends React.Component {
           <div className="dashboard-details-card">
             <h1>Moderate submission</h1>
             <h2>{loading ? 'Loading...' : ''}</h2>
+            <h3>
+              {this.state.article ? this.state.article.title +
+              (!this.state.article.url ? "..." : ""): ""}
+            </h3>
             <div>{this.state.article ? (this.state.article.url ?
               <a href={this.state.article.url}>{this.state.article.url}</a>
                 : this.state.article.article) : ''}</div>
@@ -94,7 +98,8 @@ class DashboardDetail extends React.Component {
               </div>
             </div>
             <div className="submission-details-left">Source:</div>
-            <TextInput onChange={this.onSourceChange}/>
+            <TextInput className="submission-source"
+                       onChange={this.onSourceChange}/>
             <div className="dashboard-details-buttons">
               <Form onSubmit={(ev) => this.verifyNews(ev, true)}>
                 <Button kind="danger" tabIndex={1} type="submit">

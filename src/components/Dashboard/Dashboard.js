@@ -77,9 +77,10 @@ class Dashboard extends React.Component {
               <div>{article.article}</div>
             }
           </div>
-          <div className="article-header">Date submitted</div>
-          <div></div>
-          <div>{article.dateSubmitted}</div>
+          <div className="article-date-section">
+            <div className="article-header">Date submitted</div>
+            <div>{article.dateSubmitted}</div>
+          </div>
         </div>
         <Link to={"/dashboard/" + article.id}>
           <Button kind="primary" tabIndex={0} type="submit">

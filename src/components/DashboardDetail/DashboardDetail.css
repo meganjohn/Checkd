@@ -21,15 +21,23 @@
   padding-bottom: 8px;
 }
 
+.dashboard-details-card h3 {
+  margin-bottom: 10px;
+}
+
 .submission-details {
   display: grid;
   grid-template-columns: 20% 80%;
   grid-row-gap: 5px;
-  margin: 5px 0;
+  margin: 15px 0;
 }
 
 .submission-details-left {
   font-weight: bold;
+}
+
+.submission-source {
+  margin-top: 5px;
 }
 
 .dashboard-details-buttons {
