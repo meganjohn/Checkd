@@ -2,26 +2,90 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
   align-items: center;
 }
 
-.Home header {
+.home-header {
   padding: 48px;
   background-repeat: no-repeat;
   background-position: bottom center;
   background-size: cover;
+  overflow-wrap: break-word;
 }
 
-.Home h1 {
+.home-header h1 {
   padding: 0px 0 40px 0;
   font-size: 52px;
 }
 
-.Home h2 {
+.home-header h3 {
   font-size: 32px;
 }
 
 .home-button {
   margin-top: 32px;
+}
+
+.home-main {
+  max-width: 750px;
+  width: 100%;
+  padding-bottom: 16px;
+}
+
+.home-heading-2 {
+  font-size: 42px;
+  text-align: center;
+  padding: 16px;
+  margin-top: 16px;
+}
+
+.home-main p {
+  padding: 16px;
+}
+
+.home-info {
+  padding: 0 32px 32px 32px;
+  background-color: #F4F4F4;
+  width: 100%;
+}
+
+.info-steps {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border-top: 2px solid #0F61FD;
+  margin-top: 16px;
+  justify-content: center;
+}
+
+.info-step{
+  margin: 8px 16px 16px 16px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.circle {
+  background-color: #0F61FD;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  float: left;
+  margin-right: 9px;
+}
+
+.info-heading {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+  margin-bottom: 32px;
+}
+
+@media only screen and (min-width: 790px) {
+  .info-steps {
+    flex-wrap: nowrap;
+  }
+  .info-step{
+    width: 25%;
+  }
 }
