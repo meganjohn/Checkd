@@ -15,7 +15,7 @@ function Step1(props) {
       </p>
       <div className="login-line" />
       <div className="login-input-label">
-        <p>Email</p> <Link to="/">Forgot email?</Link>
+        <p>Email</p>
       </div>
       <TextInput
         id="emailInput"
