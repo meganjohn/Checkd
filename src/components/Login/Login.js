@@ -29,10 +29,14 @@ class Login extends React.Component {
   };
 
   signIn = (event) => {
-    const { email, password } = this.state;
+    const { email, password, remember } = this.state;
+    const persistence = remember ? "LOCAL" : "SESSION";
     firebase
       .auth()
-      .signInWithEmailAndPassword(email, password)
+      .setPersistence(firebase.auth.Auth.Persistence[persistence])
+      .then(() => {
+        return firebase.auth().signInWithEmailAndPassword(email, password);
+      })
       .then(() => {
         this.setState({ passwordError: null }, () => {
           this.props.history.push("/dashboard");
@@ -111,32 +115,33 @@ class Login extends React.Component {
   }
 
   render() {
+    console.log(this.state)
     return (
-        <div className="Login">
-          <LoadingOverlay loading={this.state.loading} />
-          <div className="login-card">
-            <h1>Log in</h1>
-            <Form onSubmit={this.signIn}>
-              <Step1
-                handleChange={this.handleChange}
-                value={this.state.value}
-                step={this.state.step}
-                nextStep={this.nextStep}
-                signInTwitter={this.signInTwitter}
-                signInGoogle={this.signInGoogle}
-                emailError={this.state.emailError}
-                handleRemember={this.handleRemember}
-              />
-              <Step2
-                handleChange={this.handleChange}
-                step={this.state.step}
-                email={this.state.email}
-                passwordError={this.state.passwordError}
-                goBack={this.goBack}
-              />
-            </Form>
-          </div>
+      <div className="Login">
+        <LoadingOverlay loading={this.state.loading} />
+        <div className="login-card">
+          <h1>Log in</h1>
+          <Form onSubmit={this.signIn}>
+            <Step1
+              handleChange={this.handleChange}
+              value={this.state.value}
+              step={this.state.step}
+              nextStep={this.nextStep}
+              signInTwitter={this.signInTwitter}
+              signInGoogle={this.signInGoogle}
+              emailError={this.state.emailError}
+              handleRemember={this.handleRemember}
+            />
+            <Step2
+              handleChange={this.handleChange}
+              step={this.state.step}
+              email={this.state.email}
+              passwordError={this.state.passwordError}
+              goBack={this.goBack}
+            />
+          </Form>
         </div>
+      </div>
     );
   }
 }
