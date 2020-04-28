@@ -1,0 +1,22 @@
+.about-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  padding: 0 16px;
+  position: relative;
+}
+
+.about-page-contents {
+  padding-top: 47px;
+  width: 100%;
+  height: 100%;
+  max-width: 598px;
+}
+
+.about-page-contents h1 {
+  border-bottom: 3px solid #0F61FD;
+  margin-bottom: 42px;
+  padding-bottom: 8px;
+}
