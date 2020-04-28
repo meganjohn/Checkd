@@ -1,0 +1,23 @@
+.Home {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+
+.Home header {
+  padding: 48px;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: cover;
+}
+
+.Home h1 {
+  padding: 0px 0 40px 0;
+  font-size: 52px;
+}
+
+.Home h2 {
+  font-size: 32px;
+}
