@@ -11,15 +11,16 @@
   background-position: bottom center;
   background-size: cover;
   overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .home-header h1 {
   padding: 0px 0 40px 0;
-  font-size: 52px;
+  font-size: 36px;
 }
 
 .home-header h3 {
-  font-size: 32px;
+  font-size: 24px;
 }
 
 .home-button {
@@ -79,6 +80,16 @@
   align-items: center;
   margin-top: 0;
   margin-bottom: 32px;
+}
+
+@media only screen and (min-width: 400px) {
+  .home-header h1 {
+    font-size: 52px;
+  }
+  
+  .home-header h3 {
+    font-size: 32px;
+  }
 }
 
 @media only screen and (min-width: 790px) {
