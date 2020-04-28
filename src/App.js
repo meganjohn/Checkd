@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import firebase from "firebase";
 import SubmitNews from "./components/SubmitNews/SubmitNews";
 import Login from "./components/Login/Login";
@@ -37,7 +33,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.getAuthState();
-  };
+  }
 
   render() {
     return (
@@ -68,7 +64,11 @@ class App extends React.Component {
               path="/become-a-moderator"
               component={(props) => <Moderator {...props} />}
             />
-            <Route exact path="/password-reset" component={(props) => <PasswordReset {...props}/>}/>
+            <Route
+              exact
+              path="/password-reset"
+              component={(props) => <PasswordReset {...props} />}
+            />
           </Switch>
         </div>
       </Router>

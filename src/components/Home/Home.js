@@ -4,9 +4,8 @@ import photo from "./waves.png";
 import { Button } from "carbon-components-react";
 import { useHistory } from "react-router-dom";
 
-function Home(props) {
+function Home() {
   let history = useHistory();
-
   return (
     <div className="Home">
       <header
@@ -38,8 +37,7 @@ function Home(props) {
           methods and potential cures to Coronavirus going around. We all want
           our loved ones to be safe and healthy, so how do we separate fact from
           fiction to reduce any potentially risk-inducing activities that they
-          might take?{" "}
-        </p>
+          might take?</p>
         <p>
           At Checkd, we’re here to make this easier for you. We fact check news
           items on your behalf, to reduce the time and effort you spend in
