@@ -16,6 +16,7 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import DashboardDetail from "./components/DashboardDetail/DashboardDetail";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
 import Moderator from "./components/Moderator/Moderator";
+import PasswordReset from "./components/PasswordReset/PasswordReset";
 import "./App.css";
 
 class App extends React.Component {
@@ -73,6 +74,7 @@ class App extends React.Component {
               path="/become-a-moderator"
               component={(props) => <Moderator {...props} />}
             />
+            <Route exact path="/password-reset" component={(props) => <PasswordReset {...props}/>}/>
           </Switch>
           {/*--   Footer start   ---*/}
 
