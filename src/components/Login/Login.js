@@ -112,9 +112,8 @@ class Login extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
-        <LoadingOverlay loading={this.state.loading} />
         <div className="Login">
+          <LoadingOverlay loading={this.state.loading} />
           <div className="login-card">
             <h1>Log in</h1>
             <Form onSubmit={this.signIn}>
@@ -138,7 +137,6 @@ class Login extends React.Component {
             </Form>
           </div>
         </div>
-      </React.Fragment>
     );
   }
 }
