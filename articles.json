@@ -9,7 +9,7 @@
       "degree": "minimal",
       "direction": "left",
       "objectivity": "",
-      "outcome": "Verified",
+      "outcome": "Pending",
       "dateSubmitted": "16/04/2020",
       "source": ""
     },
@@ -38,6 +38,19 @@
       "outcome": "Fake",
       "dateSubmitted": "19/04/2020",
       "source": ""
+    },
+    {
+      "id": 3,
+      "title": "Tonight from 11.30pm nobody should be on the street. Doors a",
+      "url": null,
+      "article": "Tonight from 11.30pm nobody should be on the street. Doors and windows should remain closed as helicopters spray disinfectants into the air to eradicate the coronavirus. Please spread this information to all your contacts.",
+      "sentiment": "positive",
+      "degree": "minimal",
+      "direction": "left",
+      "objectivity": "very objective",
+      "outcome": "Fake",
+      "dateSubmitted": "4/23/2020",
+      "source": "https://www.bbc.co.uk/news/52039642"
     }
   ]
 }
