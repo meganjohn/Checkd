@@ -8,6 +8,7 @@
     opacity: 1; 
 }
 
+<<<<<<< HEAD
 /* Scale navbar elements based on viewport width */
 @media (min-width:601px) {
     .nav-bar {
@@ -135,6 +136,68 @@
         color: #C6C6C6;
         opacity: 1;
     }
+=======
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #161616;
+    height: 49px;
+    font-size: 14px;
+    font-family: IBMPlexSans-SemiBold, sans-serif;
+}
+
+.left-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.right-group {
+    display: flex;
+    justify-content: center;
+}
+
+.line-spacer {
+    width: 1px;
+    height: 24px;
+    background: #3D3D3D 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+.nav-home-link {
+    padding-left: 16px;
+    padding-right: 16px;
+    width: 120px;
+    height: 18px;
+    text-align: left;
+    letter-spacing: 0.1px;
+    color: #FFFFFF;
+    opacity: 1;
+    font-weight: bold;
+}
+
+.left-group .nav-general-link {
+    padding-left: 16px;
+    padding-right: 16px;
+    width: 120px;
+    height: 18px;
+    text-align: left;
+    letter-spacing: 0.16px;
+    color: #C6C6C6;
+    opacity: 1;
+}
+
+.right-group .nav-general-link {
+    padding-left: 16px;
+    padding-right: 16px;
+    width: 120px;
+    height: 18px;
+    text-align: right;
+    letter-spacing: 0.16px;
+    color: #C6C6C6;
+    opacity: 1;
+>>>>>>> 6d122d4e763b0263353c65739bbab55e026b7f62
 }
 
 .link-div {

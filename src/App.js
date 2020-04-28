@@ -14,8 +14,8 @@ import Home from "./components/Home/Home";
 import About from "./components/About/About";
 import Dashboard from "./components/Dashboard/Dashboard";
 import DashboardDetail from "./components/DashboardDetail/DashboardDetail";
-import "./App.css";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
+import "./App.css";
 
 class App extends React.Component {
   state = {
