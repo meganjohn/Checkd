@@ -68,7 +68,11 @@ class App extends React.Component {
             />
             <Route exact path="/login" component={Login} />
             <Route exact path="/logout" component={Logout} />
-            <Route exact path="/become-a-moderator" component={Moderator} />
+            <Route
+              exact
+              path="/become-a-moderator"
+              component={(props) => <Moderator {...props} />}
+            />
           </Switch>
           {/*--   Footer start   ---*/}
 

@@ -5,7 +5,6 @@ import LoadingOverlay from "../LoadingOverlay/LoadingOverlay";
 import Step1 from "./Step1/Step1";
 import Step2 from "./Step2/Step2";
 import "./Login.css";
-const provider = new firebase.auth.TwitterAuthProvider();
 
 class Login extends React.Component {
   state = {
@@ -46,6 +45,14 @@ class Login extends React.Component {
   };
 
   signInTwitter = () => {
+    const provider = new firebase.auth.TwitterAuthProvider();
+    this.setState({ loading: true }, () => {
+      firebase.auth().signInWithRedirect(provider);
+    });
+  };
+
+  signInGoogle = () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
     this.setState({ loading: true }, () => {
       firebase.auth().signInWithRedirect(provider);
     });
@@ -117,6 +124,7 @@ class Login extends React.Component {
                 step={this.state.step}
                 nextStep={this.nextStep}
                 signInTwitter={this.signInTwitter}
+                signInGoogle={this.signInGoogle}
                 emailError={this.state.emailError}
                 handleRemember={this.handleRemember}
               />

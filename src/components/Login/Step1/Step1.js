@@ -43,7 +43,7 @@ function Step1(props) {
         <p>Log in with Twitter</p>
         <LogoTwitter32 aria-label="Twitter" className="login-twitter-icon" />
       </div>
-      <div className="login-socials-container">
+      <div className="login-socials-container" onClick={props.signInGoogle}>
         <p>Log in with Google</p>
         <span>
           <i class="fab fa-google" />
