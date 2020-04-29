@@ -97,7 +97,7 @@ class DashboardDetail extends React.Component {
                 this.titleCase(this.state.article.objectivity) : null}
               </div>
             </div>
-            <div className="submission-details-left">Source:</div>
+            <div className="submission-details-left">Source from independent research:</div>
             <TextInput className="submission-source"
                        onChange={this.onSourceChange}/>
             <div className="dashboard-details-buttons">
