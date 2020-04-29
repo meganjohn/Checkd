@@ -20,7 +20,7 @@ const ourInfo = [
       "to train to become a Full Stack Developer.", 
       gitHubLogo, "https://github.com/lawcia", "/lawcia", 
       linkedinLogo, "https://www.linkedin.com/in/lawrencianjume/", "LinkedIn"),
-  new Person("Megan", 
+  new Person("Megan John", 
       "I'm Megan, a London-based aspiring software developer, on the hunt for " +
       "my first tech role. I'm currently working at a digital marketing agency in " + 
       "central London and spend my free time exercising, reading, and learning to code.", 
