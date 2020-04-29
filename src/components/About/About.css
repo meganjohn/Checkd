@@ -29,9 +29,8 @@
 }
 
 .about-container {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 250px;
+  height: 560px;
+  width: 250px;
   padding: 10px 15px;
   margin: 20px;
 }
