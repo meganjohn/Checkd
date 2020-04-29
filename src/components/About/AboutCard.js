@@ -6,6 +6,7 @@ class AboutCard extends React.Component {
     super(props);
     this.state = {
       name: props.name,
+      headshot: props.headshot,
       bio: props.bio,
       link1Logo: props.link1Logo,
       link1: props.link1,
@@ -21,6 +22,7 @@ class AboutCard extends React.Component {
       <div className="about-container">
         <div className="about-card">
           <h3>{this.state.name}</h3>
+          <img className="headshot" src={this.state.headshot}></img>
           <p>{this.state.bio}</p>
           <a className="link-group" href={this.state.link1} target="_blank" rel="noopener noreferrer">
             <img src={this.state.link1Logo} alt=""></img>
