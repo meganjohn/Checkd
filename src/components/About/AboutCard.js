@@ -20,19 +20,21 @@ class AboutCard extends React.Component {
   render() {
     return (
       <div className="about-container">
-        <div className="about-card">
           <h3>{this.state.name}</h3>
-          <img className="headshot" src={this.state.headshot}></img>
-          <p>{this.state.bio}</p>
-          <a className="link-group" href={this.state.link1} target="_blank" rel="noopener noreferrer">
-            <img src={this.state.link1Logo} alt=""></img>
-            {this.state.link1Text}
-          </a>
-          <a className="link-group" href={this.state.link2} target="_blank" rel="noopener noreferrer">
-            <img src={this.state.link2Logo} alt=""></img>
-            {this.state.link2Text}
-          </a>
-        </div>
+          <div className="card-content">
+            <img className="headshot" src={this.state.headshot}></img>
+            <div className="card-text">
+              <p>{this.state.bio}</p>
+              <a className="link-group" href={this.state.link1} target="_blank" rel="noopener noreferrer">
+                <img src={this.state.link1Logo} alt=""></img>
+                {this.state.link1Text}
+              </a>
+              <a className="link-group" href={this.state.link2} target="_blank" rel="noopener noreferrer">
+                <img src={this.state.link2Logo} alt=""></img>
+                {this.state.link2Text}
+              </a>
+            </div>
+          </div>
       </div>
     );
   }
