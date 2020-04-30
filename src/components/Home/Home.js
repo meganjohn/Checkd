@@ -1,6 +1,6 @@
 import React from "react";
 import "./Home.css";
-import photo from "./waves.png";
+import photo from "./waveshd.png";
 import { Button } from "carbon-components-react";
 import { useHistory } from "react-router-dom";
 
@@ -12,7 +12,8 @@ function Home() {
         className="home-header"
         style={{ backgroundImage: `url(${photo})` }}
       >
-        <h1>COVID-19 poses an unprecedented challenge.</h1>
+        <container className="home-header-container">
+        <h1>Welcome to our Coronavirus factual news checker.</h1>
         <h3>
           To help facilitate the public’s access to factually correct news
           surrounding Coronavirus, and to reduce anxiety and negative
@@ -25,6 +26,7 @@ function Home() {
         >
           Submit news
         </Button>
+        </container>
       </header>
       <div className="home-info">
         <h2 className="home-heading-2">How does Checkd work?</h2>
@@ -74,21 +76,18 @@ function Home() {
         <p>
           We are currently going through a global health crisis that will
           fundamentally change our personal and professional lives. Right now
-          we’re all feeling confused about the best advice to follow, uncertain
-          about recovery timelines and eager to get back to our old lives. It
-          doesn’t help that there are lot of rumours about immunity-boosting
-          methods and potential cures to Coronavirus going around. We all want
-          our loved ones to be safe and healthy, so how do we separate fact from
-          fiction to reduce any potentially risk-inducing activities that they
-          might take?
+          we’re all feeling confused about the best advice to follow. There are
+          lot of rumours about immunity-boosting methods and potential cures to
+          Coronavirus going around. We all want our loved ones to be safe and
+          healthy, so how do we separate fact from fiction to reduce any
+          misleading activities that they might take?
         </p>
         <p>
-          At Checkd, we’re here to make this easier for you. We fact check news
-          items on your behalf, to reduce the time and effort you spend in
-          checking the links and news articles that you receive to keep your
-          friends and family safe. Just send us a piece of news and let us do
-          all the work for your peace of mind. We’ll let you know if anything
-          you’ve sent is fake and you can tell your friends and families.
+          At Checkd, we fact check news items on your behalf, to reduce the time
+          and effort you spend in checking the information that you receive to
+          keep your friends and family safe. Just send us a piece of news; we’ll
+          let you know if anything you’ve sent is fake for you to tell your
+          friends and families.
         </p>
         <p>
           Our platform is trusted and secure - we do not store any personal data

@@ -12,6 +12,14 @@
   background-size: cover;
   overflow-wrap: break-word;
   word-break: break-word;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.home-header-container {
+  max-width: 1300px; 
 }
 
 .home-header h1 {
@@ -28,7 +36,7 @@
 }
 
 .home-main {
-  max-width: 750px;
+  max-width: 1000px;
   width: 100%;
   padding: 0 16px 16px 16px;
 }
