@@ -226,11 +226,11 @@ li {
   color: #ffffff;
   opacity: 1;
   font-weight: bold;
+  z-index: 3000;
 }
 
 .narrow-screen .nav-general-link {
   padding: 2px 1.25em 0px 0px;
-  /* max-width: 120px; */
   height: 18px;
   letter-spacing: 0.16px;
   color: #c6c6c6;
@@ -239,4 +239,8 @@ li {
 
 .nav-general-link:hover {
   color: #ffffff;
+}
+
+.active-route {
+  text-decoration: solid white;
 }
