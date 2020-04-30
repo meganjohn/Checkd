@@ -15,9 +15,9 @@ function Footer (props) {
                 © Checkd, 2020
             </div>
             <div className="right-group">
-                <Link to="mailto:checkd.news@gmail.com">
+                <a href="mailto:checkd.news@gmail.com">
                 Contact Us
-                </Link>
+                </a>
             </div>
         </div>
     );
