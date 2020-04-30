@@ -12,7 +12,7 @@ a {
   text-decoration: none;
 }
 
-a:hover {
+.sticky-nav-bar a:hover {
   color: #ffffff;
 }
 

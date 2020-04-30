@@ -71,22 +71,25 @@ class Newsfeed extends React.Component {
     return (
       <>
         <div className="article">
-          <div>{article.url ? <a href={article.url}>{article.title}</a> :
-            <>{article.title + '...'}</>}
+          <div className="article-title">
+            <div>{article.url ? <a href={article.url}>{article.title}</a> :
+              <>{article.title + '...'}</>}
+            </div>
           </div>
-          <div className="article-header">Date submitted</div>
-          <div className="article-header">Status</div>
-          <button className="article-open-button"
-                  onClick={() => this.onArticleClick(article.id)}>
-            {(this.state.openArticleId !== null &&
-              this.state.openArticleId === article.id) ?
-              <FontAwesomeIcon icon={faCaretDown} size="lg"/> :
-              <FontAwesomeIcon icon={faCaretLeft} size="lg"/>}
-          </button>
-          <div></div>
-          <div>{article.dateSubmitted}</div>
-          <div className="article-outcome-column">
-            <span className={outcomeClass}>{article.outcome}</span>
+          <div className="article-info">
+            <div className="article-header">Date submitted</div>
+            <div className="article-header">Status</div>
+            <button className="article-open-button"
+                    onClick={() => this.onArticleClick(article.id)}>
+              {(this.state.openArticleId !== null &&
+                this.state.openArticleId === article.id) ?
+                <FontAwesomeIcon icon={faCaretDown} size="lg"/> :
+                <FontAwesomeIcon icon={faCaretLeft} size="lg"/>}
+            </button>
+            <div>{article.dateSubmitted}</div>
+            <div className="article-outcome-column">
+              <span className={outcomeClass}>{article.outcome}</span>
+            </div>
           </div>
         </div>
         {(this.state.openArticleId !== null &&
