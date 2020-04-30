@@ -38,6 +38,11 @@
   width: 100%;
 }
 
+.article-date-section {
+  display: flex;
+  flex-direction: column;
+}
+
 @media only screen and (max-width: 600px) {
   .pending-article .bx--btn {
     padding: calc(.875rem - 3px) 12px calc(.875rem - 3px) 12px;

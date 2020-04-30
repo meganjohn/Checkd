@@ -5,6 +5,7 @@ const npmSentiment = new Sentiment();
 const translateSentiment = require('../helpers/translateSentiment');
 const calculateBias = require('../helpers/calculateBias');
 const fs = require('fs');
+const format = require('date-fns/format');
 
 router.post('/', (req, res) => {
   // data from Review Form
@@ -13,7 +14,6 @@ router.post('/', (req, res) => {
     article
   } = req.body;
   const filePath = './articles.json';
-  let result, sentimentFromNpm, sentiment, polarity, objectivity, degree, direction, biasError, dateSubmitted, title;
 
   const spawn = require("child_process").spawn;
   const python = spawn('python', ['helper.py', JSON.stringify({
@@ -38,46 +38,50 @@ router.post('/', (req, res) => {
     } else {
       (async () => {
         try {
+          console.log("parsing article data")
           const articleData = JSON.parse(articleBuffer[0].toString('utf-8'));
-          title = articleData.title;
 
           //npm sentiment section
-          result = npmSentiment.analyze(articleData.article);
-          sentimentFromNpm = translateSentiment(result.comparative);
-          sentiment = sentimentFromNpm;
+          console.log("calculating article sentiment")
+          const result = npmSentiment.analyze(articleData.article);
+          const sentimentFromNpm = translateSentiment(result.comparative);
+          const sentiment = sentimentFromNpm;
 
           // Text blob section
-          polarity = articleData.sentiment[0];
-          objectivity = articleData.sentiment[1];
+          console.log("retrieving polarity and objectivity")
+          const polarity = articleData.sentiment[0];
+          const objectivity = articleData.sentiment[1];
 
+          console.log("calculating political bias")
           const {
             direction,
             degree,
             error
           } = await calculateBias(articleData.article);
-          if (error) biasError = "could not calculate political bias";
+          const biasError = error ? "could not calculate political bias" : null;
 
 
           const date = new Date();
-          dateSubmitted = date.toLocaleDateString('en-GB');
 
           // save initial review to articles.json
+          console.log("opening articles datastore")
           const allArticlesData = fs.readFileSync(filePath);
           const allArticlesJSON = JSON.parse(allArticlesData);
           const id = allArticlesJSON.articles.length;
           const newArticle = {
             "id": id,
-            "title": title,
+            "title": articleData.title,
             "url": url,
-            "article": article,
+            "article": articleData.article,
             "sentiment": sentiment,
             "degree": degree || biasError,
             "direction": direction || biasError,
             "objectivity": objectivity,
             "outcome": "Pending",
-            "dateSubmitted": dateSubmitted,
-            "sources": []
+            "dateSubmitted": format(date, "dd/MM/yyyy"),
+            "source": ""
           }
+          console.log("saving new article to datastore")
           allArticlesJSON.articles.push(newArticle)
           fs.writeFile(filePath, JSON.stringify(allArticlesJSON, null, 4), (err) => {
             if (err) {

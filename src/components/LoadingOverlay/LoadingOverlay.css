@@ -1,0 +1,14 @@
+.LoadingOverlay {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(198, 198, 198, 0.83);
+}
