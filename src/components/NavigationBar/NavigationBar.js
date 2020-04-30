@@ -1,22 +1,15 @@
 import React from "react";
-// import Axios from "axios";
-import {
-  // BrowserRouter as Router,
-  // Switch,
-  // Route,
-  Link,
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./NavigationBar.css";
-
-
 
 class NavigationBar extends React.Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       open: false
     };
+    this.onLinkClick = this.onLinkClick.bind(this);
     this.onMenuClick = this.onMenuClick.bind(this);
   }
 
@@ -77,13 +70,13 @@ class NavigationBar extends React.Component {
                 <div className={this.state.open ? "nav-open" : " closed"}>
                   <ul>
                     <li className="link-div">
-                      <Link to="/newsfeed" className="nav-general-link" activeClassName="active-route"> News Feed </Link>
+                      <Link to="/newsfeed" className="nav-general-link" onClick={this.onLinkClick} activeClassName="active-route"> News Feed </Link>
                     </li>
                     <li className="link-div">
-                      <Link to="/submit-news" className="nav-general-link" activeClassName="active-route"> Submit News </Link>
+                      <Link to="/submit-news" className="nav-general-link" onClick={this.onLinkClick} activeClassName="active-route"> Submit News </Link>
                     </li>
                     <li className="link-div">
-                      <Link to="/about-us" className="nav-general-link" activeClassName="active-route">About Us</Link>
+                      <Link to="/about-us" className="nav-general-link" onClick={this.onLinkClick} activeClassName="active-route">About Us</Link>
                     </li>
                   </ul>
                 </div>
@@ -92,22 +85,22 @@ class NavigationBar extends React.Component {
                   <div className="line-spacer"></div>
 
                   <div className="link-div">
-                    <Link to="/" className="nav-home-link"> Checkd </Link>
+                    <Link to="/" onClick={this.onLinkClick} className="nav-home-link"> Checkd </Link>
                   </div>
               </div>
               <div className="right-group">
                 <div className="link-div">
                   {this.props.state.loggedIn && (
                     // logo
-                    <Link to="/dashboard" className="nav-general-link" activeClassName="active-route">Dashboard</Link>
+                    <Link to="/dashboard" onClick={this.onLinkClick} className="nav-general-link" activeClassName="active-route">Dashboard</Link>
                   )}
                   {!this.props.state.loggedIn && (
                     // logo
-                    <Link to="/login" className="nav-general-link" activeClassName="active-route">Moderator Login </Link>
+                    <Link to="/login" onClick={this.onLinkClick} className="nav-general-link" activeClassName="active-route">Moderator Login </Link>
                   )}
                   {this.props.state.loggedIn && (
                     //logo
-                    <Link to="/logout" className="nav-general-link" activeClassName="active-route"> Logout </Link>
+                    <Link to="/logout" onClick={this.onLinkClick} className="nav-general-link" activeClassName="active-route"> Logout </Link>
                   )}
                 </div>
               </div>
@@ -116,6 +109,12 @@ class NavigationBar extends React.Component {
         </div>
       </>
     );
+  }
+
+  onLinkClick() {
+    this.setState({
+      open: false
+    });
   }
 
   onMenuClick() {
