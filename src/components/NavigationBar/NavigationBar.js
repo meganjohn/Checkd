@@ -65,7 +65,7 @@ class NavigationBar extends React.Component {
           <section className="sticky-nav-bar">
             <nav>
               <div className="burger-menu">
-                <div onClick={this.onMenuClick}>
+                <div className="burger-menu-link" onClick={this.onMenuClick}>
                   <div id="menu-icon" className={this.state.open ? "open" : ""}>
                     <span></span>
                     <span></span>
@@ -74,7 +74,7 @@ class NavigationBar extends React.Component {
                   </div>
                 </div>
                 <div className={this.state.open ? "nav-open" : " closed"}>
-                  <ul className>
+                  <ul>
                     <li className="link-div">
                       <Link to="/newsfeed" className="nav-general-link"> News Feed </Link>
                     </li>

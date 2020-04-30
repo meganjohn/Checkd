@@ -30,8 +30,11 @@ nav {
 }
 
 .burger-menu {
+  z-index: 2500;
+}
+
+.burger-menu .burger-menu-link {
   padding-left: 1rem;
-  /* width: 30px; */
 }
 
 .home-link-and-spacer {
@@ -73,6 +76,7 @@ ul {
   flex-direction: column;
   padding: 0.75rem 0;
   margin: 0;
+  width: 100%;
 }
 
 li {
