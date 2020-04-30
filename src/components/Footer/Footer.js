@@ -15,6 +15,7 @@ function Footer (props) {
                 © Checkd, 2020
             </div>
             <div className="right-group">
+                <img src="./email.svg" alt="Email icon"></img>
                 <a href="mailto:checkd.news@gmail.com">
                 Contact Us
                 </a>
