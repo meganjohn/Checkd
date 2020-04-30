@@ -36,8 +36,8 @@
 }
 
 .about-container {
-  height: 250px;
-  margin-bottom: 10px;
+  min-height: 250px;
+  margin-bottom: 18px;
   width: 100%;
   max-width: 598px;
   display: flex;
