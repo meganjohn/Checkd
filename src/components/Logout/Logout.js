@@ -1,9 +1,11 @@
 import React from "react";
 import firebase from "firebase";
+import { Button } from "carbon-components-react";
+import "./Logout.css";
 
 class Logout extends React.Component {
   state = {
-    authStatus: null,
+    error: null,
   };
 
   signOut = () => {
@@ -11,7 +13,6 @@ class Logout extends React.Component {
       .auth()
       .signOut()
       .then(() => {
-        this.setState({ authStatus: "You are logged out" });
         this.props.history.push("/login");
       })
       .catch((err) => {
@@ -19,16 +20,20 @@ class Logout extends React.Component {
       });
   };
 
+  goBack = () => {
+    this.props.history.goBack();
+  };
+
   render() {
-    const { authStatus } = this.state;
     return (
-      <div>
-        <div>
-          <h1>Admin Logout</h1>
-          <h2>CHECKD</h2>
-          <h3>logout</h3>
-          <p>Auth status: {authStatus}</p>
-          <button onClick={this.signOut}>Sign Out</button>
+      <div className="Logout">
+        <div className="logout-card">
+          <h1>Log out</h1>
+          <p>Are you sure you want to log out?</p>
+          <div className="logout-buttons-container">
+          <Button kind="secondary" className="logout-button" onClick={this.goBack}>No</Button>
+          <Button kind="primary" className="logout-button" onClick={this.signOut}>Yes</Button>
+          </div>
         </div>
       </div>
     );

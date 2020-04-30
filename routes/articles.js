@@ -49,7 +49,7 @@ router.post('/updateArticle', (req, res) => {
     foundArticle.outcome = outcome;
     foundArticle.source = source;
     obj.articles[indexOfArticle] = foundArticle;
-    fs.writeFile('./articles.json', JSON.stringify(obj),
+    fs.writeFile('./articles.json', JSON.stringify(obj, null, 4),
       (err) => {
         if(err) throw err;
         res.sendStatus(200);

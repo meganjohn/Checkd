@@ -9,7 +9,7 @@ def main ():
     # converts json into dictionary with keys url and article
     review = json.loads(sys.argv[1])
     url = review['url'] or ""
-    article_string = f"{review['article']}" or ""
+    article_string = review['article'] or ""
 
     if url == "" and article_string != "":
          sentiment = textBlob(article_string)
