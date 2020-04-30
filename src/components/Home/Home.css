@@ -30,7 +30,7 @@
 .home-main {
   max-width: 750px;
   width: 100%;
-  padding-bottom: 16px;
+  padding: 0 16px 16px 16px;
 }
 
 .home-heading-2 {

@@ -26,34 +26,6 @@ function Home() {
           Submit news
         </Button>
       </header>
-      <main className="home-main">
-        <h2 className="home-heading-2">Why use Checkd?</h2>
-        <p>
-          We are currently going through a global health crisis that will
-          fundamentally change our personal and professional lives. Right now
-          we’re all feeling confused about the best advice to follow, uncertain
-          about recovery timelines and eager to get back to our old lives. It
-          doesn’t help that there are lot of rumours about immunity-boosting
-          methods and potential cures to Coronavirus going around. We all want
-          our loved ones to be safe and healthy, so how do we separate fact from
-          fiction to reduce any potentially risk-inducing activities that they
-          might take?</p>
-        <p>
-          At Checkd, we’re here to make this easier for you. We fact check news
-          items on your behalf, to reduce the time and effort you spend in
-          checking the links and news articles that you receive to keep your
-          friends and family safe. Just send us a piece of news and let us do
-          all the work for your peace of mind. We’ll let you know if anything
-          you’ve sent is fake and you can tell your friends and families.
-        </p>
-        <p>
-          Our platform is trusted and secure - we do not store any personal data
-          when you submit news and we have a team of moderators to check your
-          submission, using our analysis against dimensions such as political
-          bias, and references to credible sources. We aim to reach a final
-          decision on your news submission within 3 days.
-        </p>
-      </main>
       <div className="home-info">
         <h2 className="home-heading-2">How does Checkd work?</h2>
         <div className="info-steps">
@@ -97,6 +69,35 @@ function Home() {
           </div>
         </div>
       </div>
+      <main className="home-main">
+        <h2 className="home-heading-2">Why use Checkd?</h2>
+        <p>
+          We are currently going through a global health crisis that will
+          fundamentally change our personal and professional lives. Right now
+          we’re all feeling confused about the best advice to follow, uncertain
+          about recovery timelines and eager to get back to our old lives. It
+          doesn’t help that there are lot of rumours about immunity-boosting
+          methods and potential cures to Coronavirus going around. We all want
+          our loved ones to be safe and healthy, so how do we separate fact from
+          fiction to reduce any potentially risk-inducing activities that they
+          might take?
+        </p>
+        <p>
+          At Checkd, we’re here to make this easier for you. We fact check news
+          items on your behalf, to reduce the time and effort you spend in
+          checking the links and news articles that you receive to keep your
+          friends and family safe. Just send us a piece of news and let us do
+          all the work for your peace of mind. We’ll let you know if anything
+          you’ve sent is fake and you can tell your friends and families.
+        </p>
+        <p>
+          Our platform is trusted and secure - we do not store any personal data
+          when you submit news and we have a team of moderators to check your
+          submission, using our analysis against dimensions such as political
+          bias, and references to credible sources. We aim to reach a final
+          decision on your news submission within 3 days.
+        </p>
+      </main>
     </div>
   );
 }
