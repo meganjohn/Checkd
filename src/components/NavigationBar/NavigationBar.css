@@ -97,11 +97,13 @@ li a:visited {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: left;
 }
 
 .right-group {
   display: flex;
   justify-content: center;
+  text-align: right;
 }
 
 .line-spacer {
@@ -109,12 +111,12 @@ li a:visited {
   height: 24px;
   background: #3d3d3d 0% 0% no-repeat padding-box;
   opacity: 1;
+  margin-right: 25px;
 }
 
 .nav-home-link {
-  padding-left: 16px;
-  padding-right: 16px;
-  width: 120px;
+  padding: 2px 2em 0px 20px;
+  width: 100px;
   height: 18px;
   text-align: left;
   letter-spacing: 0.1px;
@@ -123,26 +125,12 @@ li a:visited {
   font-weight: bold;
 }
 
-.left-group .nav-general-link {
-  padding-left: 16px;
-  padding-right: 16px;
-  width: 120px;
+.nav-general-link {
+  padding: 2px 2em 0px 0px;
+  max-width: 120px;
   height: 18px;
-  text-align: left;
   letter-spacing: 0.16px;
   color: #c6c6c6;
-  opacity: 1;
-}
-
-.right-group .nav-general-link {
-  padding-left: 16px;
-  padding-right: 16px;
-  width: 120px;
-  height: 18px;
-  text-align: right;
-  letter-spacing: 0.16px;
-  color: #c6c6c6;
-  text-decoration: none;
   opacity: 1;
 }
 
