@@ -2,6 +2,8 @@ import React from "react";
 import Axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faCaretLeft } from "@fortawesome/free-solid-svg-icons";
+import compareDesc from "date-fns/compareDesc";
+import parse from "date-fns/parse";
 import "./Newsfeed.css";
 
 class Newsfeed extends React.Component {
@@ -37,6 +39,14 @@ class Newsfeed extends React.Component {
   }
 
   render() {
+    let articles = this.state.articles;
+    if (articles) {
+      articles = articles.sort((a, b) => {
+        var dateLeft = parse(a.dateSubmitted, "dd/MM/yyyy", new Date());
+        var dateRight = parse(b.dateSubmitted, "dd/MM/yyyy", new Date());
+        return compareDesc(dateLeft, dateRight);
+      });
+    }
     return (
       <div className="newsfeed">
         <div className="newsfeed-card">
@@ -47,8 +57,8 @@ class Newsfeed extends React.Component {
             <h2>Results of latest news submissions</h2>
           </div>
           <div className="articles">
-            {this.state.articles
-              ? this.state.articles.map((article) => this.renderArticle(article))
+            {articles
+              ? articles.map((article) => this.renderArticle(article))
               : null}
           </div>
         </div>
