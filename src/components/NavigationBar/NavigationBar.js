@@ -39,7 +39,7 @@ class NavigationBar extends React.Component {
                     <Link to="/submit-news" className="nav-general-link" activeClassName="active-route"> Submit News </Link>
                   </div>
                   <div className="link-div">
-                    <Link to="/about-us" className="nav-general-link" activeClassName="active-route">About us</Link>
+                    <Link to="/about-us" className="nav-general-link" activeClassName="active-route">About Us</Link>
                   </div>
                 </div>
                 <div className="right-group">
@@ -83,7 +83,7 @@ class NavigationBar extends React.Component {
                       <Link to="/submit-news" className="nav-general-link" activeClassName="active-route"> Submit News </Link>
                     </li>
                     <li className="link-div">
-                      <Link to="/about-us" className="nav-general-link" activeClassName="active-route">About us</Link>
+                      <Link to="/about-us" className="nav-general-link" activeClassName="active-route">About Us</Link>
                     </li>
                   </ul>
                 </div>
