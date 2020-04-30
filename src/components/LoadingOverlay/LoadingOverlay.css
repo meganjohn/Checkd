@@ -8,7 +8,6 @@
   align-items: center;
   z-index: 99;
   position: absolute;
-  height: 100%;
   width: 100%;
   background-color: rgba(198, 198, 198, 0.83);
 }
