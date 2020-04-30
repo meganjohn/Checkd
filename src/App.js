@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import firebase from "firebase";
 import SubmitNews from "./components/SubmitNews/SubmitNews";
 import Login from "./components/Login/Login";
@@ -23,6 +19,7 @@ class App extends React.Component {
   state = {
     loggedIn: false,
     loading: true,
+    isWideViewport: true
   };
 
   getAuthState = () => {
@@ -36,9 +33,19 @@ class App extends React.Component {
     });
   };
 
+      getViewportWidth = () => {
+        let self = this;
+        if (window.innerWidth < 601) {
+          // Viewport not wide enough for full navbar
+
+          self.setState({isWideViewport: false})
+        }
+      };
+
   componentDidMount() {
     this.getAuthState();
-  };
+    this.getViewportWidth();
+  }
 
   render() {
     return (
@@ -69,7 +76,11 @@ class App extends React.Component {
               path="/become-a-moderator"
               component={(props) => <Moderator {...props} />}
             />
-            <Route exact path="/password-reset" component={(props) => <PasswordReset {...props}/>}/>
+            <Route
+              exact
+              path="/password-reset"
+              component={(props) => <PasswordReset {...props} />}
+            />
           </Switch>
           <Footer></Footer>
         </div>

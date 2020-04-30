@@ -2,6 +2,8 @@ import React from "react";
 import Axios from "axios";
 import { Link } from "react-router-dom";
 import { Button } from "carbon-components-react";
+import compareDesc from "date-fns/compareDesc";
+import parse from "date-fns/parse";
 import "./Dashboard.css";
 
 class Dashboard extends React.Component {
@@ -35,6 +37,14 @@ class Dashboard extends React.Component {
 
   render() {
     const { loading, loggedIn } = this.props.auth;
+    let pendingArticles = this.state.pendingArticles;
+    if (pendingArticles) {
+      pendingArticles = pendingArticles.sort((a, b) => {
+        var dateLeft = parse(a.dateSubmitted, "dd/MM/yyyy", new Date());
+        var dateRight = parse(b.dateSubmitted, "dd/MM/yyyy", new Date());
+        return compareDesc(dateLeft, dateRight);
+      });
+    }
     if (loading) {
       return (
         <div>
@@ -53,12 +63,10 @@ class Dashboard extends React.Component {
         <div className="dashboard">
           <div className="dashboard-card">
             <h1>Moderator Dashboard</h1>
-            {this.state.pendingArticles && this.state.pendingArticles.length > 0 ?
+            {pendingArticles && pendingArticles.length > 0 ?
               <div className="articles">
-                {this.state.pendingArticles
-                  ? this.state.pendingArticles.map((article) =>
-                    this.renderArticle(article))
-                  : null}
+                {pendingArticles.map((article) =>
+                  this.renderArticle(article))}
               </div>
             : <div>No articles awaiting moderation</div>}
             </div>

@@ -15,9 +15,16 @@
 }
 
 .about-page-contents h1 {
-  border-bottom: 3px solid #0F61FD;
+  border-bottom: 3px solid #0f61fd;
   margin-bottom: 42px;
   padding-bottom: 8px;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 15px;
 }
 
 .about-contents {
@@ -27,19 +34,13 @@
 }
 
 .about-container {
-  height: 560px;
-  width: 250px;
-  padding: 10px 15px;
-  margin: 24px;
-}
-
-.about-card {
-  margin-top: 2em;
-  max-width: 250px;
+  min-height: 250px;
+  margin-bottom: 18px;
+  width: 100%;
+  max-width: 598px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: left;
 }
 
 .bottom-spacer {
@@ -54,7 +55,7 @@ a {
   text-decoration: none;
 }
 
-.link-group img{
+.link-group img {
   height: 1.25em;
   position: relative;
   top: 3px;
@@ -62,7 +63,18 @@ a {
 }
 
 .headshot {
-  height: 150px;
-  width: 150px;
+  height: 120px;
+  width: 120px;
   border-radius: 50%;
+  margin-right: 15px;
+}
+
+.card-text {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.card-text * + * {
+  margin-top: 0.5em;
 }
