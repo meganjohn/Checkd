@@ -127,7 +127,7 @@ li a:visited {
 
 .nav-general-link {
   padding: 2px 2em 0px 0px;
-  max-width: 120px;
+  /* max-width: 120px; */
   height: 18px;
   letter-spacing: 0.16px;
   color: #c6c6c6;
@@ -212,4 +212,32 @@ li a:visited {
   top: 18px;
   width: 0%;
   left: 50%;
+}
+
+.narrow-screen .line-spacer {
+  width: 1px;
+  height: 24px;
+  background: #3d3d3d 0% 0% no-repeat padding-box;
+  opacity: 1;
+  margin-right: 0;
+}
+
+.narrow-screen .nav-home-link {
+  padding: 2px 1em 0px 20px;
+  width: 100px;
+  height: 18px;
+  text-align: left;
+  letter-spacing: 0.1px;
+  color: #ffffff;
+  opacity: 1;
+  font-weight: bold;
+}
+
+.narrow-screen .nav-general-link {
+  padding: 2px 1.25em 0px 0px;
+  /* max-width: 120px; */
+  height: 18px;
+  letter-spacing: 0.16px;
+  color: #c6c6c6;
+  opacity: 1;
 }

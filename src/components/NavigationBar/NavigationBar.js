@@ -49,7 +49,7 @@ class NavigationBar extends React.Component {
                     )}
                     {!this.props.state.loggedIn && (
                       // logo
-                      <Link to="/login" className="nav-general-link"> Login </Link>
+                      <Link to="/login" className="nav-general-link">Moderator Login </Link>
                     )}
                     {this.props.state.loggedIn && (
                       //logo
@@ -102,7 +102,7 @@ class NavigationBar extends React.Component {
                   )}
                   {!this.props.state.loggedIn && (
                     // logo
-                    <Link to="/login" className="nav-general-link"> Login </Link>
+                    <Link to="/login" className="nav-general-link">Moderator Login </Link>
                   )}
                   {this.props.state.loggedIn && (
                     //logo
