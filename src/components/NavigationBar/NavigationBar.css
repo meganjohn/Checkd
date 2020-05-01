@@ -74,8 +74,8 @@ nav {
   visibility: hidden;
 }
 
-.right-group img {
-  padding-right: 0.75em;
+.sticky-nav-bar .right-group img {
+  margin-right: 0.75em;
   height: 20px;
   width: auto;
   margin-top: -3px;
