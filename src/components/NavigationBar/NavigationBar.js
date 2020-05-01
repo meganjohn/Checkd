@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./NavigationBar.css";
+import loginIcon from "./login-icon.svg";
 
 class NavigationBar extends React.Component {
   constructor(props) {
@@ -38,16 +39,19 @@ class NavigationBar extends React.Component {
                 <div className="right-group">
                   <div className="link-div">
                     {this.props.state.loggedIn && (
-                      // logo
                       <Link to="/dashboard" className="nav-general-link" activeClassName="active-route">Dashboard</Link>
                     )}
                     {!this.props.state.loggedIn && (
-                      // logo
-                      <Link to="/login" className="nav-general-link" activeClassName="active-route">Moderator Login </Link>
+                      <Link to="/login" className="nav-general-link" activeClassName="active-route">
+                        <img src={loginIcon} alt="Login icon"></img>
+                        Moderator Login 
+                        </Link>
                     )}
                     {this.props.state.loggedIn && (
-                      //logo
-                      <Link to="/logout" className="nav-general-link" activeClassName="active-route"> Logout </Link>
+                      <Link to="/logout" className="nav-general-link" activeClassName="active-route">
+                        <img src={loginIcon} alt="Login icon"></img>
+                        Logout
+                        </Link>
                     )}
                   </div>
                 </div>
@@ -91,16 +95,19 @@ class NavigationBar extends React.Component {
               <div className="right-group">
                 <div className="link-div">
                   {this.props.state.loggedIn && (
-                    // logo
                     <Link to="/dashboard" onClick={this.onLinkClick} className="nav-general-link" activeClassName="active-route">Dashboard</Link>
                   )}
                   {!this.props.state.loggedIn && (
-                    // logo
-                    <Link to="/login" onClick={this.onLinkClick} className="nav-general-link" activeClassName="active-route">Moderator Login </Link>
+                    <Link to="/login" onClick={this.onLinkClick} className="nav-general-link" activeClassName="active-route">
+                      <img src={loginIcon} alt="Login icon"></img>
+                      Moderator Login
+                      </Link>
                   )}
                   {this.props.state.loggedIn && (
-                    //logo
-                    <Link to="/logout" onClick={this.onLinkClick} className="nav-general-link" activeClassName="active-route"> Logout </Link>
+                    <Link to="/logout" onClick={this.onLinkClick} className="nav-general-link" activeClassName="active-route">
+                      <img src={loginIcon} alt="Login icon"></img>
+                      Logout
+                      </Link>
                   )}
                 </div>
               </div>
