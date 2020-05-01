@@ -68,6 +68,10 @@ a {
   text-decoration: none;
 }
 
+h4 {
+  padding-top: 0.4em;
+}
+
 .link-group img {
   height: 1.25em;
   position: relative;
@@ -86,14 +90,14 @@ a {
 .card-text {
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
+  /* margin-left: 10px; */
 }
 
 .card-text * + * {
   margin-top: 0.5em;
 }
 
-@media only screen and (min-width: 650px) {
+@media only screen and (min-width: 420px) {
   .card-content {
     flex-wrap: nowrap; 
   }
@@ -106,5 +110,11 @@ a {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
+  }
+
+  .card-text {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
   }
 }
