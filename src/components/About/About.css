@@ -29,6 +29,8 @@
   flex-direction: row;
   align-items: center;
   margin-top: 15px;
+  flex-wrap: wrap; 
+  justify-content: center;
 }
 
 .about-contents {
@@ -44,7 +46,7 @@
   max-width: 598px;
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: center;
 }
 
 .bottom-spacer {
@@ -67,8 +69,8 @@ a {
 }
 
 .headshot {
-  height: 120px !important;
-  width: 120px !important;
+  height: 120px;
+  width: auto;
   border-radius: 50%;
   margin-right: 15px;
 }
@@ -81,4 +83,14 @@ a {
 
 .card-text * + * {
   margin-top: 0.5em;
+}
+
+@media only screen and (min-width: 500px) {
+  .card-content {
+    flex-wrap: nowrap; 
+  }
+
+  .about-container {
+    align-items: left;
+  }
 }
