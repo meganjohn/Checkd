@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import firebase from "firebase";
+import firebase from "firebase/app";
+import "firebase/auth";
 import SubmitNews from "./components/SubmitNews/SubmitNews";
 import Login from "./components/Login/Login";
 import Logout from "./components/Logout/Logout";
@@ -19,12 +20,12 @@ class App extends React.Component {
   state = {
     loggedIn: false,
     loading: true,
-    isWideViewport: true
+    isWideViewport: true,
   };
 
   getAuthState = () => {
     let self = this;
-    firebase.auth().onAuthStateChanged(function (user) {
+    firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         self.setState({ loggedIn: true, loading: false });
       } else {
@@ -33,14 +34,14 @@ class App extends React.Component {
     });
   };
 
-      getViewportWidth = () => {
-        let self = this;
-        if (window.innerWidth < 601) {
-          // Viewport not wide enough for full navbar
+  getViewportWidth = () => {
+    let self = this;
+    if (window.innerWidth < 601) {
+      // Viewport not wide enough for full navbar
 
-          self.setState({isWideViewport: false})
-        }
-      };
+      self.setState({ isWideViewport: false });
+    }
+  };
 
   componentDidMount() {
     this.getAuthState();
@@ -82,7 +83,7 @@ class App extends React.Component {
               component={(props) => <PasswordReset {...props} />}
             />
           </Switch>
-          <Footer></Footer>
+          <Footer />
         </div>
       </Router>
     );

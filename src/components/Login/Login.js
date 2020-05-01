@@ -1,5 +1,5 @@
 import React from "react";
-import firebase from "firebase";
+import { auth } from "firebase/app";
 import { Form } from "carbon-components-react";
 import LoadingOverlay from "../LoadingOverlay/LoadingOverlay";
 import Step1 from "./Step1/Step1";
@@ -31,11 +31,10 @@ class Login extends React.Component {
   signIn = (event) => {
     const { email, password, remember } = this.state;
     const persistence = remember ? "LOCAL" : "SESSION";
-    firebase
-      .auth()
-      .setPersistence(firebase.auth.Auth.Persistence[persistence])
+    auth()
+      .setPersistence(auth.Auth.Persistence[persistence])
       .then(() => {
-        return firebase.auth().signInWithEmailAndPassword(email, password);
+        return auth().signInWithEmailAndPassword(email, password);
       })
       .then(() => {
         this.setState({ passwordError: null }, () => {
@@ -49,31 +48,28 @@ class Login extends React.Component {
   };
 
   signInTwitter = () => {
-    const provider = new firebase.auth.TwitterAuthProvider();
+    const provider = new auth.TwitterAuthProvider();
     this.setState({ loading: true }, () => {
-      firebase.auth().signInWithRedirect(provider);
+      auth().signInWithRedirect(provider);
     });
   };
 
   signInGoogle = () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
+    const provider = new auth.GoogleAuthProvider();
     this.setState({ loading: true }, () => {
-      firebase.auth().signInWithRedirect(provider);
+      auth().signInWithRedirect(provider);
     });
   };
 
   signInRedirect = () => {
     this.setState({ loading: true });
-    firebase
-      .auth()
+    auth()
       .getRedirectResult()
       .then((result) => {
         // If signed-in user, redirect to dashboard
         this.setState({ loading: false }, () => {
           if (result.user) {
             this.props.history.push("/dashboard");
-          } else {
-            console.log("no user");
           }
         });
       })
@@ -84,8 +80,7 @@ class Login extends React.Component {
 
   nextStep = (event) => {
     const { email } = this.state;
-    firebase
-      .auth()
+    auth()
       .fetchSignInMethodsForEmail(email)
       .then((res) => {
         if (res[0] === "password") {

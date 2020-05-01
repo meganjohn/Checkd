@@ -1,5 +1,5 @@
 import React from "react";
-import firebase from "firebase";
+import { auth } from "firebase/app";
 import {
   Form,
   TextInput,
@@ -21,8 +21,7 @@ class PasswordReset extends React.Component {
 
   handleSubmit = (event) => {
     const { email } = this.state;
-    firebase
-      .auth()
+    auth()
       .sendPasswordResetEmail(email)
       .then(() => {
         this.setState({ sent: true });

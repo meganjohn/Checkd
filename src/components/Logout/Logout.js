@@ -1,5 +1,5 @@
 import React from "react";
-import firebase from "firebase";
+import { auth } from "firebase/app";
 import { Button } from "carbon-components-react";
 import "./Logout.css";
 
@@ -9,8 +9,7 @@ class Logout extends React.Component {
   };
 
   signOut = () => {
-    firebase
-      .auth()
+    auth()
       .signOut()
       .then(() => {
         this.props.history.push("/login");

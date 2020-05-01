@@ -1,6 +1,6 @@
 import React from "react";
 import "./Moderator.css";
-import firebase from "firebase";
+import { auth } from "firebase/app";
 import { Form, TextInput, Button } from "carbon-components-react";
 
 class Moderator extends React.Component {
@@ -36,9 +36,7 @@ class Moderator extends React.Component {
     event.preventDefault();
     const { email, password1 } = this.state;
     this.setState({ emailError: false, passwordError: false });
-    this.validateForm() && firebase
-        .auth()
-        .createUserWithEmailAndPassword(email, password1)
+    this.validateForm() && auth().createUserWithEmailAndPassword(email, password1)
         .then(() => this.props.history.push("/login"))
         .catch((error) => {
           if (error.code === "auth/invalid-email") {
