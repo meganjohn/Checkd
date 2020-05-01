@@ -59,7 +59,7 @@ class About extends React.Component {
           <h1>About Us</h1>
           <div className="about-contents">
             {ourInfo.map((person) => {
-              return <AboutCard {...person}/>;
+              return <AboutCard key={person.name} {...person}/>;
             })}
           </div>
         </div>
