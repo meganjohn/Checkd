@@ -22,7 +22,6 @@ function Step2(props) {
           id="passwordInput"
           invalid={props.passwordError? true : false}
           invalidText={props.passwordError}
-          placeholder="Password"
           showPasswordLabel="Show password"
           name="password"
           onChange={props.handleChange}
