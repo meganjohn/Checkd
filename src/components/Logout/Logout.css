@@ -1,0 +1,33 @@
+.Logout{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F3F3F3;
+  min-height: calc(100vh - 98px);
+}
+
+.logout-card {
+  margin: 58px 0px;
+  padding: 0;
+  display: block;
+  width: 100%;
+  max-width: 367px;
+  background-color: #FFFFFF;
+  /* height: 100%; */
+}
+
+.logout-buttons-container {
+  display: flex;
+  width: 100%;
+  margin: 32px 0 0 0;
+}
+
+.logout-button.bx--btn{
+  width: 50%;
+  margin: 0px;
+  display: flex;
+}
+
+.logout-card h1, .logout-card p {
+  margin: 16px;
+}

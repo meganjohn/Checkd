@@ -1,0 +1,23 @@
+.SubmitNews {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: calc(100vh - 98px);
+  align-items: center;
+  padding: 0 16px;
+  position: relative;
+}
+
+.submitnews-card {
+  padding-top: 47px;
+  width: 100%;
+  min-height: 100%;
+  max-width: 598px;
+  padding-bottom: 70px;
+}
+
+.submitnews-card h1 {
+  border-bottom: 3px solid #0F61FD;
+  margin-bottom: 42px;
+  padding-bottom: 8px;
+}

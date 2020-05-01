@@ -24,9 +24,9 @@ Created as an entry for Code First Girls: Hack From Home.
 
 1) As a user, I want to submit a url so that the newspaper article can be reviewed
 2) As a user, I want to submit news article text, so that it can be reviewed
-3) As a user, I want to recieve a confirmation, to ensure my submission has been sent
-4) As a user, I want to recieve an intitial sentiment and bias of an article, so I can quickly self assess the likelihood of authenticity
-5) As a user, I want to recieve confirmation that my submission has been assessed by moderators, so that I can know whether its fake and inform others
+3) As a user, I want to receive a confirmation, to ensure my submission has been sent
+4) As a user, I want to receive an intitial sentiment and bias of an article, so I can quickly self assess the likelihood of authenticity
+5) As a user, I want to receive confirmation that my submission has been assessed by moderators, so that I can know whether its fake and inform others
 6) As a user, I want to see a news feed, so that I can keep updated on fake/confirmed news and share my findings with others
 
 1) As a potential moderator, I want to register with the site, so that I can become a moderator
@@ -88,17 +88,13 @@ Note for IBM Carbon if you are not using the windows operating system then it sh
 
 `SASS_PATH="node_modules"`
 
-### Generate Firebase Private Key
-
-6) Go to your firebase console and select 'Project settings'. Then go to the 'Service Accounts' tab. Then click 'Generate new private key', and store it in this project at `config/serviceAccountKey.json`. NOTE: Do not upload this to github, or share it publicly.
-
 ### Build and Run Project
 
-7) Now you can build the react project and start the express development server. This command should create a folder called build.
+6) Now you can build the react project and start the express development server. This command should create a folder called build.
 
 `npm run dev`
 
-8) The website will now be running on http://localhost:5000
+7) The website will now be running on http://localhost:5000
 
 ## Status
 
@@ -116,3 +112,5 @@ This project is still in development.
 
 - Arka
 - Imane
+
+

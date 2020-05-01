@@ -1,0 +1,246 @@
+.sticky-nav-bar {
+  position: sticky;
+  top: 0px;
+  left: 0px;
+  height: 49px;
+  background: #161616 0% 0% no-repeat padding-box;
+  z-index: 2000;
+  opacity: 1;
+}
+
+a {
+  text-decoration: none;
+}
+
+.sticky-nav-bar a:hover {
+  color: #ffffff;
+}
+
+/* Scale navbar elements based on viewport width */
+@media (min-width: 601px) {
+  .narrow-screen {
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  .wide-screen {
+    display: none;
+  }
+}
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #161616;
+  height: 49px;
+  font-size: 14px;
+  font-family: IBMPlexSans-SemiBold, sans-serif;
+}
+
+.burger-menu {
+  z-index: 2500;
+}
+
+.burger-menu .burger-menu-link {
+  padding-left: 1rem;
+}
+
+.home-link-and-spacer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 49px;
+  padding-left: 65px;
+}
+
+.nav-open {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  background: #161616;
+  z-index: 100;
+  opacity: 0.95;
+  color: #c6c6c6;
+  transition: height 1s ease;
+  -moz-transition: height 1s ease; /* Firefox 4 */
+  -webkit-transition: height 1s ease; /* Safari 和 Chrome */
+  -o-transition: height 1s ease;
+  overflow-y: hidden;
+}
+
+.closed {
+  height: 49px;
+  visibility: hidden;
+}
+
+ul {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem 0;
+  margin: 0;
+  width: 100%;
+}
+
+li {
+  display: block;
+  text-decoration: none;
+  margin: 1.5rem 2.5rem;
+}
+
+.left-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+}
+
+.right-group {
+  display: flex;
+  justify-content: center;
+  text-align: right;
+}
+
+.line-spacer {
+  width: 1px;
+  height: 24px;
+  background: #3d3d3d 0% 0% no-repeat padding-box;
+  opacity: 1;
+  margin-right: 25px;
+}
+
+.nav-home-link {
+  padding: 2px 2em 0px 20px;
+  width: 100px;
+  height: 18px;
+  text-align: left;
+  letter-spacing: 0.1px;
+  color: #ffffff;
+  opacity: 1;
+  font-weight: bold;
+}
+
+.nav-general-link {
+  padding: 2px 2em 0px 0px;
+  height: 18px;
+  letter-spacing: 0.16px;
+  color: #c6c6c6;
+  opacity: 1;
+}
+
+.link-div {
+  display: flex;
+  align-items: center;
+}
+
+#menu-icon {
+  width: 30px;
+  height: 30px;
+  margin-top: 13px;
+  margin-right: 10px;
+  position: relative;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+#menu-icon span {
+  display: block;
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
+
+#menu-icon span:nth-child(1) {
+  top: 0px;
+}
+
+#menu-icon span:nth-child(2),
+#menu-icon span:nth-child(3) {
+  top: 9px;
+}
+
+#menu-icon span:nth-child(4) {
+  top: 18px;
+}
+
+#menu-icon.open span:nth-child(1) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+#menu-icon.open span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+#menu-icon.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+#menu-icon.open span:nth-child(4) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+.narrow-screen .line-spacer {
+  width: 1px;
+  height: 24px;
+  background: #3d3d3d 0% 0% no-repeat padding-box;
+  opacity: 1;
+  margin-right: 0;
+}
+
+.narrow-screen .nav-home-link {
+  padding: 2px 1em 0px 20px;
+  width: 100px;
+  height: 18px;
+  text-align: left;
+  letter-spacing: 0.1px;
+  color: #ffffff;
+  opacity: 1;
+  font-weight: bold;
+  z-index: 3000;
+}
+
+.narrow-screen .nav-general-link {
+  padding: 2px 1.25em 0px 0px;
+  height: 18px;
+  letter-spacing: 0.16px;
+  color: #c6c6c6;
+  opacity: 1;
+}
+
+.nav-general-link:hover {
+  color: #ffffff;
+}
+
+.active-route {
+  text-decoration: solid white;
+}

@@ -1,0 +1,25 @@
+.disabled-colour {
+  color: #C6C6C6;
+}
+
+.bx--radio-button__appearance {
+  border-color: #C6C6C6;
+}
+
+.review-form-margin {
+  margin-bottom: 10px;
+}
+
+.review-textarea-label {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  width: 100%;
+  padding-bottom: 6px;
+
+}
+
+.review-textarea-label p {
+  color: #525252;
+  font-size: 12px;
+}
