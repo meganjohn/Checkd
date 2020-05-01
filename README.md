@@ -1,6 +1,6 @@
 # Checkd
 
-A news fact-checking website giving users an indication of likely sentiment and bias of a news article followed up by moderator review for authenticity and reliability.
+A news fact-checking website giving users an indication of likely sentiment and bias of a news article followed up by moderator review for authenticity and reliability. View the site [here](https://checkd-news.herokuapp.com/).
 
 Created as an entry for Code First Girls: Hack From Home.
 

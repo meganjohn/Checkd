@@ -12,7 +12,7 @@ function Home() {
         className="home-header"
         style={{ backgroundImage: `url(${photo})` }}
       >
-        <container className="home-header-container">
+        <div className="home-header-container">
         <h1>Welcome to our news checker.</h1>
         <h3>
           To help facilitate the public’s access to factually correct news
@@ -26,21 +26,21 @@ function Home() {
         >
           Submit news
         </Button>
-        </container>
+        </div>
       </header>
       <div className="home-info">
         <h2 className="home-heading-2">How does Checkd work?</h2>
         <div className="info-steps">
           <div className="info-step">
             <p className="info-heading">
-              <div className="circle" />
+              <i className="circle" />
               News submission
             </p>
             <p>Submit a link or article extract that you are unsure is true</p>
           </div>
           <div className="info-step">
             <p className="info-heading">
-              <div className="circle" />
+              <i className="circle" />
               Analysis
             </p>
             <p>
@@ -51,7 +51,7 @@ function Home() {
           </div>
           <div className="info-step">
             <p className="info-heading">
-              <div className="circle" />
+              <i className="circle" />
               Verdict
             </p>
             <p>
@@ -61,7 +61,7 @@ function Home() {
           </div>
           <div className="info-step">
             <p className="info-heading">
-              <div className="circle" />
+              <i className="circle" />
               Result
             </p>
             <p>
