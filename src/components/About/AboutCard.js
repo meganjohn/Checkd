@@ -6,6 +6,7 @@ class AboutCard extends React.Component {
     super(props);
     this.state = {
       name: props.name,
+      role: props.role,
       headshot: props.headshot,
       bio: props.bio,
       link1Logo: props.link1Logo,
@@ -20,7 +21,10 @@ class AboutCard extends React.Component {
   render() {
     return (
       <div className="about-container">
+        <div className="name-and-role">
           <h3>{this.state.name}</h3>
+          <h4>{this.state.role}</h4>
+        </div>
           <div className="card-content">
             <img className="headshot" src={this.state.headshot}></img>
             <div className="card-text">

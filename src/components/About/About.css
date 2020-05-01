@@ -39,6 +39,13 @@
   flex-wrap: wrap;
 }
 
+.name-and-role {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 598px;
+}
+
 .about-container {
   min-height: 250px;
   margin-bottom: 18px;
@@ -73,6 +80,7 @@ a {
   width: auto;
   border-radius: 50%;
   margin-right: 15px;
+  margin-bottom: 1em;
 }
 
 .card-text {
@@ -85,12 +93,18 @@ a {
   margin-top: 0.5em;
 }
 
-@media only screen and (min-width: 500px) {
+@media only screen and (min-width: 650px) {
   .card-content {
     flex-wrap: nowrap; 
   }
 
   .about-container {
     align-items: left;
+  }
+
+  .name-and-role {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
   }
 }

@@ -1,10 +1,12 @@
 class Person {
   constructor(name, 
+        role,
         headshot,
         bio, 
         link1Logo, link1, link1Text, 
         link2Logo, link2, link2Text) {
     this.name = name;
+    this.role = role;
     this.headshot = headshot;
     this.bio = bio;
     this.link1Logo = link1Logo;
