@@ -13,7 +13,7 @@ function Home() {
         style={{ backgroundImage: `url(${photo})` }}
       >
         <container className="home-header-container">
-        <h1>Welcome to our Coronavirus factual news checker.</h1>
+        <h1>Welcome to our news checker.</h1>
         <h3>
           To help facilitate the public’s access to factually correct news
           surrounding Coronavirus, and to reduce anxiety and negative
