@@ -65,7 +65,7 @@ Created as an entry for Code First Girls: Hack From Home.
 
 `pip install -r requirements.txt`
 
-### Create Environmemt Variables
+### Create Environment Variables
 
 3) In the root directory create a .env file to store the environment variables, and assign API_KEY_BI to your api key. Get the political bias API key from [bipartisian](https://www.thebipartisanpress.com/political-bias-api-and-integrations/).
 
