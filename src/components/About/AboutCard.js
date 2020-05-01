@@ -14,7 +14,7 @@ class AboutCard extends React.Component {
       link1Text: props.link1Text,
       link2Logo: props.link2Logo,
       link2: props.link2,
-      link2Text: props.link2Text
+      link2Text: props.link2Text,
     };
   }
 
@@ -25,20 +25,40 @@ class AboutCard extends React.Component {
           <h3>{this.state.name}</h3>
           <h4>{this.state.role}</h4>
         </div>
-          <div className="card-content">
-            <img className="headshot" src={this.state.headshot}></img>
-            <div className="card-text">
-              <p>{this.state.bio}</p>
-              <a className="link-group" href={this.state.link1} target="_blank" rel="noopener noreferrer">
-                <img src={this.state.link1Logo} alt=""></img>
-                {this.state.link1Text}
-              </a>
-              <a className="link-group" href={this.state.link2} target="_blank" rel="noopener noreferrer">
-                <img src={this.state.link2Logo} alt=""></img>
-                {this.state.link2Text}
-              </a>
-            </div>
+        <div className="card-content">
+          <img
+            className="headshot"
+            src={this.state.headshot}
+            alt={`${this.state.name} headshot`}
+          />
+          <div className="card-text">
+            <p>{this.state.bio}</p>
+            <a
+              className="link-group"
+              href={this.state.link1}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src={this.state.link1Logo}
+                alt={`${this.state.link1Text} logo`}
+              />
+              {this.state.link1Text}
+            </a>
+            <a
+              className="link-group"
+              href={this.state.link2}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src={this.state.link2Logo}
+                alt={`${this.state.link2Text}logo`}
+              />
+              {this.state.link2Text}
+            </a>
           </div>
+        </div>
       </div>
     );
   }
