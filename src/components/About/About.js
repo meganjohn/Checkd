@@ -44,7 +44,7 @@ const ourInfo = [
       "my first tech role. I'm currently working at a digital marketing agency in " + 
       "central London and spend my free time exercising, reading, and learning to code.", 
       gitHubLogo, "https://github.com/meganjohn", "/meganjohn",
-      meganjohnLogo, "meganjohn.co.uk", "meganjohn.co.uk")
+      meganjohnLogo, "https://meganjohn.co.uk/", "meganjohn.co.uk")
 ];
 
 class About extends React.Component {
