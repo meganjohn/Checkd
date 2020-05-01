@@ -34,7 +34,7 @@ nav {
   background-color: #161616;
   height: 49px;
   font-size: 14px;
-  font-family: IBMPlexSans-SemiBold, sans-serif;
+  /* font-family: IBMPlexSans-SemiBold, sans-serif; */
 }
 
 .burger-menu {
