@@ -1,5 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { 
+    Link,
+    NavLink
+       } from "react-router-dom";
 import "./NavigationBar.css";
 import loginIcon from "./login-icon.svg";
 
@@ -23,35 +26,35 @@ class NavigationBar extends React.Component {
               <nav>
                 <div className="left-group">
                   <div className="link-div">
-                    <Link to="/" className="nav-home-link"> Checkd </Link>
+                    <NavLink to="/" className="nav-home-link" activeClassName="active-home"> Checkd </NavLink>
                   </div>
                   <div className="line-spacer"></div>
                   <div className="link-div">
-                    <Link to="/newsfeed" className="nav-general-link" activeClassName="active-route"> News Feed </Link>
+                    <NavLink to="/newsfeed" className="nav-general-link" activeClassName="active-route"> News Feed </NavLink>
                   </div>
                   <div className="link-div">
-                    <Link to="/submit-news" className="nav-general-link" activeClassName="active-route"> Submit News </Link>
+                    <NavLink to="/submit-news" className="nav-general-link" activeClassName="active-route"> Submit News </NavLink>
                   </div>
                   <div className="link-div">
-                    <Link to="/about-us" className="nav-general-link" activeClassName="active-route">About Us</Link>
+                    <NavLink to="/about-us" className="nav-general-link" activeClassName="active-route">About Us</NavLink>
                   </div>
                 </div>
                 <div className="right-group">
                   <div className="link-div">
                     {this.props.state.loggedIn && (
-                      <Link to="/dashboard" className="nav-general-link" activeClassName="active-route">Dashboard</Link>
+                      <NavLink to="/dashboard" className="nav-general-link" activeClassName="active-route">Dashboard</NavLink>
                     )}
                     {!this.props.state.loggedIn && (
-                      <Link to="/login" className="nav-general-link" activeClassName="active-route">
+                      <NavLink to="/login" className="nav-general-link" activeClassName="active-route">
                         <img src={loginIcon} alt="Login icon"></img>
                         Moderator Login 
-                        </Link>
+                        </NavLink>
                     )}
                     {this.props.state.loggedIn && (
-                      <Link to="/logout" className="nav-general-link" activeClassName="active-route">
+                      <NavLink to="/logout" className="nav-general-link" activeClassName="active-route">
                         <img src={loginIcon} alt="Login icon"></img>
                         Logout
-                        </Link>
+                        </NavLink>
                     )}
                   </div>
                 </div>
@@ -74,13 +77,19 @@ class NavigationBar extends React.Component {
                 <div className={this.state.open ? "nav-open" : " closed"}>
                   <ul>
                     <li className="link-div">
-                      <Link to="/newsfeed" className="nav-general-link" onClick={this.onLinkClick} activeClassName="active-route"> News Feed </Link>
+                      <NavLink to="/newsfeed" className="nav-general-link" onClick={this.onLinkClick} activeClassName="active-route"> 
+                        News Feed 
+                      </NavLink>
                     </li>
                     <li className="link-div">
-                      <Link to="/submit-news" className="nav-general-link" onClick={this.onLinkClick} activeClassName="active-route"> Submit News </Link>
+                      <NavLink to="/submit-news" className="nav-general-link" onClick={this.onLinkClick} activeClassName="active-route">
+                        Submit News 
+                      </NavLink>
                     </li>
                     <li className="link-div">
-                      <Link to="/about-us" className="nav-general-link" onClick={this.onLinkClick} activeClassName="active-route">About Us</Link>
+                      <NavLink to="/about-us" className="nav-general-link" onClick={this.onLinkClick} activeClassName="active-route">
+                        About Us
+                      </NavLink>
                     </li>
                   </ul>
                 </div>
@@ -89,25 +98,27 @@ class NavigationBar extends React.Component {
                   <div className="line-spacer"></div>
 
                   <div className="link-div">
-                    <Link to="/" onClick={this.onLinkClick} className="nav-home-link"> Checkd </Link>
+                    <NavLink to="/" onClick={this.onLinkClick} className="nav-home-link" activeClassName="active-home"> Checkd </NavLink>
                   </div>
               </div>
               <div className="right-group">
                 <div className="link-div">
                   {this.props.state.loggedIn && (
-                    <Link to="/dashboard" onClick={this.onLinkClick} className="nav-general-link" activeClassName="active-route">Dashboard</Link>
+                    <NavLink to="/dashboard" onClick={this.onLinkClick} className="nav-general-link" activeClassName="active-route">
+                      Dashboard
+                    </NavLink>
                   )}
                   {!this.props.state.loggedIn && (
-                    <Link to="/login" onClick={this.onLinkClick} className="nav-general-link" activeClassName="active-route">
+                    <NavLink to="/login" onClick={this.onLinkClick} className="nav-general-link" activeClassName="active-route">
                       <img src={loginIcon} alt="Login icon"></img>
                       Moderator Login
-                      </Link>
+                      </NavLink>
                   )}
                   {this.props.state.loggedIn && (
-                    <Link to="/logout" onClick={this.onLinkClick} className="nav-general-link" activeClassName="active-route">
+                    <NavLink to="/logout" onClick={this.onLinkClick} className="nav-general-link" activeClassName="active-route">
                       <img src={loginIcon} alt="Login icon"></img>
                       Logout
-                      </Link>
+                      </NavLink>
                   )}
                 </div>
               </div>

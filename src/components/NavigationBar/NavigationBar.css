@@ -261,6 +261,12 @@ li {
   color: #ffffff;
 }
 
-.active-route {
-  text-decoration: solid white;
+.link-div .active-route {
+  color: #ffffff;
+  text-decoration: underline solid white 1px;
+  text-underline-offset: 0.75em;
+}
+
+.link-div .active-home {
+  color: #ffffff;
 }
