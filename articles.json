@@ -1,56 +1,69 @@
 {
     "articles": [
-    {
-      "id": 0,
-      "title": "Coronavirus: 'Sombre day' as UK deaths hit 10,000",
-      "url": "https://www.bbc.co.uk/news/uk-52264145",
-      "article": null,
-      "sentiment": "negative",
-      "degree": "minimal",
-      "direction": "left",
-      "objectivity": "",
-      "outcome": "Pending",
-      "dateSubmitted": "16/04/2020",
-      "source": ""
-    },
-    {
-      "id": 1,
-      "title": "Coronavirus: UK lockdown extended for 'at least' three weeks",
-      "url": "https://www.bbc.co.uk/news/uk-52313715",
-      "article": null,
-      "sentiment": "negative",
-      "degree": "minimal",
-      "direction": "left",
-      "objectivity": "",
-      "outcome": "Verified",
-      "dateSubmitted": "17/04/2020",
-      "source": ""
-    },
-    {
-      "id": 2,
-      "title": "Coronavirus lockdown: Anti-social behaviour on rise but overall crime falls",
-      "url": "https://www.bbc.co.uk/news/uk-52298016",
-      "article": null,
-      "sentiment": "positive",
-      "degree": "minimal",
-      "direction": "left",
-      "objectivity": "",
-      "outcome": "Fake",
-      "dateSubmitted": "19/04/2020",
-      "source": ""
-    },
-    {
-      "id": 3,
-      "title": "Tonight from 11.30pm nobody should be on the street. Doors a",
-      "url": null,
-      "article": "Tonight from 11.30pm nobody should be on the street. Doors and windows should remain closed as helicopters spray disinfectants into the air to eradicate the coronavirus. Please spread this information to all your contacts.",
-      "sentiment": "positive",
-      "degree": "minimal",
-      "direction": "left",
-      "objectivity": "very objective",
-      "outcome": "Fake",
-      "dateSubmitted": "23/04/2020",
-      "source": "https://www.bbc.co.uk/news/52039642"
-    }
-  ]
+        {
+            "id": 0,
+            "title": "Tonight from 11.30pm nobody should be on the street. Doors a",
+            "url": null,
+            "article": "Tonight from 11.30pm nobody should be on the street. Doors and windows should remain closed as helicopters spray disinfectants into the air to eradicate the coronavirus. Please spread this information to all your contacts.",
+            "sentiment": "positive",
+            "degree": "minimal",
+            "direction": "left",
+            "objectivity": "very objective",
+            "outcome": "Fake",
+            "dateSubmitted": "29/04/2020",
+            "source": "https://www.bbc.co.uk/news/52039642"
+        },
+        {
+            "id": 1,
+            "title": "Matt Hancock smashes his coronavirus testing target with 120k done in 24 hours",
+            "url": "https://www.thesun.co.uk/news/11523916/coronavirus-target-hit-matt-hancock/",
+            "article": "\n\nMATT Hancock has smashed his 100,000 testing target with 122,347 completed on the last day of April.\n\nA huge ramping up on the final day of the month meant an extra 40,000 coronavirus tests were done, the Government's data showed.\n\n⚠️ Read our coronavirus live blog for the latest news & updates\n\n7 Matt Hancock announces he's met his coronavirus test target this evening\n\n7 Matt Hancock seemed happy this morning as he went into No10 Credit: PA:Press Association\n\nHe told the nation at the No10 briefing: \"At the beginning of last month I set a goal, that anyone who needs a test should get a test.\n\n\"That as a nation we should achieve 100,000 per day by the end of the month.\n\n\"I knew it was an audacious goal, but we needed an audacious goal because testing is so important.\n\n\"I can announce we have met our goal.\n\n\"This unprecedented expansion in British testing capability is an incredible achievement.\"\n\nHealth Secretary Mr Hancock set the ambitious target earlier this month as part of a promise to increase the numbers of tests being done.\n\nHe has expanded the criteria meaning that 25million NHS staff, key workers and others who need to leave the house to go to their job can now get a test.\n\nYesterday Boris Johnson revealed that the country was 20,000 short of the target, and had tested 81,000 on the second to last day before the target had to be met.\n\nThe Housing Secretary said: \"I think we will have either met it or be very close.\"\n\n\"In that sense the target will have succeeded because it will have galvanised people across government, in the private sector and across the country to build the network that we needed to, which is the foundation of testing, tracking and tracing, which we need in the next phase of fighting the virus.\"\n\nHe added: \"This in itself is just a stepping stone.\n\n\"We need to go beyond 100,000, but we have now seen a very substantial increase in testing in quite a short period of time.\n\n\"In that sense, it's been a success. But there's more to be done.\"\n\nHowever, critics pointed out that the testing figure did not include the total tests that had been done, but included thousands of home test kits that went out in the post.\n\nSome of them may not have taken place, or the results not yet sent back.\n\nMr Hancock also told the nation that schools would not reopen until it was fully safe to do so.\n\nHe stressed that kids' safety would not be at risk.\n\nHowever, he dodged questioning on whether parents would face fines if they didn't send their children in, when the lockdown measures are lifted.\n\nIt came after a pol today said around half of people would feel uncomfortable doing so after restrictions are lifted.\n\n7 Testing this month has reached the target Credit: gov.uk\n\n7 A nurse prepares to take a sample at a Covid-19 drive through testing centre Credit: PA:Press Association\n\nGive now to The Sun's NHS appeal BRITAIN’s four million NHS staff are on the frontline in the battle against coronavirus. But while they are helping save lives, who is there to help them? The Sun has launched an appeal to raise £1MILLION for NHS workers. The Who Cares Wins Appeal aims to get vital support to staff in their hour of need. We have teamed up with NHS Charities Together in their urgent Covid-19 Appeal to ensure the money gets to exactly who needs it. The Sun is donating £50,000 and we would like YOU to help us raise a million pounds, to help THEM. No matter how little you can spare, please donate today here: www.thesun.co.uk/whocareswinsappeal.\n\nGrant Shapps echoed the same words last night, telling BBC Newsnight: \"At the beginning of the week we only had 5,000 home tests available, we now have 20,000 available and it's the reason we are quite likely to get very close to or meet the 100,000 target.\"\n\nHome testing kits have been flying this week, with ministers releasing nearly 15,000 a day direct to doorsteps.\n\nA Government source also told the BBC they were \"fairly confident\" that testing numbers \"will be where our projections forecasted them to be\".\n\n\"But you can never take anything for granted,\" they added.\n\nTesting is seen as being the first stage of a plan to end the lockdown.\n\nMore testing will be set up, followed by an extensive track and trace programme to target anyone who may have been in contact with the killer bug.\n\nBoris Johnson tweeted this morning an appeal for Brits to stay on track and work together to beat the bug.\n\nHe said: \"I can confirm that we are past the peak of this disease.\n\n\"We are past the peak and we are on the downward slope.\n\n\"And we have so many reasons to be hopeful for the long term.\n\n\"But we can only defeat coronavirus by our collective discipline and working together.\"\n\n7 Matt Hancock set the ambitious target of getting to 100,000 a day by the end of April Credit: crown copyright\n\nBritain is recruiting an army of tracers at the moment to form part of a huge ten, expected to be in the tens of thousands.\n\nChasing down people that new sufferers have mixed with to halt contagion chains has proved hugely successful in countries like South Korea and Germany.\n\nBut for track and trace to work, ministers believe the number who currently have the virus will need to be reduced to 100,000 first, The Sun can reveal.\n\nAt the moment, the estimated number is still running at 350,000, according to the King’s College London tracker.\n\nWithout the track and trace scheme in place, it is likely the Cabinet will decide the full lockdown will have to stay in place beyond the next review point on May 7.\n\nMOST READ IN POLITICS STAYING SHUT Schools could stay closed 'until it's clear how much kids spread coronavirus' CORONAPHOBIA Two-thirds of Brits fear going back out even if lockdown lifted, poll reveals COVER UP Brits will be asked to wear face masks when lockdown is lifted, Boris confirms NOT FINE Schools to open when 'safe' and Hancock won't rule out fines for keeping kids off THREESY DOES IT Boris to reveal three-pronged 'roadmap' back to normality next week STAY INSIDE PM says we must 'keep going' with lockdown as he prepares to extend it to June HEADING TO THE EXIT Boris promises plan next week for lockdown exit with UK now 'past peak' COMING SOON Lockdown rules could get STRICTER as Boris prepares plan for 'phase two' R WE THERE YET? How UK's 'R' transmission rate will determine whether PM can lift lockdown\n\n7\n\n7\n\nJoin our George Cross campaign for NHS staff We are urging Sun readers to sign a petition calling for our NHS staff to be awarded the George Cross. We are backing a proposal by Lord Ashcroft to honour our health heroes with the gallantry gong given for acts of bravery that did not take place in battle. A No10 spokesman said: “The NHS is doing a fantastic job and the nation will want to find a way to say thank you when we have defeated this virus.” SAS hero Andy McNab added: “The award of a George Cross would show an emotional appreciation.” We are asking our readers to please sign the petition below.",
+            "sentiment": "positive",
+            "degree": "minimal",
+            "direction": "right",
+            "objectivity": "objective",
+            "outcome": "Verified",
+            "dateSubmitted": "01/05/2020",
+            "source": "https://www.theguardian.com/world/2020/may/01/ministers-accused-of-changing-covid-19-test-tally-to-hit-100000-goal"
+        },
+        {
+            "id": 2,
+            "title": "Pass it please. Good news, Wuhan’s coronavirus can be cured ",
+            "url": null,
+            "article": "Pass it please. Good news, Wuhan’s coronavirus can be cured by one bowl of freshly boiled garlic water.\nOld Chinese doctor has proven it’s efficacy. Many patients have also proven this to be effective.\nEight (8) cloves of chopped garlic add 7(cups) of water and bring to boil.\nEat and drink the boiled garlic water, overnight improvement and heading. Glad to share this.",
+            "sentiment": "positive",
+            "degree": "minimal",
+            "direction": "right",
+            "objectivity": "subjective",
+            "outcome": "Pending",
+            "dateSubmitted": "01/05/2020",
+            "source": ""
+        },
+        {
+            "id": 3,
+            "title": "Coronavirus immunity: Can you catch it twice?",
+            "url": "https://www.bbc.co.uk/news/health-52446965",
+            "article": "Image copyright Getty Images\n\nCan you catch coronavirus again? Why are some people sicker than others? Will it come back every winter? Will a vaccine work? Could immunity passports get some of us back to work? How do we manage the virus in the long-term?\n\nThe immune system is at the heart of some of the most important questions about the coronavirus.\n\nThe problem is we know very little.\n\nHow do you become immune to coronavirus?\n\nOur immune system is the body's defence against infection and it comes in two parts.\n\nThe first is always ready to go and leaps into action as soon as any foreign invader is detected in the body. It is known as the innate immune response and includes the release of chemicals that cause inflammation and white blood cells that can destroy infected cells.\n\nBut this system is not specific to coronavirus. It will not learn and it will not give you immunity to the coronavirus.\n\nInstead you need the adaptive immune response. This includes cells that produce targeted antibodies that can stick to the virus in order to stop it and T cells that can attack just the cells infected with the virus, called the cellular response.\n\nThis takes time - studies suggest it takes around 10 days to start making antibodies that can target the coronavirus and the sickest patients develop the strongest immune response.\n\nIf the adaptive immune response is powerful enough, then it could leave a lasting memory of the infection that will give protection in the future.\n\nIt is not known if people who have only mild symptoms, or none at all, will develop a sufficient adaptive immune response.\n\nHow long does immunity last?\n\nThe immune system's memory is rather like our own - it remembers some infections clearly, but has a habit of forgetting others.\n\nMeasles is highly memorable - one bout should give life-long immunity (as the weakened version in the MMR vaccine does). However, there are many others that are pretty forgettable. Children can get RSV (respiratory syncytial virus) multiple times in the same winter.\n\nThe new coronavirus, called Sars-CoV-2, has not been around long enough to know how long immunity lasts, but there are six other human coronaviruses that can give a clue.\n\nFour produce the symptoms of the common cold and immunity is short-lived. Studies showed some patients could be re-infected within a year.\n\nBut the common cold is generally mild. There are two more troublesome coronaviruses - the ones that cause Severe Acute Respiratory Syndrome (Sars) and Middle East Respiratory Syndrome (Mers) - in which antibodies have been detected a few years later.\n\n\"The question is not whether you become immune, it's how long for,\" said Paul Hunter, a professor in medicine at the University of East Anglia.\n\nHe added: \"It almost certainly will not last for life.\n\n\"Based on antibody studies in Sars it is possible that immunity will only last about one to two years, though this is not yet known for certain.\"\n\nHowever, even if you are not completely immune it is possible a second infection would not be as severe.\n\nImage copyright Getty Images Image caption Immunity could affect vaccine research\n\nHave people caught it twice?\n\nThere have been reports of people appearing to have multiple coronavirus infections in a short space of time.\n\nSome have argued people are genuinely being infected twice. Another school of thought is the virus goes into stealth mode in the body before being reactivated.\n\nHowever, the scientific consensus is that testing is the issue with patients being incorrectly told they were free of the virus.\n\nNobody has been deliberately reinfected with the virus to test immunity, but a pair of rhesus macaque monkeys have.\n\nThey were infected twice, once to build up an immune response and then a second time three weeks later. Those very limited experiments showed they did not develop symptoms again after such a quick reinfection.\n\nIf I have antibodies am I immune?\n\nThis is not guaranteed and that is why the World Health Organization is nervous about countries using immunity passports as a way out of lockdown.\n\nThe idea is if you pass the antibody test then you are safe to go back to work. This would be particularly valuable for staff in care homes or hospitals who come into contact with those at risk of developing severe symptoms.\n\nBut while you will find some antibodies in nearly every patient, not all are equal. Neutralising antibodies are the ones that stick to the coronavirus and are able to stop it infecting other cells. A study of 175 recovered patients in China showed 30% had very low levels of these neutralising antibodies.\n\nThat is why the World Health Organization says \"that cellular immunity [the other part of the adaptive response] may also be critical for recovery\".\n\nAnother issue is that just because you might be protected by your antibodies, it doesn't mean you cannot still harbour the virus and pass it onto others.\n\nWhy does immunity matter?\n\nIt matters for obvious personal health reasons and whether you will get Covid-19 multiple times and how often.\n\nImmunity will also affect how deadly the virus is. If people retain some, even imperfect, protection then it will make the disease less dangerous.\n\nUnderstanding immunity could help ease lockdown if it is clear who is not at risk of catching or spreading the virus.\n\nIf it is very difficult to produce long-term immunity, then it could make a vaccine harder to develop. Or it may change how the vaccine needs to be used - will it be a once a lifetime or once a year like the flu shot.\n\nAnd the duration of immunity, whether by infection or immunisation, will tell us how likely we are to be able to stop the virus spreading.\n\nThese are all big questions we still lack answers to.\n\nFollow James on Twitter",
+            "sentiment": "negative",
+            "degree": "minimal",
+            "direction": "left",
+            "objectivity": "objective",
+            "outcome": "Pending",
+            "dateSubmitted": "01/05/2020",
+            "source": ""
+        },
+        {
+            "id": 4,
+            "title": "Coronavirus: Apology after beach accidentally bleached in Spain",
+            "url": "https://www.stuff.co.nz/travel/themes/beaches/121354140/coronavirus-apology-after-beach-accidentally-bleached-in-spain",
+            "article": "The head of a Spanish coastal town has apologised after “disinfecting'' nearly 2 kilometres of sandy beach with watered-down bleach in a misguided effort to avoid the coronavirus spread.\n\nAgustin Conejo, head of the local council of Zahara de los Atunes, told local media the bleaching was ordered with the goal of protecting children, who were allowed Sunday (local time) to play outdoors for the first time in weeks of mandatory confinement.\n\nThree tractors used for fumigating farming land combed a stretch of the beach while spreading 1000 litres of water with a concentration of 2 per cent of bleach, the regional Diario de Cadiz reported.\n\nConejo says he failed to assess the environmental damage of his initiative, calling it “a mistake'', and adds he's willing to accept any fines.\n\nREAD MORE:\n\n* Coronavirus: Death toll in Spain surpasses China after record daily spike in fatalities\n\n* Coronavirus: Spain going into lockdown, France shutting down shops\n\n* Most popular domestic destinations for European travellers: Where the locals go\n\n\n\nRegional environmental authorities have opened a disciplinary report that could lead to fining the town.\n\nSpain, with 24,000 confirmed deaths from coronavirus, is slowly reopening after a strict lockdown in place since mid-March.",
+            "sentiment": "negative",
+            "degree": "minimal",
+            "direction": "left",
+            "objectivity": "objective",
+            "outcome": "Pending",
+            "dateSubmitted": "01/05/2020",
+            "source": ""
+        }
+    ]
 }

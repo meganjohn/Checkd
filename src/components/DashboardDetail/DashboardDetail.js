@@ -47,7 +47,6 @@ class DashboardDetail extends React.Component {
   }
 
   onSourceChange(ev) {
-    alert(ev.target.value);
     this.setState({
       source: ev.target.value
     });
