@@ -45,18 +45,20 @@ class AboutCard extends React.Component {
               />
               {this.state.link1Text}
             </a>
-            <a
-              className="link-group"
-              href={this.state.link2}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src={this.state.link2Logo}
-                alt={`${this.state.link2Text}logo`}
-              />
-              {this.state.link2Text}
-            </a>
+            {this.state.link2Text.length > 1 && (
+              <a
+                className="link-group"
+                href={this.state.link2}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={this.state.link2Logo}
+                  alt={`${this.state.link2Text} logo`}
+                />
+                {this.state.link2Text}
+              </a>
+            )}
           </div>
         </div>
       </div>
