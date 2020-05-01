@@ -17,12 +17,12 @@ a {
 }
 
 /* Scale navbar elements based on viewport width */
-@media (min-width: 601px) {
+@media (min-width: 681px) {
   .narrow-screen {
     display: none;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 680px) {
   .wide-screen {
     display: none;
   }
@@ -84,7 +84,6 @@ nav {
 .right-group a {
     padding-left: 10px;
     padding-right: 12px;
-    margin-top: ;
     display: flex;
     justify-content: center;
     height: 18px;
@@ -262,6 +261,12 @@ li {
   color: #ffffff;
 }
 
-.active-route {
-  text-decoration: solid white;
+.link-div .active-route {
+  color: #ffffff;
+  text-decoration: underline solid white 1px;
+  text-underline-offset: 0.75em;
+}
+
+.link-div .active-home {
+  color: #ffffff;
 }

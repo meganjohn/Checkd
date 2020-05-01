@@ -40,6 +40,8 @@
 
 .right-group img {
     padding-right: 0.75em;
+    margin-top: 2px;
+    height: 12px;
 }
 
 .link-div {
